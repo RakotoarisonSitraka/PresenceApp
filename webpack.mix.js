@@ -11,6 +11,15 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
+mix.js([
+    'resources/js/jquery-slim.min.js',
+    'resources/js/bootstrap.bundle.min.js',
+    'resources/js/modal.js',
+    'resources/js/popper.min.js',
+    'resources/js/popover.js',
+    'resources/js/tooltip.js',
+    'resources/js/collapse.js',
+    'resources/js/util.js'
+    ], 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
     .sourceMaps();

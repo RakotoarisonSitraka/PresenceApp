@@ -1,7 +1,9 @@
 @extends('layouts.app')
-
+@section('titre')
+    Ajout d'administrateur
+@endsection
 @section('content')
-<div class="container">
+    <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -66,6 +68,9 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Register') }}
                                 </button>
+                                <a href="/home" class="btn btn-outline-primary" data-bs-toggle="tooltip" data-bs-html="true" data-bs-placement="left" title="retour à Accueil">
+                                    Annuler
+                                </a>  
                             </div>
                         </div>
                     </form>
