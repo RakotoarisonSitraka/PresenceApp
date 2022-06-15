@@ -13,6 +13,7 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/scripts.js') }}"></script>
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.js') }}">
 
 
     <!-- Fonts -->
@@ -73,10 +74,11 @@
                                         <a class="btn btn-warning" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                   document.getElementById('logout-form').submit();">
                                             {{ __('Logout') }}
-                                        </a>
-
+                                        </a><br><br>
+                                        <button type="button" data-toggle="modal" data-target="#modif"
+                                            class="btn btn-success">Modifier Profil
+                                        </button>
                                     </center>
-
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                         class="d-none">
                                         @csrf
@@ -92,6 +94,62 @@
         <main class="py-4">
             @yield('content')
         </main>
+        <div class="modal fade" id="modif" tabindex="-1" role="dialog" aria-labelledby="ModifLabel">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Modification Profil</h4>
+                        <button class="btn btn-light" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                      @if (session('status'))
+            <div class="alert alert-success" role="alert">
+                {{ session('status') }}
+            </div>
+        @elseif(session('error'))
+            <div class="alert alert-warning" role="alert">
+                {{ session('error') }}
+            </div>
+        @endif
+                    {{-- <div class="modal-header">
+        <h1>Suppression</h1> --}}
+
+                    @if (Auth::user())
+                        <div class="modal-body">
+                            <form action="{{ url('/modifier/' . Auth::user()->id) }}" method="POST">
+                                @csrf
+                                <div class="card-body">
+                                    <input type="hidden" value="{{ Auth::user()->id }}">
+                                    <div class="mb-3">
+                                        <label for="emailInput" class="form-label">Nouvelle Email</label>
+                                        <input name="email" type="email" class="form-control"
+                                            @error('email') is-invalid @enderror id="emailInput">
+                                        @error('email')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="Input" class="form-label">Nom
+
+                                        </label>
+                                        <input name="name" type="text" class="form-control"
+                                            @error('name') is-invalid @enderror id="nameInput">
+                                        @error('name')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                    <div class="card-footer">
+                                        <button class="btn btn-success">Modifier</button>
+                                    </div>
+                            </form>
+                        </div>
+                    @endif
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
     </div>
     @yield('scripts')
 </body>
