@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('titre')
+Modification du mot de passe 
+@endsection
 
 @section('content')
     <div class="container">
@@ -46,6 +49,9 @@
                             </div>
                             <div class="card-footer">
                                 <button class="btn btn-success">Modifier</button>
+                                <a href="/home" class="btn btn-outline-primary" data-bs-toggle="tooltip" data-bs-html="true" data-bs-placement="left" title="retour à Accueil">
+                                    Annuler
+                                </a>  
                             </div>
 
                         </form>

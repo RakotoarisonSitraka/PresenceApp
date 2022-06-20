@@ -7,6 +7,7 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="icon" href="{{ asset('img\ima.jpg') }}">
 
     <title>@yield('titre')</title>
 
@@ -14,6 +15,7 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/scripts.js') }}"></script>
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.js') }}">
+    {{--   --}}
 
 
     <!-- Fonts -->
@@ -22,12 +24,26 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
+                @if (Auth::user())
+                    <img class="row g-1" src="{{ asset('img\ima.jpg') }}" alt="" width="126px" height="67px"
+                        id="img">
+                    <form class="row g-1">
+                        <div class="col-auto">
+                            <input type="text" class="form-control" id="" placeholder="Rechercher...">
+                        </div>
+                        <div class="col-auto">
+                            <button type="button" class="btn btn-primary mb-3">Rechercher</button>
+                        </div>
+                    </form>
+                @endif
+
                 {{-- <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a> --}}
@@ -55,7 +71,8 @@
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link"
+                                        href="{{ route('register') }}">{{ __('Ajout Admin') }}</a>
                                 </li>
                             @endif
 
@@ -67,17 +84,17 @@
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <center>
-                                        <a class="dropdown-item">Parametre</a>
-                                        <a class="btn btn-primary" href="{{ route('change-mdp') }}">
-                                            {{ __('edit password') }}
-                                        </a><br><br>
-                                        <a class="btn btn-warning" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                  document.getElementById('logout-form').submit();">
-                                            {{ __('Logout') }}
+                                        <a class="btn btn-light container">Parametre</a><br>
+                                        <a class="btn btn-primary container" href="{{ route('change-mdp') }}">
+                                            {{ __('Mot de passe') }}
                                         </a><br><br>
                                         <button type="button" data-toggle="modal" data-target="#modif"
-                                            class="btn btn-success">Modifier Profil
-                                        </button>
+                                            class="btn btn-success container"> Profil
+                                        </button><br><br>
+                                        <a class="btn btn-warning container" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                                            {{ __('Se deconnecter') }}
+                                        </a>
                                     </center>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                         class="d-none">
@@ -103,15 +120,7 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                      @if (session('status'))
-            <div class="alert alert-success" role="alert">
-                {{ session('status') }}
-            </div>
-        @elseif(session('error'))
-            <div class="alert alert-warning" role="alert">
-                {{ session('error') }}
-            </div>
-        @endif
+
                     {{-- <div class="modal-header">
         <h1>Suppression</h1> --}}
 

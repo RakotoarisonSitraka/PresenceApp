@@ -1,4 +1,8 @@
 @extends('layouts.app')
+@section('titre')
+Page d'accueil
+    
+@endsection
 
 @section('content')
     <div class="container">
@@ -30,6 +34,15 @@
                                     </h5>
                                 </strong></td>
                             <td></td>
+                        </tr>
+                        <tr>
+                            @if (Auth::user())
+                            <td> {{ Auth::user()->id }}</td>
+                            <td> {{ Auth::user()->name }}</td>
+                            <td> {{ Auth::user()->email }}</td>
+                            <td><strong><span
+                                class="btn btn-success container p-2"  style="--bs-bg-opacity: .5">Actif</span></strong></td>
+                            @endif
                         </tr>
                         @if (is_countable($users) && count($users) != 0)
                             @foreach ($users as $user)

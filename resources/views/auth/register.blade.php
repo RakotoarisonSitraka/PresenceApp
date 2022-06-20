@@ -65,12 +65,20 @@
 
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                               <div class="btn-group" >
+                                <button type="submit" class="btn btn-primary active">
                                     {{ __('Register') }}
                                 </button>
                                 <a href="/home" class="btn btn-outline-primary" data-bs-toggle="tooltip" data-bs-html="true" data-bs-placement="left" title="retour à Accueil">
                                     Annuler
                                 </a>  
+
+                               </div>
+                                {{-- <div class="btn-group">
+                                    <a href="#" class="btn btn-primary active" aria-current="page">Active link</a>
+                                    <a href="#" class="btn btn-primary">Link</a>
+                                    <a href="#" class="btn btn-primary">Link</a>
+                                  </div> --}}
                             </div>
                         </div>
                     </form>
