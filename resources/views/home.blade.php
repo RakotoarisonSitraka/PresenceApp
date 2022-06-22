@@ -1,15 +1,14 @@
 @extends('layouts.app')
 @section('titre')
-Page d'accueil
-    
+    Page d'accueil
 @endsection
 
 @section('content')
-    <div class="container">
+    <div class="container con">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Administrateur') }}</div>
+                    <div class="card-header">{{ __('Accueil') }}</div>
                     <div class="card-body">
                         @if (session('status'))
                             <div class="alert alert-success" role="alert">
@@ -37,11 +36,11 @@ Page d'accueil
                         </tr>
                         <tr>
                             @if (Auth::user())
-                            <td> {{ Auth::user()->id }}</td>
-                            <td> {{ Auth::user()->name }}</td>
-                            <td> {{ Auth::user()->email }}</td>
-                            <td><strong><span
-                                class="btn btn-success container p-2"  style="--bs-bg-opacity: .5">Actif</span></strong></td>
+                                <td> {{ Auth::user()->id }}</td>
+                                <td> {{ Auth::user()->name }}</td>
+                                <td> {{ Auth::user()->email }}</td>
+                                <td><strong><span class="btn btn-success container p-2"
+                                            style="--bs-bg-opacity: .5">Actif</span></strong></td>
                             @endif
                         </tr>
                         @if (is_countable($users) && count($users) != 0)
@@ -51,7 +50,9 @@ Page d'accueil
                                     <td class="table-danger"><strong>{{ $user->name }}</strong></td>
                                     <td class="table-info"><strong>{{ $user->email }}</strong></td>
                                     <td><strong><button type="button" data-toggle="modal" data-target="#Supprim"
-                                                class="btn btn-danger">Supprimer</button></strong></td>
+                                                class="btn btn-danger container">
+                                                <i class="fa-solid fa-trash"></i></button></strong>
+                                    </td>
                             @endforeach
                             </tr>
                         @endif

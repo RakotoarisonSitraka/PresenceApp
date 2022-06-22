@@ -15,12 +15,24 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/scripts.js') }}"></script>
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.js') }}">
-    {{--   --}}
+    {{-- open close sidebar --}}
+    <script type="text/javascript">
+        function openSlideMenu() {
+            document.getElementById("menu").style.width = "300px";
+            document.getElementById("content").style.marginLeft = "300px";
+            /le distance an le izy mifanila miaraka amle tsipika refa open/  
+        }
 
-
+        function closeSlideMenu() {
+            document.getElementById("menu").style.width = "0px";
+            document.getElementById("content").style.marginLeft = "0px";
+        }
+    </script>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('font/all.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('font/fontawesome.min.css') }}">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -29,19 +41,102 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm" id="content">
             <div class="container">
                 @if (Auth::user())
-                    <img class="row g-1" src="{{ asset('img\ima.jpg') }}" alt="" width="126px" height="67px"
-                        id="img">
-                    <form class="row g-1">
+                {{-- contenu anle side bar --}}
+                <div class="content">
+                    <span class="slide">
+                        <a href="#" onclick="openSlideMenu()">
+                            <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                    <div id="menu" class="nav">
+                        <a href="#" onclick="closeSlideMenu()">
+                            <i class="fas fa-times Icon"></i>
+                        </a>
+                        <div class="sidebar-brand">
+                            <h2><span class="fa fa-user-O">Employe</span></h2>
+                        </div>
+                        <div class="sidebar-menu">
+                            <ul>
+                                <li><a href="#" class="active"><span
+                                            class="fa fa-home"></span><span>Accueil</span></a></li>
+                                <li><a href="#"><span class="fa fa-tasks"></span><span>Taches</span></a></li>
+                                <li><a href="#"><span
+                                            class="fa fa-line-chart"></span><span>Statistiques</span></a></li>
+                                <li><a href="#"><span class="fa fa-clipboard"></span><span>Projet</span></a>
+                                </li>
+                                <li><a href="#"><span
+                                            class="fa fa-registered"></span><span>Enregistrement</span></a></li>
+                                <li><a href="#"><span class="fa fa-user"></span><span>Contact</span></a></li>
+
+                            </ul>
+                        </div>
+                    
+                        </div>
+                    </div>
+
+                </div>
+                {{-- fin du contenu sidebar --}}
+                    {{-- sidebar --}}
+                    {{-- <div class="sidebar">
+                        <span class="slide">
+                            <a href="#" onclick="openSlideMenu()">
+                                <i class="fas fa-bars"></i>
+                            </a>
+                        </span>
+                        {{-- <div id="menu" class="nav">
+                            <a href="#" onclick="closeSlideMenu()">
+                                <i class="fas fa-times"></i>
+                            </a>
+                        </div> --}}
+                        {{-- refa misokatra --}}
+                        {{-- <div id="menu" class="nav">
+                            <a href="#" onclick="closeSlideMenu()">
+                                <i class="fas fa-times"></i>
+                            </a>
+
+                            <div class="sidebar-brand">
+                                <h2><span class="fa fa-user-O">Employe</span></h2>
+                            </div>
+                            <div class="sidebar-menu">
+                                <ul>
+                                    <li><a href="#" class="active"><span
+                                                class="fa fa-home"></span><span>Accueil</span></a></li>
+                                    <li><a href="#"><span class="fa fa-tasks"></span><span>Taches</span></a></li>
+                                    <li><a href="#"><span
+                                                class="fa fa-line-chart"></span><span>Statistiques</span></a></li>
+                                    <li><a href="#"><span class="fa fa-clipboard"></span><span>Projet</span></a>
+                                    </li>
+                                    <li><a href="#"><span
+                                                class="fa fa-registered"></span><span>Enregistrement</span></a></li>
+                                    <li><a href="#"><span class="fa fa-user"></span><span>Contact</span></a></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="search-wrapp">
+                            <span class="fa fa-search"></span>
+                            <input type="search" name="" placeholder="Recherche..">
+                        </div>
+                    </div>  --}}
+
+
+
+                    {{-- <img class="row g-1" src="{{ asset('img\ima.jpg') }}" alt="" width="126px"
+                        height="67px" id="img"> --}}
+                    {{-- <form class="row g-1">
                         <div class="col-auto">
                             <input type="text" class="form-control" id="" placeholder="Rechercher...">
                         </div>
                         <div class="col-auto">
-                            <button type="button" class="btn btn-primary mb-3">Rechercher</button>
+                            <button type="button" class="btn btn-primary mb-3 container">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+
                         </div>
-                    </form>
+                    </form> --}}
                 @endif
 
                 {{-- <a class="navbar-brand" href="{{ url('/') }}">
@@ -71,14 +166,16 @@
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link"
-                                        href="{{ route('register') }}">{{ __('Ajout Admin') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Ajout') }}
+                                    </a>
+
                                 </li>
                             @endif
 
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+
                                     {{ Auth::user()->name }}
                                 </a>
 
@@ -91,7 +188,8 @@
                                         <button type="button" data-toggle="modal" data-target="#modif"
                                             class="btn btn-success container"> Profil
                                         </button><br><br>
-                                        <a class="btn btn-warning container" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                        <a class="btn btn-warning container" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
                                             {{ __('Se deconnecter') }}
                                         </a>
@@ -161,6 +259,7 @@
     </div>
     </div>
     @yield('scripts')
+
 </body>
 
 </html>
