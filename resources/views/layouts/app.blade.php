@@ -33,7 +33,8 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('font/all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('font/fontawesome.min.css') }}">
-
+    <link rel="stylesheet" href="{{ asset('font/regular.min.css') }}">
+    
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
@@ -41,9 +42,10 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm" id="content">
+        @if (Auth::user())
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm navigation" id="content">
             <div class="container">
-                @if (Auth::user())
+                
                 {{-- contenu anle side bar --}}
                 <div class="content">
                     <span class="slide">
@@ -51,8 +53,9 @@
                             <i class="fas fa-bars"></i>
                         </a>
                     </span>
+                    
                     <div id="menu" class="nav">
-                        <a href="#" onclick="closeSlideMenu()">
+                        <a href="#" class="close" onclick="closeSlideMenu()">
                             <i class="fas fa-times Icon"></i>
                         </a>
                         <div class="sidebar-brand">
@@ -72,8 +75,11 @@
                                 <li><a href="#"><span class="fa fa-user"></span><span>Contact</span></a></li>
 
                             </ul>
+                        </div> 
                         </div>
-                    
+                        <div class="search-wrapp iconsearch">
+                            <span class="fa fa-search"></span>
+                            <input type="search"  class="form-control" name="" placeholder="Recherche..">
                         </div>
                     </div>
 
@@ -258,6 +264,8 @@
     </div>
     </div>
     </div>
+    <img class="row g-1" src="{{ asset('img\nogae.jpg') }}" alt="" width="126px"
+    height="" id="img">
     @yield('scripts')
 
 </body>

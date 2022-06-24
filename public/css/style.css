@@ -44,14 +44,15 @@ nav{
    height: 90px;
    padding: 1rem 0rem 1rem 2rem;
    color: #fff;
-   margin-top: -25px;
+   margin-top: -55px;
  }
  .sidebar-brand span{
    display: inline-block;
    margin-right: 1rem;/*mikisaka tanteraka any am gauche*/
  }
  .sidebar-menu{
-   margin-top: 1rem;
+   margin-top: -10rem;
+   margin-left: 74px;
  }
  .sidebar-menu a{
    padding-left: 1rem;
@@ -94,7 +95,87 @@ nav{
    left: 0;
    background-color: #008ea1;
    opacity: .9;
-   padding-top: 60px;
-   transition: 0.7s;/*le temps de demos*/
+   padding-top: 66px;
+   transition: 1s;/*le temps de demos*/
    overflow-x: hidden;/*le tsipika 3 fostiny no aseho */
+   
  }
+ .sidebar-menu li:hover{
+  opacity: .5;
+  border-left: 5px solid #fff;
+ }
+ .search-wrapp{
+  border: 1px solid #008ea1;
+  border-radius: 20px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  overflow-x: hidden;
+  margin-left: 380px;
+  margin-top: -7px;
+  position: relative;
+ }
+ .search-wrapp input{
+  height: 100%;
+  padding: .5rem;
+  border: none;
+  outline: none;
+ }
+ .search-wrapp span{
+  display: inline-block;
+  padding: 0rem 1rem;
+  font-size: 1.5rem;
+  color:#008ea1
+
+ }
+ .search-wrapp.iconsearch span{
+  background-color: #008ea1;
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 4px 5px 8px 4px;
+
+ }
+ .search-wrapp.iconsearch span:hover{
+  background-color: rgb(16, 124, 124);
+ }
+ /* le close icon kely iny*/
+.nav .close{
+  position: absolute;/*position para rapport am element parent akaiky indrindra izay ts manana position static*/
+  top: 0;
+  right: 28px;
+
+}
+/*Font awesome anaty form*/
+.InputIcon i{
+  position: absolute;
+  left: 0;
+  top:1px;
+  padding: 8px 6px;
+  color: #008ea1;
+  transition: 3s;
+  margin-left: 10px;
+}
+.InputIcon{
+  position: relative;
+}
+/*le mikisaka kel eo am input ts mipetaka be am sary le input fa miakatra kely*/
+.InputIcon input{
+  padding-left: 80px;
+  font-family: verdana;
+}
+/*le color nle icon kel momban le icon kely*/
+.InputIcon.IconBg i{
+  background-color: #008ea1;
+  color: #fff;
+  padding: 10px 19px;
+  border-radius: 4px 0px 0px 4px;
+}
+.navigation{
+  height: 78px;
+}
+#img{
+  margin-top: -510px;
+  margin-left: 3px;
+  height: 200px;
+  width: 288px;
+}
