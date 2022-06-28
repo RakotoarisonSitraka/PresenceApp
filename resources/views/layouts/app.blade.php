@@ -43,7 +43,7 @@
 <body>
     <div id="app">
         @if (Auth::user())
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm navigation" id="content">
+        <nav class="navbar navbar-expand-md navbar-light bg-light shadow-sm navigation" id="content">
             <div class="container">
                 
                 {{-- contenu anle side bar --}}
@@ -65,11 +65,11 @@
                             <ul>
                                 <li><a href="#" class="active"><span
                                             class="fa fa-home"></span><span>Accueil</span></a></li>
-                                <li><a href="#"><span class="fa fa-tasks"></span><span>Taches</span></a></li>
+                                {{-- <li><a href="#"><span class="fa fa-tasks"></span><span>Taches</span></a></li> --}}
                                 <li><a href="#"><span
                                             class="fa fa-line-chart"></span><span>Statistiques</span></a></li>
-                                <li><a href="#"><span class="fa fa-clipboard"></span><span>Projet</span></a>
-                                </li>
+                                {{-- <li><a href="#"><span class="fa fa-clipboard"></span><span>Projet</span></a>
+                                </li> --}}
                                 <li><a href="#"><span
                                             class="fa fa-registered"></span><span>Enregistrement</span></a></li>
                                 <li><a href="#"><span class="fa fa-user"></span><span>Contact</span></a></li>
@@ -211,6 +211,7 @@
                 </div>
             </div>
         </nav>
+        
 
         <main class="py-4">
             @yield('content')
@@ -227,7 +228,6 @@
 
                     {{-- <div class="modal-header">
         <h1>Suppression</h1> --}}
-
                     @if (Auth::user())
                         <div class="modal-body">
                             <form action="{{ url('/modifier/' . Auth::user()->id) }}" method="POST">
@@ -264,8 +264,6 @@
     </div>
     </div>
     </div>
-    <img class="row g-1" src="{{ asset('img\nogae.jpg') }}" alt="" width="126px"
-    height="" id="img">
     @yield('scripts')
 
 </body>
