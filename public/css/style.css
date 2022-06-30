@@ -170,6 +170,30 @@ nav{
   padding: 10px 19px;
   border-radius: 4px 0px 0px 4px;
 }
+.modifUser i{
+  position: absolute;
+  left: 0;
+  top:1px;
+  padding: 8px 6px;
+  color: #008ea1;
+  transition: 3s;
+  margin-left: 10px;
+
+}
+.modifUser{
+  position: relative;
+}
+.modifUser input{
+  padding-left: 80px;
+  font-family: verdana;
+}
+.modifUser.Icon i{
+  background-color: #32801f;
+  color: #fff;
+  padding: 10px 19px;
+  border-radius: 4px 0px 0px 4px;
+
+}
 .navigation{
   height: 78px;
 }

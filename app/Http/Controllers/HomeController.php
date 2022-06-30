@@ -88,3 +88,7 @@ class HomeController extends Controller
         }
     }
 }
+
+//CRUD EMPLOYEE
+
+
