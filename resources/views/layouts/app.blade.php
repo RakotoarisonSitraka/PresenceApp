@@ -38,6 +38,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/Enregistrement.css') }}">
 </head>
 
 <body>
@@ -66,12 +67,12 @@
                                     <li><a href="/home" class="active"><span
                                                 class="fa fa-home"></span><span>Accueil</span></a></li>
                                     {{-- <li><a href="#"><span class="fa fa-tasks"></span><span>Taches</span></a></li> --}}
-                                    <li><a href="/k"><span
-                                                class="fa fa-line-chart"></span><span>Statistiques</span></a></li>
                                     {{-- <li><a href="#"><span class="fa fa-clipboard"></span><span>Projet</span></a>
                                 </li> --}}
-                                    <li><a href="#"><span
+                                    <li><a href="{{url('Ajout-employee')}}"><span
                                                 class="fa fa-registered"></span><span>Enregistrement</span></a></li>
+                                                <li><a href="#"><span
+                                                    class="fa fa-line-chart"></span><span>Statistiques</span></a></li>
                                     <li><a href="#"><span class="fa fa-user"></span><span>Contact</span></a></li>
 
                                 </ul>

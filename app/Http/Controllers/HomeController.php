@@ -87,8 +87,12 @@ class HomeController extends Controller
             return back()->with("error", "password changed with success");
         }
     }
+
+    //CRUD EMPLOYEE
+    public function AjoutEmployee(){
+        return view('employee.ajout-employee');
+    }
 }
 
-//CRUD EMPLOYEE
 
 
