@@ -1,21 +1,24 @@
-.body{
+.body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-.body{
+
+.body {
     display: flex;
-    min-height:100vh;
+    min-height: 100vh;
     align-items: center;
     justify-content: center;
 }
-.containerr{
-    max-width:400px;
+
+.containerr {
+    max-width: 400px;
     border-radius: 20px;
 }
-.carde{
+
+.carde {
     border-radius: 20px;
-    background-image: linear-gradient(to right,#0084ff,#00f2ff);
+    background-image: linear-gradient(to right, #0084ff, #00f2ff);
     overflow: hidden;
     margin-left: -160px;
     width: 900px;
@@ -26,29 +29,33 @@
     margin-top: -17px;
 
 }
-.myHead{
+
+.myHead {
     margin-top: -5px;
     font-size: 32px;
     margin-bottom: 10px;
     font-weight: 700px;
-    background: linear-gradient(to right ,#0084ff,#00f2ff);
+    background: linear-gradient(to right, #0084ff, #00f2ff);
     color: white;
     -webkit-background-clip: text;
     background-clip: text;
 }
-.bouton{
+
+.bouton {
     width: 250px;
     border-radius: 25px;
-    background-image: linear-gradient(to right ,rgb(0, 224, 224),rgb(131, 199, 255));
+    background-image: linear-gradient(to right, rgb(0, 224, 224), rgb(131, 199, 255));
     color: white;
     font-weight: 700;
     cursor: pointer;
 }
-.bouton:focus{
+
+.bouton:focus {
     border: none;
     outline: none;
 }
-.MyInput{
+
+.MyInput {
     width: 290px;
     padding: 10px;
     padding-left: 40px;
@@ -58,23 +65,59 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     display: block;
 }
-.font{
+
+.font {
     font-size: 14px;
 }
-.fonte{
+
+.fonte {
     position: relative;
-    color:rgb(0, 140, 255);
+    color: rgb(0, 140, 255);
     display: block;
-   left: -130px;
-   top: 29px;
-   font-size: 18px;
+    left: -130px;
+    top: 29px;
+    font-size: 18px;
 }
-.MyInput:focus{
+
+.MyInput:focus {
     border: none;
     outline: none;
 }
-form{
+
+.main-form {
     margin-top: -44px;
+}
+
+/*type file*/
+input[type="file"] {
+    display: none;
+}
+
+.label {
+    color: white;
+    width: 290px;
+    background-color: chartreuse;
+    border-radius: 25px;
+    justify-content: center;
+    /*apivoany ny text anle type file */
+    align-items: center;
+    font-family: "verdana", sans-serif;
+    margin-top: 5px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+}
+
+.File {
+    position: relative;
+    display: block;
+    left: -127px;
+    top: 9px;
+    font-size: 20px;
+    
+
 }
 
 /*le manao courbe manga any ambany*/

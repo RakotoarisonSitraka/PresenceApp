@@ -46,7 +46,7 @@
                             </div>
                             <div class="form-group my-0">
                                 <label class="my-0">
-                                    <i class="fas fa-user font fonte"></i>
+                                    <i class="fa-regular fa-envelope font fonte"></i>
                                     <input type="email" name=""placeholder="Email"  type="text" class="MyInput" @error('') is-invalid @enderror
                                         id="">
 
@@ -57,7 +57,7 @@
                             </div>
                             <div class="form-group my-0">
                                 <label class="my-0">
-                                    <i class="fas fa-user font fonte"></i>
+                                    <i class="fa-regular fa-calendar font fonte"></i>
                                     <input type="date" name=""placeholder="date de naissance"  type="text" class="MyInput" @error('') is-invalid @enderror
                                         id="">
 
@@ -68,7 +68,8 @@
                             </div>
                             <div class="form-group my-0">
                                 <label class="my-0">
-                                    <i class="fas fa-user font fonte"></i>
+                                    <i class="fa-solid fa-phone font fonte"></i>
+                                    
                                     <input name="" placeholder="Numéro téléphone" type="text" class="MyInput" @error('') is-invalid @enderror
                                         id="">
 
@@ -78,12 +79,12 @@
                                 </label>
                             </div>
                             <div class="form-group my-0">
-                                <input type="file" id="file">
-                                <label for="file" class="my-0">
-                                    Inserer une image
-                                  
+                                <input type="file" id="file" accept="image/*">
+                                <label for="file" class="label">
+                                    <i class="fa-solid fa-image File"></i>
+                                    Inserer une photo
                                 </label>
-                            </div>
+                            </div><br>
                             <div class="form-group">
                                 <label>
                                     <input type="button" class="form-control bouton" value="ENREGISTRER">
