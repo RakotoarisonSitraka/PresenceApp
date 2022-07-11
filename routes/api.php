@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApiEmployee;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -14,8 +15,9 @@ use App\Http\Controllers\HomeController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-/*ADD*/
-Route::post('Employee/', [HomeController::class, 'SaveEmployee'])->name('AjoutEmployee');
+/*ADD employe*/
+Route::post('/Employees', [ApiEmployee::class, 'SaveEmployee'])->name('AjoutEmployee');
+Route::get('/ShowEmployees', [ApiEmployee::class, 'MampisehoEmployee'])->name('ShowEmployee');
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

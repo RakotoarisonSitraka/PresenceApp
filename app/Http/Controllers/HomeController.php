@@ -93,25 +93,7 @@ class HomeController extends Controller
     public function AjoutEmployee(){
         return view('employee.ajout-employee');
     }
-    public function SaveEmployee(Request $request){
-        $request->validate([
-            'Nom'=>'required',
-            'Prenom'=>'required',
-            'Email'=>'required',
-            'DateNaissance'=>'required',
-            'Telephone'=>'required',
-            'Photo'=>'required',
-        ]);
-         $Employee=new Employee;
-         $Employee->Nom=$request->Nom;
-         $Employee->Prenom=$request->Prenom;
-         $Employee->Email=$request->Email;
-         $Employee->DateNaissance=$request->DateNaissance;
-         $Employee->Telephone=$request->Telephone;
-         $Employee->Photo=$request->Photo;
-         $Employee->save();
-         return response()->json(['message'=>'Ajout effectuée avec succée'],200);
-    }
+   
 
 }
 

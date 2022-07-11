@@ -55,7 +55,7 @@
                                     @enderror
                                 </label>
                             </div>
-                            <div class="form-group my-0">
+                            {{-- <div class="form-group my-0">
                                 <label class="my-0">
                                     <i class="fa-regular fa-calendar font fonte"></i>
                                     <input type="date" name=""placeholder="date de naissance"  type="text" class="MyInput" @error('') is-invalid @enderror
@@ -65,7 +65,7 @@
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </label>
-                            </div>
+                            </div> --}}
                             <div class="form-group my-0">
                                 <label class="my-0">
                                     <i class="fa-solid fa-phone font fonte"></i>
