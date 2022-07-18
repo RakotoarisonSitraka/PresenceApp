@@ -24,11 +24,12 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::post('/modifier/{id}',[App\Http\Controllers\HomeController::class,'modifier'])->name('modifier');
 Route::get('/change-mdp',[App\http\Controllers\HomeController::class, 'ChangePassword'])->name('change-mdp');
 Route::post('/change-mdp',[App\http\Controllers\HomeController::class, 'updatePassword'])->name('update-mdp');
 
 //coté employée
 Route::get('/Ajout-employee',[App\http\Controllers\HomeController::class, 'AjoutEmployee'])->name('Ajout-employee');
-
+Route::post('/AjoutEmployee',[App\http\Controllers\HomeController::class, 'AddEmployee'])->name('add-employee');
+Route::get('/home',[App\Http\Controllers\HomeController::class,'AfficherEmployer'])->name('home');

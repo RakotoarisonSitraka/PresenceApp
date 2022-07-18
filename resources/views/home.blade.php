@@ -4,7 +4,7 @@
 @endsection
 
 @section('content')
-    <div class="container">
+    <div class="container home">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
@@ -18,6 +18,48 @@
                     </div>
                     <table class="table">
                         <tr class="table-primary">
+                            <td><strong>
+                                <h5>Id</h5>
+                            </strong></td>
+                        <td class="table-info"><strong>
+                                <h5>Nom</h5>
+                            </strong></td>
+                        <td class="table-success"><strong>
+                                <h5>Prenom</h5>
+                            </strong></td>
+                        <td class="table-primary"><strong>
+                            <h5>Email</h5>
+                        </strong></td>
+                        <td class="table-info"><strong>
+                            <h5>Telephone</h5>
+                        </strong></td>  
+                        <td class="table-success"><strong>
+                            <h5>Photo</h5>
+                        </strong></td>              
+                        <td><strong>
+                                <h5>
+                                    <center>Options</center>
+                                </h5>
+                            </strong></td>
+                        <td></td>
+                        </tr>
+                        @if (is_countable($Employes) && count($Employes) != 0)
+                        @foreach ($Employes as $staff)
+                            <tr class="">
+                                <td class="table-warning"><strong>{{ $staff->id }}</strong></td>
+                                <td class="table-danger"><strong>{{ $staff->Nom }}</strong></td>
+                                <td class="table-info"><strong>{{ $staff->Prenom }}</strong></td>
+                                <td class="table-primary"><strong>{{$staff->Email}}</strong></td>
+                                <td class="table-success"><strong>{{$staff->Telephone}}</strong></td>
+                                <td class="table-info"><strong>{{$staff->Photo}}</strong></td>
+                                <td><strong><button type="button" data-toggle="modal" data-target="#Supprim"
+                                            class="btn btn-danger container">
+                                            <i class="fa-solid fa-trash"></i></button></strong>
+                                </td>
+                        @endforeach
+                        </tr>
+                    @endif 
+                        {{-- <tr class="table-primary">
                             <td><strong>
                                     <h5>Id</h5>
                                 </strong></td>
@@ -55,7 +97,7 @@
                                     </td>
                             @endforeach
                             </tr>
-                        @endif
+                        @endif --}}
                         {{-- Debut modal suppUser --}}
                         <div class="modal fade" id="Supprim" tabindex="-1" role="dialog" aria-labelledby="SuppLabel">
                             <div class="modal-dialog modal-lg" role="document">

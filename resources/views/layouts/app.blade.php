@@ -39,12 +39,13 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/Enregistrement.css') }}">
+    <link rel="stylesheet" href="{{asset('css/navbar.css')}}">
 </head>
 
 <body>
     <div id="app">
         @if (Auth::user())
-            <nav class="navbar navbar-expand-md navbar-light bg-light shadow-sm navigation" id="content">
+            <nav class="navbar navbar-expand-md navbar-light bg-light shadow-sm navigation barnav" id="content">
                 <div class="container">
 
                     {{-- contenu anle side bar --}}
@@ -154,14 +155,14 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse " id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav me-auto">
 
             </ul>
 
             <!-- Right Side Of Navbar -->
-            <ul class="navbar-nav ms-auto">
+            <ul class="navbar-nav ms-auto ">
                 <!-- Authentication Links -->
                 @if (Auth::user())
                     {{-- @if (Route::has('login'))
@@ -171,21 +172,21 @@
                             @endif --}}
 
                     @if (Route::has('register'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Ajout') }}
+                        <li class="nav-item ">
+                            <a class="nav-link " href="{{ route('register') }}">{{ __('Ajout') }}
                             </a>
 
                         </li>
                     @endif
 
                     <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle NavDroite" href="#" role="button"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
 
                             {{ Auth::user()->name }}
                         </a>
 
-                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <div class="dropdown-menu dropdown-menu-end  Nave" aria-labelledby="navbarDropdown">
                             <center>
                                 <a class="btn btn-light container">Parametre</a><br>
                                 <a class="btn btn-primary container" href="{{ route('change-mdp') }}">

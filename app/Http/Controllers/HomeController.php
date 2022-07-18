@@ -93,6 +93,36 @@ class HomeController extends Controller
     public function AjoutEmployee(){
         return view('employee.ajout-employee');
     }
+    public function AddEmployee(Request $request){
+        $request->validate([
+            'Anarana' => 'required',
+            'Fanampiny' => 'required',
+            'Mailaka' => 'required',/*nom anle table ao am bd no atao ao aorina an le unique*/
+            'Laharana' => 'required|numeric',
+            'Sary' => 'required',
+        ]);
+        $employer= new Employee();
+        $employer->Nom=$request->input('Anarana');
+        $employer->Prenom=$request->input('Fanampiny');
+        $employer->Email=$request->input('Mailaka');
+        $employer->Telephone=$request->input('Laharana');
+        $employer->Photo=$request->input('Sary');
+        $donnees=$employer->save();
+        if($donnees){
+            return redirect('/home')->with("status","Données inserés");
+
+        }else{
+            return back()->with('error',"failed");
+        }
+
+    }
+    /*affichage employee*/
+    public function AfficherEmployer()
+    {
+        //return view('home');
+        $Employes = Employee::all();
+        return view('home', compact('Employes'));
+    }
    
 
 }

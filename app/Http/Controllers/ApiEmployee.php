@@ -8,6 +8,13 @@ class ApiEmployee extends Controller
 {
     //ilay mampiditra donneés anaty tabel dia atao m retourne JSON fa tsy view tsotra
     public function SaveEmployee(Request $request){
+        $request->validate([
+            'Nom' => 'required',
+            'Prenom' => 'required',
+            'Email' => 'required',
+            'Telephone' => 'required',
+            'Photo' => 'required',
+        ]);
         $Employee=new Employee();
         $Employee->Nom =$request->input('Nom');
         $Employee->Prenom=$request->input('Prenom');
@@ -37,7 +44,7 @@ class ApiEmployee extends Controller
         if(isset($Employee)){//raha mis ilay izy zan hoe ilay $employee efa mis..dia afficher'ho anaty json le message
 
              return response()->json([
-                'les employees'=>$Employee
+                'les employees sont'=>$Employee
              ]);
         }
         else{//contrepartie raha ts mis zan le donnes $employee izany hoe tsy hitany

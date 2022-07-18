@@ -86,7 +86,7 @@ nav{
  .Icon{
    color: #fff;
  }
- .nav{
+ .nav{/*le sidebar io*/
    height: 100%;
    width: 0px;
    position: fixed;
@@ -202,4 +202,22 @@ nav{
   margin-left: 3px;
   height: 500px;
   width: 288px;
+}
+/*le margin top nle page home sy le page manova password satria le avy nasina position fixed le navbar*/
+/*reforme kely apres anle nasina position fixed le navbar*/
+.Password{
+  margin-top: 70px;
+}
+.home{
+  margin-top: 70px;
+}
+.NavDroite{
+  margin-left: 60px;
+  
+}
+.register{
+  margin-top:70px ;
+}
+.Nave{
+  margin-left: 12px;
 }
