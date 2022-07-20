@@ -33,3 +33,5 @@ Route::post('/change-mdp',[App\http\Controllers\HomeController::class, 'updatePa
 Route::get('/Ajout-employee',[App\http\Controllers\HomeController::class, 'AjoutEmployee'])->name('Ajout-employee');
 Route::post('/AjoutEmployee',[App\http\Controllers\HomeController::class, 'AddEmployee'])->name('add-employee');
 Route::get('/home',[App\Http\Controllers\HomeController::class,'AfficherEmployer'])->name('home');
+Route::get('/Supprimer/{id}',[App\Http\Controllers\HomeController::class,'SupprimerEmployer'])->name('Suppression-employee');
+

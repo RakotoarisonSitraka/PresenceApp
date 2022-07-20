@@ -1,0 +1,30 @@
+.vatana{
+    
+    display: grid;
+    /* height: 40vh; */
+    margin-left: 225px; 
+    justify-content: center;
+    align-items: center;
+    color:gray
+    
+}
+.tab{
+    box-shadow:  0 5px 10px gray;
+    border-collapse: collapse;
+    text-align: left;
+    overflow: hidden;
+
+}
+#td{
+    padding-left:19px;
+}
+.titre{
+    text-transform: uppercase;
+    font-size: 0.9em;
+    font-family: 'verdana', Times, serif;
+    font-weight: 900;
+    text-align: center;
+}
+.tde{
+    background-color: red;
+}

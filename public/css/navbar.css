@@ -1,4 +1,7 @@
 .barnav{
     position: fixed;
     width: 100%;
+    padding: 34px;
+    top:0;
+    left: 0;
 }

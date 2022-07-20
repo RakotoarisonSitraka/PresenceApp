@@ -40,6 +40,7 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/Enregistrement.css') }}">
     <link rel="stylesheet" href="{{asset('css/navbar.css')}}">
+    <link rel="stylesheet" href="{{asset('css/home.css')}}">
 </head>
 
 <body>
@@ -72,10 +73,12 @@
                                 </li> --}}
                                     <li><a href="{{url('Ajout-employee')}}"><span
                                                 class="fa fa-registered"></span><span>Enregistrement</span></a></li>
+                                                {{-- <li><i class="fa-solid fa-file-powerpoint">Presence</i></li> 
+                                                          --}}
+                                                <li><a href="#"><span class="fa-solid fa-file-powerpoint"></span><span>Presence</span></a></li>          
                                                 <li><a href="#"><span
-                                                    class="fa fa-line-chart"></span><span>Statistiques</span></a></li>
+                                                    class="fa fa-line-chart"></span><span>Statistiques</span></a></li>   
                                     <li><a href="#"><span class="fa fa-user"></span><span>Contact</span></a></li>
-
                                 </ul>
                             </div>
                         </div>

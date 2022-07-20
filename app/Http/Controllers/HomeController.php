@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Employee;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -112,7 +113,7 @@ class HomeController extends Controller
             return redirect('/home')->with("status","Données inserés");
 
         }else{
-            return back()->with('error',"failed");
+            return back()->with('error',"Erreur");
         }
 
     }
@@ -122,6 +123,13 @@ class HomeController extends Controller
         //return view('home');
         $Employes = Employee::all();
         return view('home', compact('Employes'));
+    }
+    /*Suppression staff*/
+    public function SupprimerEmployer($id){
+       $staff=Employee:: find($id);
+       $staff->delete();
+       return back()->with('status',"Employé Supprimé");
+
     }
    
 
