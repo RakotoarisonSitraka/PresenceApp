@@ -14,7 +14,7 @@ class Employee extends Model
         'Prenom',
         'Email',
         'Telephone',
-        'Photo',
+        'Profil',
 
     ];
 }

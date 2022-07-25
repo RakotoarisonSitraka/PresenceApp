@@ -13,6 +13,8 @@
     border-collapse: collapse;
     text-align: left;
     overflow: hidden;
+    margin-top: -1px;
+    
 
 }
 #td{
@@ -27,4 +29,22 @@
 }
 .tde{
     background-color: red;
+}
+.card-header{
+    margin-top: -5px;
+}
+/*scroll table*/
+.scroll{
+    overflow: auto;
+    height: 500px;
+    width: 900px;
+}
+/*manao fixation anle Nom email sns atao fixed*/
+.SousTitre{
+    position:absolute;
+    top: 0;/*matoa manisy anio d efa nasina position ilay izy*/ 
+    left: 0;
+}
+.relative{
+    position: relative;
 }

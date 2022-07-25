@@ -80,7 +80,7 @@
                                 </label>
                             </div>
                             <div class="form-group my-0">
-                                <input type="file" name="Sary" id="file" accept="image/*">
+                                <input type="file" name="Sary" id="file">
                                 <label for="file" class="label">
                                     <i class="fa-solid fa-image File"></i>
                                     Inserer une photo

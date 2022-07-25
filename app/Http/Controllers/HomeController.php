@@ -91,31 +91,47 @@ class HomeController extends Controller
     }
 
     //CRUD EMPLOYEE
-    public function AjoutEmployee(){
+    public function AjoutEmployee()
+    {
         return view('employee.ajout-employee');
     }
-    public function AddEmployee(Request $request){
+    public function AddEmployee(Request $request)
+    {
         $request->validate([
             'Anarana' => 'required',
             'Fanampiny' => 'required',
             'Mailaka' => 'required',/*nom anle table ao am bd no atao ao aorina an le unique*/
             'Laharana' => 'required|numeric',
-            'Sary' => 'required',
+            'Sary' => '',
         ]);
-        $employer= new Employee();
-        $employer->Nom=$request->input('Anarana');
-        $employer->Prenom=$request->input('Fanampiny');
-        $employer->Email=$request->input('Mailaka');
-        $employer->Telephone=$request->input('Laharana');
-        $employer->Photo=$request->input('Sary');
-        $donnees=$employer->save();
-        if($donnees){
-            return redirect('/home')->with("status","Données inserés");
+        // if ($request->hasFile('Sary')) {
+        //     $fileNameWithText   = $request->file('Sary')->getClientOriginalName(); // 1:get fil name with text
+        //     $filename = pathinfo($fileNameWithText, PATHINFO_FILENAME); //2 :get just file name
+        //     $extension = $request->file('Sary')->getClientOriginalExtension(); // 3 :get just file extension
+        //     $fileNameTotore = $filename . '_' . time() . '.' . $extension; // 4 :file name to store
+        //     $path = $request->file('Sary')->storeAs('Sary/ImageEmployee/', $fileNameTotore);
+        // } else {
+        //     $fileNameTotore = 'noImage.jpg';
+        // }
+        $employer = new Employee();
+        $employer->Nom = $request->input('Anarana');
+        $employer->Prenom = $request->input('Fanampiny');
+        $employer->Email = $request->input('Mailaka');
+        $employer->Telephone = $request->input('Laharana');
+        if($request->hasFile('Sary'))
+        {
+            $file=$request->file('Sary');
+            $extension=$file->getClientOriginalExtension();
+            $filename= time().'.'.$extension;
+            $file->move('ImageEmployee/',$filename);
 
-        }else{
-            return back()->with('error',"Erreur");
         }
-
+        $donnees = $employer->save();
+        if ($donnees) {
+            return redirect('/home')->with("status", "l'employée est  inseré avec succés!");
+        } else {
+            return back()->with('error', "Erreur");
+        }
     }
     /*affichage employee*/
     public function AfficherEmployer()
@@ -125,15 +141,10 @@ class HomeController extends Controller
         return view('home', compact('Employes'));
     }
     /*Suppression staff*/
-    public function SupprimerEmployer($id){
-       $staff=Employee:: find($id);
-       $staff->delete();
-       return back()->with('status',"Employé Supprimé");
-
+    public function SupprimerEmployer($id)
+    {
+        $staff = Employee::find($id);
+        $staff->delete();
+        return back()->with('status', "Employé Supprimé");
     }
-   
-
 }
-
-
-
