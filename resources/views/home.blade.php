@@ -50,7 +50,13 @@
                                     <td class="" id="td"><strong>{{ $staff->Prenom }}</strong></td>
                                     <td class="" id="td"><strong>{{ $staff->Email }}</strong></td>
                                     <td class="" id="td"><strong>{{ $staff->Telephone }}</strong></td>
-                                    <td class="" id="td"><strong><img src="{{ asset('ImageEmployee/'.$staff->Profil)}}" width="80px" height="" alt=""></strong></td>
+                                    {{-- <img src="{{ url('/uploads/cat_banner_img/'.$cat->cat_banner) }}" width="110" height="40" /> --}}
+                                    <td class="" id="td">
+                                        <strong>
+                                            <img src="{{ asset('/storage/imageEmployee/'.$staff->Profil)}}" width="90" height="78" alt="image">
+                    
+                                        </strong>
+                                    </td>
                                     <td><strong><button type="button" data-toggle="modal" data-target="#Supprim"
                                                 class="btn btn-danger container">
                                                 <i class="fa-solid fa-trash"></i></button></strong>

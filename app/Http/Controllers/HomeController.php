@@ -8,6 +8,7 @@ use App\Models\Employee;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class HomeController extends Controller
 {
@@ -97,36 +98,32 @@ class HomeController extends Controller
     }
     public function AddEmployee(Request $request)
     {
+        // Storage::disk('local')->put('anarana dossier', $request->file('name nle sary am input'));
+        // mitest hoe stocker anaty storage v le fichier
+        // die(); arreter l'excution du code et rend une page vide
+    //    $name= Storage::disk('local')->put('ImageEmployee', $request->Sary);
+    //    dd(storage::get($name));
         $request->validate([
             'Anarana' => 'required',
             'Fanampiny' => 'required',
             'Mailaka' => 'required',/*nom anle table ao am bd no atao ao aorina an le unique*/
             'Laharana' => 'required|numeric',
-            'Sary' => '',
+            'Sary' => 'required|max:1048',
         ]);
-        // if ($request->hasFile('Sary')) {
-        //     $fileNameWithText   = $request->file('Sary')->getClientOriginalName(); // 1:get fil name with text
-        //     $filename = pathinfo($fileNameWithText, PATHINFO_FILENAME); //2 :get just file name
-        //     $extension = $request->file('Sary')->getClientOriginalExtension(); // 3 :get just file extension
-        //     $fileNameTotore = $filename . '_' . time() . '.' . $extension; // 4 :file name to store
-        //     $path = $request->file('Sary')->storeAs('Sary/ImageEmployee/', $fileNameTotore);
-        // } else {
-        //     $fileNameTotore = 'noImage.jpg';
-        // }
         $employer = new Employee();
         $employer->Nom = $request->input('Anarana');
         $employer->Prenom = $request->input('Fanampiny');
         $employer->Email = $request->input('Mailaka');
         $employer->Telephone = $request->input('Laharana');
-        if($request->hasFile('Sary'))
-        {
-            $file=$request->file('Sary');
-            $extension=$file->getClientOriginalExtension();
-            $filename= time().'.'.$extension;
-            $file->move('ImageEmployee/',$filename);
-
-        }
+        //$employer->Profil= $request->input('Sary');
+        $employer->Profil=$filename= time() .'.' .$request->Sary->extension();
+        $request->file('Sary')->storeAs(
+            'ImageEmployee',
+            $filename,
+            'public'
+        );
         $donnees = $employer->save();
+        dd('post cree!');
         if ($donnees) {
             return redirect('/home')->with("status", "l'employée est  inseré avec succés!");
         } else {
