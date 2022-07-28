@@ -108,7 +108,7 @@ class HomeController extends Controller
             'Fanampiny' => 'required',
             'Mailaka' => 'required',/*nom anle table ao am bd no atao ao aorina an le unique*/
             'Laharana' => 'required|numeric',
-            'Sary' => 'required|max:1048',
+            'Sary' => 'required|image|mimes:jpeg,png,jpg|max:1048',
         ]);
         $employer = new Employee();
         $employer->Nom = $request->input('Anarana');
@@ -123,7 +123,6 @@ class HomeController extends Controller
             'public'
         );
         $donnees = $employer->save();
-        dd('post cree!');
         if ($donnees) {
             return redirect('/home')->with("status", "l'employée est  inseré avec succés!");
         } else {

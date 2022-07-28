@@ -6,9 +6,10 @@
     <div class="container vatana home ">
         <div class="row justify-content-center">
             <div class="col-md-13">
-                <div class="card-header">{{ __('Employee') }}</div>
-                <div>
+                <div class="card-header"><h6 class="h6">Liste des Employees <i href="#" class="fa-solid fa-square-plus fontAdd"></i></h6>
                 </div>
+                <div>
+        </div>
                 <div class="scroll">
                     <table class="table tab">
                         @if (session('status'))
@@ -41,6 +42,7 @@
                                     </h5>
                                 </strong></td>
                             <td></td>
+                            <td></td>
                         </tr>
                         @if (is_countable($Employes) && count($Employes) != 0)
                             @foreach ($Employes as $staff)
@@ -53,7 +55,7 @@
                                     {{-- <img src="{{ url('/uploads/cat_banner_img/'.$cat->cat_banner) }}" width="110" height="40" /> --}}
                                     <td class="" id="td">
                                         <strong>
-                                            <img src="{{ asset('/storage/imageEmployee/'.$staff->Profil)}}" width="90" height="78" alt="image">
+                                            <img class ="ImgEmployee"src="{{ asset('/storage/imageEmployee/'.$staff->Profil)}}" width="87" height="78" alt="image">
                     
                                         </strong>
                                     </td>
@@ -65,6 +67,10 @@
                                                 class="btn btn-success container">
                                                 <i class="fa-solid fa-file-pen"></i></button></strong>
                                     </td>
+                                    <td><strong><button type="button" data-toggle="modal" data-target=""
+                                        class="btn btn-primary container">
+                                        <i class="fa-solid fa-eye"></i></button></strong>
+                            </td>
                             @endforeach
                             </tr>
                         @endif
