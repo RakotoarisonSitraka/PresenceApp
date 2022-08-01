@@ -71,8 +71,8 @@
                                     {{-- <li><a href="#"><span class="fa fa-tasks"></span><span>Taches</span></a></li> --}}
                                     {{-- <li><a href="#"><span class="fa fa-clipboard"></span><span>Projet</span></a>
                                 </li> --}}
-                                    <li><a href="{{url('Ajout-employee')}}"><span
-                                                class="fa fa-registered"></span><span>Enregistrement</span></a></li>
+                                    {{-- <li><a href="{{url('Ajout-employee')}}"><span
+                                                class="fa fa-registered"></span><span>Enregistrement</span></a></li> --}}
                                                 {{-- <li><i class="fa-solid fa-file-powerpoint">Presence</i></li> 
                                                           --}}
                                                 <li><a href="#"><span class="fa-solid fa-file-powerpoint"></span><span>Presence</span></a></li>          
