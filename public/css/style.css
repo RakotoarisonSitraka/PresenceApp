@@ -222,3 +222,48 @@ nav{
 .Nave{
   margin-left: 12px;
 }
+.myHead{
+  margin-top: 6px;
+  color: white;
+  font-size: 23px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 700;
+}
+.division{
+  margin-top: -17px;
+}
+.F{
+  color: white;
+  font-size: 20px;
+}
+.File {
+  position: relative;
+  display: block;
+  left: -127px;
+  top: 20px;
+  font-size: 30px;
+}
+input[type="file"] {
+  display: none;
+}
+.lab {
+  color: white;
+  width: 290px;
+  font-size: 19px;
+  text-align: center;
+  background-color: rgb(45, 148, 207);
+  border-radius: 25px;
+  justify-content: center;
+  /*apivoany ny text anle type file */
+  align-items: center;
+  font-family: "verdana", sans-serif;
+  margin-top: 5px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+}
+.btnsave{
+  font-weight: 600;
+}

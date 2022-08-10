@@ -94,7 +94,8 @@ class HomeController extends Controller
     //CRUD EMPLOYEE
     public function AjoutEmployee()
     {
-        return view('employee.ajout-employee');
+        // return view('employee.ajout-employee');
+        return view('employee.registrerEmployee');
     }
     public function AddEmployee(Request $request)
     {

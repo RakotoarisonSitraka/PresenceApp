@@ -13,7 +13,12 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+
     <script src="{{ asset('js/scripts.js') }}"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/jquery.steps.js"></script>
+	<script src="js/jquery-ui.min.js"></script>
+	<script src="js/main.js"></script>
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.js') }}">
     {{-- open close sidebar --}}
     <script type="text/javascript">
@@ -29,6 +34,12 @@
         }
     </script>
     <!-- Fonts -->
+    <link rel="stylesheet" type="text/css" href="{{asset('css/opensans-font.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('fonts/material-design-iconic-font/css/material-design-iconic-font.min.css')}}">
+	<!-- datepicker -->
+	<link rel="stylesheet"  href="{{asset('css/jquery-ui.min.css')}}">
+	<!-- Main Style Css -->
+    <link rel="stylesheet" href="{{ asset('css/styleRegister.css')}}"/>
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('font/all.min.css') }}">
@@ -38,7 +49,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/Enregistrement.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('css/Enregistrement.css') }}"> --}}
     <link rel="stylesheet" href="{{asset('css/navbar.css')}}">
     <link rel="stylesheet" href="{{asset('css/home.css')}}">
 </head>
