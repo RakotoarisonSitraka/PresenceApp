@@ -3,7 +3,7 @@
     Page d'accueil
 @endsection
 @section('content')
-    <div class="container vatana home ">
+    <div class="container vatana home cont ">
         <div class="row justify-content-center">
             <div class="col-md-13">
                 <div class="card-header"><h6 class="h6">Liste des Employees <a href="{{url('Ajout-employee')}}" class="fa-solid fa-square-plus fontAdd "></a></h6>

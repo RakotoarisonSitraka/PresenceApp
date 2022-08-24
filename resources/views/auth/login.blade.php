@@ -20,11 +20,11 @@
                                 <label for="email"
                                     class="col-md-4 col-form-label text-md-end">{{ __('Email') }}</label>
 
-                                <div class="col-md-6 InputIcon IconBg">
+                                <div class="col-md-6 InputWithIcon IconBg ">
                                     <input id="email" type="email"
-                                        class="form-control @error('email') is-invalid @enderror" name="email"
+                                        class="form-control MyInput @error('email') is-invalid @enderror" name="email"
                                         value="{{ old('email') }}" required autocomplete="email" autofocus>  
-                                        <i class="fa-solid fa-envelope"></i>                                
+                                        <i class="fa-solid fa-envelope"></i>    
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -37,11 +37,11 @@
                                 <label for="password"
                                     class="col-md-4 col-form-label text-md-end">{{ __('Mot de passe') }}</label>
 
-                                <div class="col-md-6 InputIcon  IconBg">
+                                <div class="col-md-6 InputWithIcon IconBg">
                                     <input id="password" type="password"
-                                        class="form-control @error('password') is-invalid @enderror" name="password"
+                                        class="form-control MyInput @error('password') is-invalid @enderror" name="password"
                                         required autocomplete="current-password">
-                                        <i class="fa-solid fa-lock"></i>
+                                        <i class="fa-solid fa-lock i"></i>
                                     @error('password')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -65,7 +65,7 @@
                             <div class="row mb-0">
                                 <div class="col-md-8 offset-md-4">
                                     
-                                        <button type="submit" class="btn btn-primary b">
+                                        <button type="submit" class="btn btn-primary b button">
                                             {{ __("S'Authentifier") }}
                                         </button>
                                     

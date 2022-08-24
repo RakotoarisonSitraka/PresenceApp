@@ -1,0 +1,101 @@
+.sar{
+    margin-left: 230px;
+}
+.b{
+    margin-left: 35px;
+}
+.InputIcon{
+    border-radius: 70px;
+    margin-top: -48px;
+   
+}
+.FontEmail{
+    position: relative;
+    display: block;
+    left: 7px;
+    top: 33px;
+    font-size: 31px;
+    color:rgb(148, 213, 238);
+}
+.button{
+    width: 250px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 700;
+    background-image: linear-gradient(to right, #0084ff, #00f2ff);
+    color: white;
+    border: none;
+}
+.MyInput{
+    width: 320px;
+    display: block;
+    padding: 09px;
+    padding-left: 63px;
+    border-radius: 25px;
+    background-image: linear-gradient(to right, #0084ff, #00f2ff);
+    border: none;
+    color: #fff;
+
+}
+.InputWithIcon input[type=text]{
+    padding-left: 10px;
+}
+.InputWithIcon{
+    position: relative;
+}
+.InputWithIcon i{
+    position: absolute;
+    left: 0;
+    top:-06px;
+    padding: 16px 29px;
+    color: white;
+    transition: .3s;
+    font-size: 23px;
+}
+.cont{
+    margin-top: 56px;
+}
+/*fontawesome anle profil*/
+.modifUser{
+    position: relative;
+}
+.modifUser i{
+    position: absolute;
+    left: 0;
+    top:-06px;
+    padding: 16px 29px;
+    color:green;
+    transition: .3s;
+    font-size: 23px;
+
+}
+.modifUser input[type=text]{
+    padding-left: 10px;
+}
+
+.IconFont{
+    /* width: 320px; */
+    display: block;
+    padding: 09px;
+    padding-left: 63px;
+    border: none;
+    border-radius: 45px;
+    /* color: #fff; */
+
+}
+.IconFon{
+    display: block;
+    padding: 09px;
+    padding-left: 63px;
+    border: none;
+   
+}
+/*register*/
+.regist{
+    font-family: broadway;
+    font-size: 17px;
+}
+.register{
+    margin-top: 56px;
+    margin-left: 223px;
+}

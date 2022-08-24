@@ -16,9 +16,9 @@
 
     <script src="{{ asset('js/scripts.js') }}"></script>
     <script src="js/jquery-3.3.1.min.js"></script>
-	<script src="js/jquery.steps.js"></script>
-	<script src="js/jquery-ui.min.js"></script>
-	<script src="js/main.js"></script>
+    <script src="js/jquery.steps.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/main.js"></script>
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.js') }}">
     {{-- open close sidebar --}}
     <script type="text/javascript">
@@ -34,12 +34,9 @@
         }
     </script>
     <!-- Fonts -->
-    <link rel="stylesheet" type="text/css" href="{{asset('css/opensans-font.css')}}">
-	<link rel="stylesheet" type="text/css" href="{{asset('fonts/material-design-iconic-font/css/material-design-iconic-font.min.css')}}">
-	<!-- datepicker -->
-	<link rel="stylesheet"  href="{{asset('css/jquery-ui.min.css')}}">
-	<!-- Main Style Css -->
-    <link rel="stylesheet" href="{{ asset('css/styleRegister.css')}}"/>
+
+    <!-- Main Style Css -->
+    <link rel="stylesheet" href="{{ asset('css/styleRegister.css') }}" />
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('font/all.min.css') }}">
@@ -48,10 +45,12 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/styleNav.css') }}">
     {{-- <link rel="stylesheet" href="{{ asset('css/Enregistrement.css') }}"> --}}
-    <link rel="stylesheet" href="{{asset('css/navbar.css')}}">
-    <link rel="stylesheet" href="{{asset('css/home.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/Styletotal.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
 </head>
 
 <body>
@@ -62,41 +61,46 @@
 
                     {{-- contenu anle side bar --}}
                     <div class="content">
-                        <span class="slide">
-                            <a href="#" onclick="openSlideMenu()">
-                                <i class="fas fa-bars"></i>
-                            </a>
-                        </span>
+                        <div class="sidebar">
+                            <span class="slide">
+                                <a href="#" onclick="openSlideMenu()">
+                                    <i class="fas fa-bars"></i>
+                                </a>
+                            </span>
+                            <div id="menu" class="nav">
+                                <a href="#" class="close" onclick="closeSlideMenu()">
+                                    <i class="fas fa-times"></i>
+                                </a>
+                                <div class="sidebar-brand">
+                                    <h2><span class="fa fa-user-O">Employee</span></h2>
+                                </div>
+                                <div class="sidebar-menu">
+                                    <ul>
+                                        <li><a href="/home" class="active"><span
+                                                    class="fa fa-home"></span><span>Accueil</span></a></li>
+                                        {{-- <li><a href="#"><span class="fa fa-tasks"></span><span>Taches</span></a>
+                                        </li> --}}
+                                        {{-- <li><a href="#"><span
+                                                    class="fa fa-registered"></span><span>Enregistrement</span></a></li> --}}
+                                        <li><a href="#"><span
+                                                    class="fa fa-clipboard"></span><span>Presence</span></a>
+                                        </li>
+                                        <li><a href="#"><span
+                                                    class="fa fa-line-chart"></span><span>Statistiques</span></a></li>
 
-                        <div id="menu" class="nav">
-                            <a href="#" class="close" onclick="closeSlideMenu()">
-                                <i class="fas fa-times Icon"></i>
-                            </a>
-                            <div class="sidebar-brand">
-                                <h2><span class="fa fa-user-O">Employe</span></h2>
+                                        <li><a href="#"><span class="fa fa-user"></span><span>Contact</span></a>
+                                        </li>
+
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="sidebar-menu">
-                                <ul>
-                                    <li><a href="/home" class="active"><span
-                                                class="fa fa-home"></span><span>Accueil</span></a></li>
-                                    {{-- <li><a href="#"><span class="fa fa-tasks"></span><span>Taches</span></a></li> --}}
-                                    {{-- <li><a href="#"><span class="fa fa-clipboard"></span><span>Projet</span></a>
-                                </li> --}}
-                                    {{-- <li><a href="{{url('Ajout-employee')}}"><span
-                                                class="fa fa-registered"></span><span>Enregistrement</span></a></li> --}}
-                                                {{-- <li><i class="fa-solid fa-file-powerpoint">Presence</i></li> 
-                                                          --}}
-                                                <li><a href="#"><span class="fa-solid fa-file-powerpoint"></span><span>Presence</span></a></li>          
-                                                <li><a href="#"><span
-                                                    class="fa fa-line-chart"></span><span>Statistiques</span></a></li>   
-                                    <li><a href="#"><span class="fa fa-user"></span><span>Contact</span></a></li>
-                                </ul>
+                            <div class="search-wrapp">
+                                <span class="fa fa-search"></span>
+                                <input type="search" name="" placeholder="Recherche..">
                             </div>
                         </div>
-                        <div class="search-wrapp iconsearch">
-                            <span class="fa fa-search"></span>
-                            <input type="search" class="form-control" name="" placeholder="Recherche..">
-                        </div>
+                        {{--  --}}
+
                     </div>
 
                 </div>
@@ -238,7 +242,7 @@
                     <button class="btn btn-light" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                </div>
+                </div><br>
 
                 {{-- <div class="modal-header">
         <h1>Suppression</h1> --}}
@@ -249,35 +253,34 @@
                             <div class="card-body ">
                                 <input type="hidden" value="{{ Auth::user()->id }}">
                                 <div class="row mb-3">
-                                    <label for="emailInput" class="form-label">Nouvelle Email</label>
+                                    {{-- <label for="Input" class="form-label">Nom
+                                    </label> --}}
                                     <div class="col-md-19 modifUser Icon">
-                                        <input name="email" type="email" class="form-control"
-                                            @error('email') is-invalid @enderror id="emailInput">
+                                        <input name="name" type="" class="form-control IconFont"
+                                            @error('name') is-invalid @enderror id="nameInput" placeholder="Saisissez votre nouvelle nom">
+                                        <i class="fa-regular fa-user"></i>
+                                        @error('name')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div><br>
+
+                                <div class="row mb-3">
+                                    {{-- <label for="emailInput" class="form-label">Nouvelle Email</label> --}}
+                                    <div class="col-md-19 modifUser Icon">
+                                        <input name="email" type="email" class="form-control IconFont"
+                                            @error('email') is-invalid @enderror id="emailInput" placeholder="Saisissez votre  nouveau email">
                                         <i class="fa-solid fa-envelope"></i>
                                         @error('email')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
-                                </div>
-
-                                <div class="row mb-3">
-                                    <label for="Input" class="form-label">Nom
-
-                                    </label>
-                                    <div class="col-md-19 modifUser Icon">
-                                        <input name="name" type="text" class="form-control"
-                                            @error('name') is-invalid @enderror id="nameInput">
-                                            <i class="fa-regular fa-user"></i>
-                                        @error('name')
-                                            <span class="text-danger">{{ $message }}</span>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="card-footer">
-                                    <center>
-                                        <button class="btn btn-success  col-md-10">Modifier</button>
-                                    </center>
-                                </div><br><br><br>
+                                </div><br>
+                                <center>
+                                    <button class="btn btn-success  col-md-10">Modifier</button>
+                                </center>
+                              
+                               <br><br><br>
                         </form>
                     </div>
                 @endif
