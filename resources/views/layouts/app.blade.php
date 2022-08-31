@@ -37,6 +37,7 @@
 
     <!-- Main Style Css -->
     <link rel="stylesheet" href="{{ asset('css/styleRegister.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/Enregistrement.css') }}" />
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('font/all.min.css') }}">

@@ -109,15 +109,31 @@ input[type="file"] {
     right: 0;
 
 }
-
-.File {
-    position: relative;
-    display: block;
-    left: -127px;
-    top: 9px;
-    font-size: 20px;
-    
-
+.formee{
+    margin-top:56px;
+    width:630px;
+    margin-left: 500px;
+}
+.TypeFile{
+    border: 1px solid #0084ff;
+    padding: 5px;
+    margin-top: -19px;
+    width: 289px;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #0084ff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+}
+.p{
+    color: #0084ff;
+}
+.enregistrement{
+    margin-left: 178px;
+}
+.textLabel{
+    font-size: 17px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 /*le manao courbe manga any ambany*/
