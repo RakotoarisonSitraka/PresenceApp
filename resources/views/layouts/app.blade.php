@@ -95,10 +95,18 @@
                                     </ul>
                                 </div>
                             </div>
-                            <div class="search-wrapp">
-                                <span class="fa fa-search"></span>
-                                <input type="search" name="" placeholder="Recherche..">
-                            </div>
+                           
+                                  <form action="{{url('/Recherche')}}" method="GET" class="d-flex rech">
+                                    <input class="form-control me-2" type="search" placeholder="Recherche des Employées..." aria-label="" name="query">
+                                    <button class="btn btn-outline-success" type="submit">Recherche</button>
+                                  </form>
+                                
+                            {{-- <div class="search-wrapp">
+                               {{-- fa fa-search --}}
+                             {{--  <input type="search" name="search" placeholder="Recherche..">
+                                <span  class=" btn btn-primary"><a  class="fa fa-search recherche"></a></span>
+                               
+                            </div> --}}
                         </div>
                         {{--  --}}
 

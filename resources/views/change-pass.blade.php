@@ -25,7 +25,7 @@
                             <div class="row mb-3">
                                 <label for="oldPasswordInput" class="form-label">Ancien mot de passe</label>
                                 <div class="col-md-18 modifUser Icon">
-                                    <input name="Ancien_mot_de_passe" type="password" class="form-control"
+                                    <input name="Ancien_mot_de_passe" type="password" class="form-control IconFont"
                                         @error('Ancien_mot_de_passe') is-invalid @enderror id="oldPasswordInput">
                                     <i class="fa-solid fa-lock"></i>
                                     @error('Ancien_mot_de_passe')
@@ -36,7 +36,7 @@
                             <div class="row mb-3">
                                 <label for="newPasswordInput" class="form-label">Nouveau mot de passe</label>
                                 <div class="col-md-18 modifUser Icon">
-                                    <input name="Nouveau_mot_de_passe" type="password" class="form-control"
+                                    <input name="Nouveau_mot_de_passe" type="password" class="form-control IconFont"
                                         @error('Nouveau_mot_de_passe') is-invalid @enderror id="newPasswordInput">
                                     <i class="fa-solid fa-key"></i>
                                     @error('Nouveau_mot_de_passe')
@@ -46,8 +46,8 @@
                             </div>
                             <div class="row mb-3">
                                 <label for="confirmNewPasswordInput" class="form-label">Confirmation</label>
-                                <div class="col-md-18 modifUser Icon">
-                                    <input name="confirmation_de_mot_de_passe" type="password" class="form-control"
+                                <div class="col-md-18  modifUser Icon">
+                                    <input name="confirmation_de_mot_de_passe" type="password" class="form-control IconFont"
                                         @error('confirmation_de_mot_de_passe') is-invalid @enderror
                                         id="confirmNewPasswordInput" placeholder="Confirmation de nouveau mot de passe..">
                                     <i class="fa-solid fa-key"></i>

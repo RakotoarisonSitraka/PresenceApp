@@ -6,10 +6,12 @@
     <div class="container vatana home cont ">
         <div class="row justify-content-center">
             <div class="col-md-13">
-                <div class="card-header"><h6 class="h6">Liste des Employees <a href="{{url('Ajout-employee')}}" class="fa-solid fa-square-plus fontAdd "></a></h6>
+                <div class="card-header">
+                    <h6 class="h6">Liste des Employees <a href="{{ url('Ajout-employee') }}"
+                            class="fa-solid fa-square-plus fontAdd "></a></h6>
                 </div>
                 <div>
-        </div>
+                </div>
                 <div class="scroll">
                     <table class="table tab">
                         @if (session('status'))
@@ -55,46 +57,61 @@
                                     {{-- <img src="{{ url('/uploads/cat_banner_img/'.$cat->cat_banner) }}" width="110" height="40" /> --}}
                                     <td class="" id="td">
                                         <strong>
-                                            <img class ="ImgEmployee"src="{{ asset('/storage/imageEmployee/'.$staff->Profil)}}" width="87" height="78" alt="image">
-                    
+                                            <img class="ImgEmployee"
+                                                src="{{ asset('/storage/imageEmployee/' . $staff->Profil) }}" width="87"
+                                                height="78" alt="image">
+
                                         </strong>
                                     </td>
-                                    <td><strong><button type="button" data-toggle="modal" data-target="#Supprim"
+                                    {{-- data-toggle="modal" data-target="#Supprim" --}}
+                                    <td><strong><button data-toggle="modal" data-target="{{'#Supprim'.$staff->id}}" type="button"
                                                 class="btn btn-danger container">
                                                 <i class="fa-solid fa-trash"></i></button></strong>
+                                                 {{-- modal suppression --}}
+                                    <div class="modal fade" id="{{'Supprim'.$staff->id}}" tabindex="-1" role="dialog"
+                                    aria-labelledby="SuppLabel">
+                                    <div class="modal-dialog modal-lg" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1><strong>Suppression</strong></h1>
+                                            </div>
+                                            <div class="modal-body">
+                                                Voulez vous Supprimer cette employée??
+                                            </div>
+                                            <div class="modal-footer">
+
+                                                <a class="btn btn-danger" href="/Supprimer/{{ $staff->id }}">Oui</a>
+
+                                                {{-- <a class="btn btn-danger" href="/Supprimer/{{$staff->id}}">Oui</a> --}}
+
+                                                <button type="button" class="btn btn-warning"
+                                                    data-dismiss="modal">Non</button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
                                     </td>
                                     <td><strong><button type="button" data-toggle="modal" data-target="#Modifier"
                                                 class="btn btn-success container">
                                                 <i class="fa-solid fa-file-pen"></i></button></strong>
                                     </td>
                                     <td><strong><button type="button" data-toggle="modal" data-target=""
-                                        class="btn btn-primary container">
-                                        <i class="fa-solid fa-eye"></i></button></strong>
-                            </td>
+                                                class="btn btn-primary container">
+                                                <i class="fa-solid fa-eye"></i></button></strong>
+                                    </td>
+                                   
                             @endforeach
                             </tr>
                         @endif
+
+
                     </table>
                 </div>
-                {{-- modal suppression --}}
-                <div class="modal fade" id="Supprim" tabindex="-1" role="dialog" aria-labelledby="SuppLabel">
-                    <div class="modal-dialog modal-lg" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h1><strong>Suppression</strong></h1>
-                            </div>
-                            <div class="modal-body">
-                                Voulez vous Supprimer cette employée??
-                            </div>
-                            <div class="modal-footer">
-                                <a class="btn btn-danger" href="{{ url('/Supprimer/' . $staff->id) }}">Oui</a>
-                                <button type="button" class="btn btn-warning" data-dismiss="modal">Non</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
             </div>
         </div>
+
         {{-- fin --}}
         {{-- modal modification --}}
         <div class="modal fade" id="Modifier" tabindex="-1" aria-labelledby="ModifierLabel" aria-hidden="true">
@@ -188,9 +205,9 @@
                                 </td>
                         @endforeach
                         </tr>
-                    @endif  --}}
-                       
-                        {{-- Debut modal suppUser --}}
+                    @endif --}}
+
+        {{-- Debut modal suppUser --}}
         {{-- <div class="modal fade" id="Supprim" tabindex="-1" role="dialog" aria-labelledby="SuppLabel">
                             <div class="modal-dialog modal-lg" role="document">
                                 <div class="modal-content">

@@ -110,12 +110,18 @@ class HomeController extends Controller
             'Mailaka' => 'required',/*nom anle table ao am bd no atao ao aorina an le unique*/
             'Laharana' => 'required|numeric',
             'Sary' => 'required|image|mimes:jpeg,png,jpg|max:1048',
+            'Age' => 'required|numeric',
+            'CIN' =>'required',
+            'Adresse' =>'required',
         ]);
         $employer = new Employee();
         $employer->Nom = $request->input('Anarana');
         $employer->Prenom = $request->input('Fanampiny');
         $employer->Email = $request->input('Mailaka');
         $employer->Telephone = $request->input('Laharana');
+        $employer->Age = $request->input('Age');
+        $employer->CIN = $request->input('CIN');
+        $employer->Addresse = $request->input('Adresse');
         //$employer->Profil= $request->input('Sary');
         $employer->Profil=$filename= time() .'.' .$request->Sary->extension();
         $request->file('Sary')->storeAs(
@@ -134,7 +140,7 @@ class HomeController extends Controller
     public function AfficherEmployer()
     {
         //return view('home');
-        $Employes = Employee::all();
+        $Employes = Employee::orderBy('id','DESC')->get();
         return view('home', compact('Employes'));
     }
     /*Suppression staff*/
@@ -142,6 +148,20 @@ class HomeController extends Controller
     {
         $staff = Employee::find($id);
         $staff->delete();
-        return back()->with('status', "Employé Supprimé");
+        // $staff= DB ::table('employees')
+        //              ->where('id',$id)
+        //              ->first();
+
+        //   DB::table('employees')
+        //      ->where('id',$id)
+        //      ->delete();           
+        return back()->with('status', "l'employé est Supprimé de la liste");
+    }
+    /*fonction du recherche d'employées*/
+    
+    public function Recherche(Request $request){
+     $search=$request->get('search');
+     $employer= DB::table('employees')->where('prenom','like','%'.$search.'%')->paginate(5);
+    return view('employee.EmployeeSearch',['employees' =>$employer]);
     }
 }

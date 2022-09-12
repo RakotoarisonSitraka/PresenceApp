@@ -99,3 +99,22 @@
     margin-top: 56px;
     margin-left: 223px;
 }
+/*password*/
+.Password{
+    margin-top: 60px;
+    font-size: 18px;
+    margin-left: 220px;
+}
+.recherche{
+    text-decoration: none;
+    color: white;
+}
+.recherche:hover{
+  color: antiquewhite;
+}
+.rech{
+    margin-left: 180px;
+}
+.rech{
+    margin-left: 580px;
+}

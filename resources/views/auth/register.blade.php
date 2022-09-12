@@ -67,7 +67,7 @@
                             <div class="col-md-6 offset-md-4">
                                <div class="btn-group" >
                                 <button type="submit" class="btn btn-primary active">
-                                    {{ __('Register') }}
+                                    {{ __('Enregistrer') }}
                                 </button>
                                 <a href="/home" class="btn btn-outline-primary" data-bs-toggle="tooltip" data-bs-html="true" data-bs-placement="left" title="retour à Accueil">
                                     Annuler

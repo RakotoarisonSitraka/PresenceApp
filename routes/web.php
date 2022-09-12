@@ -36,3 +36,6 @@ Route::get('/Ajout-employee',[App\http\Controllers\HomeController::class, 'Ajout
 Route::get('/home',[App\Http\Controllers\HomeController::class,'AfficherEmployer'])->name('home');
 Route::get('/Supprimer/{id}',[App\Http\Controllers\HomeController::class,'SupprimerEmployer'])->name('Suppression-employee');
 
+/*recherche */
+Route::get('/Recherche', [App\Http\Controllers\HomeController::class,'Recherche'])->name('Recherche');
+
