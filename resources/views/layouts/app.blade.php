@@ -96,8 +96,8 @@
                                 </div>
                             </div>
                            
-                                  <form action="{{url('/Recherche')}}" method="GET" class="d-flex rech">
-                                    <input class="form-control me-2" type="search" placeholder="Recherche des Employées..." aria-label="" name="query">
+                                  <form action="{{route('Recherche')}}" method="GET" class="d-flex rech">
+                                    <input class="form-control me-2" type="search" placeholder="Tapez le nom d'employes..." aria-label="" name="query">
                                     <button class="btn btn-outline-success" type="submit">Recherche</button>
                                   </form>
                                 

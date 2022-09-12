@@ -160,8 +160,16 @@ class HomeController extends Controller
     /*fonction du recherche d'employées*/
     
     public function Recherche(Request $request){
-     $search=$request->get('search');
-     $employer= DB::table('employees')->where('prenom','like','%'.$search.'%')->paginate(5);
-    return view('employee.EmployeeSearch',['employees' =>$employer]);
+        // error_log("tongfa eto");
+        if (isset($_GET['query'])) {
+            $search_employee=$_GET['query'];
+            // error_log($search_employee);
+            $resultat= DB::table('employees')->where('Nom','LIKE','%'.$search_employee.'%')->paginate(2);
+            return view('employee.EmployeeSearch',['resultat'=> $resultat, 'presence'=> $resultat]);
+        }else{
+            return view('employee.EmployeeSearch');
+        }
+    
+   
     }
 }

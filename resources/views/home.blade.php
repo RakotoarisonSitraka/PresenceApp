@@ -67,7 +67,7 @@
                                     <td><strong><button data-toggle="modal" data-target="{{'#Supprim'.$staff->id}}" type="button"
                                                 class="btn btn-danger container">
                                                 <i class="fa-solid fa-trash"></i></button></strong>
-                                                 {{-- modal suppression --}}
+                                 {{-- modal suppression --}}
                                     <div class="modal fade" id="{{'Supprim'.$staff->id}}" tabindex="-1" role="dialog"
                                     aria-labelledby="SuppLabel">
                                     <div class="modal-dialog modal-lg" role="document">
@@ -88,6 +88,7 @@
                                                     data-dismiss="modal">Non</button>
                                             </div>
                                         </div>
+                                        {{-- fin --}}
 
                                     </div>
                                 </div>
