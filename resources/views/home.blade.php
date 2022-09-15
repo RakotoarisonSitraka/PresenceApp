@@ -15,7 +15,7 @@
                 <div class="scroll">
                     <table class="table tab">
                         @if (session('status'))
-                            <div class="alert alert-success" role="alert">
+                            <div class="alert alert-success container" role="alert">
                                 {{ session('status') }}
                             </div>
                         @endif
@@ -108,7 +108,11 @@
 
 
                     </table>
+                    <div class="pagination-block homepagination">
+                        {{ $Employes->links('layouts.paginationlinks') }}
+                    </div>
                 </div>
+               
 
             </div>
         </div>

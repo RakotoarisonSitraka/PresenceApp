@@ -140,7 +140,7 @@ class HomeController extends Controller
     public function AfficherEmployer()
     {
         //return view('home');
-        $Employes = Employee::orderBy('id','DESC')->get();
+        $Employes = Employee::orderBy('id','DESC')->paginate(4);
         return view('home', compact('Employes'));
     }
     /*Suppression staff*/
@@ -164,7 +164,8 @@ class HomeController extends Controller
         if (isset($_GET['query'])) {
             $search_employee=$_GET['query'];
             // error_log($search_employee);
-            $resultat= DB::table('employees')->where('Nom','LIKE','%'.$search_employee.'%')->paginate(2);
+            $resultat= DB::table('employees')->where('Nom','LIKE','%'.$search_employee.'%')->paginate(3);
+            $resultat->appends($request->all());
             return view('employee.EmployeeSearch',['resultat'=> $resultat, 'presence'=> $resultat]);
         }else{
             return view('employee.EmployeeSearch');

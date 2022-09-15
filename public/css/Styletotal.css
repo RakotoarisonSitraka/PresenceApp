@@ -120,10 +120,17 @@
 }
 .recherche{
     margin-left: 310px;
+    width: 1000px;
 }
 .hh2{
     color: black;
 }
 .rechercheee{
     color: black;
+}
+.pagina{
+    margin-left: 370px;
+}
+.homepagination{
+    margin-left: 380px;
 }

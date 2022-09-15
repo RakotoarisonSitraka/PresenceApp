@@ -2,7 +2,7 @@
     
     display: grid;
     /* height: 40vh; */
-    margin-left: 225px; 
+    margin-left: 226px; 
     justify-content: center;
     align-items: center;
     color:gray
@@ -38,7 +38,8 @@
 .scroll{
     overflow: auto;
     height: 500px;
-    width: 930px;
+    width: 983px;
+    font-size: 15px;
 }
 ::-webkit-scrollbar{
     width: 16px;
@@ -75,7 +76,7 @@
     font-size: 20px;
 }
 .fontAdd{
-    margin-left: 620px;
+    margin-left: 690px;
     font-size: 26px;
     color: white;
     text-decoration: none;

@@ -7,9 +7,10 @@
     <br>
     <br>
     @if (isset($resultat))
+    <center><h3 class="hh2">Resultats des recherches d'employees</h3></center>
         <div class="scroll recherche">
             <center>
-                <h2 class="hh2">Resultats des recherches d'employees</h2>
+               
             </center><br>
             <table class="table table-striped table-hover container">
                 @if (session('status'))
@@ -130,6 +131,13 @@
 
                 </tbody>
             </table>
+           <center>
+            
+               <div class="pagination-block pagina">
+                {{ $resultat->links('layouts.paginationlinks') }}
+               </div>
+            
+           </center>
         </div>
     @endif
 
