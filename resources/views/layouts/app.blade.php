@@ -52,6 +52,7 @@
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
     <link rel="stylesheet" href="{{ asset('css/Styletotal.css') }}">
     <link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/Presence.css') }}">
 </head>
 
 <body>
@@ -83,7 +84,7 @@
                                         </li> --}}
                                         {{-- <li><a href="#"><span
                                                     class="fa fa-registered"></span><span>Enregistrement</span></a></li> --}}
-                                        <li><a href="#"><span
+                                        <li><a href="{{ route('Presence')}}"><span
                                                     class="fa fa-clipboard"></span><span>Presence</span></a>
                                         </li>
                                         <li><a href="#"><span

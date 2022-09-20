@@ -122,6 +122,10 @@ class HomeController extends Controller
         $employer->Age = $request->input('Age');
         $employer->CIN = $request->input('CIN');
         $employer->Addresse = $request->input('Adresse');
+        $employer->Sexe = $request->input('Sexe');
+        $employer->Position = $request->input('Position');
+        $employer->Section = $request->input('Section');
+        $employer->Ville = $request->input('Ville');
         //$employer->Profil= $request->input('Sary');
         $employer->Profil=$filename= time() .'.' .$request->Sary->extension();
         $request->file('Sary')->storeAs(
@@ -163,8 +167,8 @@ class HomeController extends Controller
         // error_log("tongfa eto");
         if (isset($_GET['query'])) {
             $search_employee=$_GET['query'];
-            // error_log($search_employee);
-            $resultat= DB::table('employees')->where('Nom','LIKE','%'.$search_employee.'%')->paginate(3);
+            // error_log($search_employee) % misolo texte;
+            $resultat= DB::table('employees')->where('Nom','LIKE',''.$search_employee.'%')->paginate(3);
             $resultat->appends($request->all());
             return view('employee.EmployeeSearch',['resultat'=> $resultat, 'presence'=> $resultat]);
         }else{
@@ -172,5 +176,9 @@ class HomeController extends Controller
         }
     
    
+    }
+
+    public function Presence(){
+        return view('employee.PresenceEmployee');
     }
 }

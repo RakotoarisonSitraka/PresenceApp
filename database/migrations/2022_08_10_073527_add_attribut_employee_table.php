@@ -20,6 +20,8 @@ return new class extends Migration
             $table->integer('Age')->nullable()->after('Profil');
             $table->string('Section')->nullable()->after('Profil');
             $table->string('Position')->nullable()->after('Profil');
+            $table->string('Sexe')->nullable()->after('Profil');
+            $table->string('Ville')->nullable()->after('Profil');
         });
     }
 
@@ -36,6 +38,8 @@ return new class extends Migration
             $table->dropColumn('Age');
             $table->dropColumn('Section');
             $table->dropColumn('Position');
+            $table->dropColumn('Sexe');
+            $table->dropColumn('Ville');
         });
     }
 };

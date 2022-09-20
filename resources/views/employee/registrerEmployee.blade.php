@@ -89,7 +89,17 @@
             </div>
             <div class="col">
                 <div class="form-group">
-                    <select class="form-select" aria-label="">
+                    <select class="form-select" aria-label="" name="Sexe">
+                        <option selected>Sexe</option>
+                        <option value="Homme">Homme</option>
+                        <option value="Femme">Femme</option>
+                       
+                    </select>
+                </div>
+            </div>   
+            <div class="col">
+                <div class="form-group">
+                    <select class="form-select" aria-label="" name="Ville">
                         <option selected>Ville d'origine</option>
                         <option value="Antananarivo">Antananarivo</option>
                         <option value="Antsirabe">Antsirabe</option>
@@ -104,7 +114,7 @@
 
             <div class="col">
                 <div class="form-group">
-                    <select class="form-select" aria-label="">
+                    <select class="form-select" aria-label="" name="Section">
                         <option selected>Section</option>
                         <option value="Webmarketing">Webmarketing</option>
                         <option value="Developpement">Developpement</option>
@@ -116,7 +126,7 @@
             </div>
             <div class="col">
                 <div class="form-group">
-                    <select class="form-select" aria-label="">
+                    <select class="form-select" aria-label="" name="Position">
                         <option selected>Position</option>
                         <option value="Infographistes">Infographistes</option>
                         <option value="Développeurs Mobile">Développeurs Mobile</option>
@@ -125,6 +135,7 @@
                         <option value="Gestionnaire de contenu">Gestionnaire de contenu</option>
                     </select>
                 </div>
+                
             </div><br><br><br>
 
         </div>

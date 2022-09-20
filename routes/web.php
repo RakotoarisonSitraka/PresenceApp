@@ -39,3 +39,5 @@ Route::get('/Supprimer/{id}',[App\Http\Controllers\HomeController::class,'Suppri
 /*recherche */
 Route::get('/Recherche', [App\Http\Controllers\HomeController::class,'Recherche'])->name('Recherche');
 
+/*présence employées*/
+Route::get('/Presence',[App\Http\Controllers\HomeController::class,'Presence'])->name('Presence');
