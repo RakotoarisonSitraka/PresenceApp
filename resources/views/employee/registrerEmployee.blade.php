@@ -112,7 +112,7 @@
                 </div>
             </div>
 
-            <div class="col">
+            {{-- <div class="col">
                 <div class="form-group">
                     <select class="form-select" aria-label="" name="Section">
                         <option selected>Section</option>
@@ -123,13 +123,14 @@
                         <option value="Branding">Branding</option>
                     </select>
                 </div>
-            </div>
+            </div> --}}
             <div class="col">
                 <div class="form-group">
                     <select class="form-select" aria-label="" name="Position">
-                        <option selected>Position</option>
+                        <option selected>Roles</option>
                         <option value="Infographistes">Infographistes</option>
                         <option value="Développeurs Mobile">Développeurs Mobile</option>
+                        <option value="Développeurs web">Développeurs web</option>
                         <option value="Intégrateur Web">Intégrateur Web</option>
                         <option value=" Commerciales"> Commerciales</option>
                         <option value="Gestionnaire de contenu">Gestionnaire de contenu</option>

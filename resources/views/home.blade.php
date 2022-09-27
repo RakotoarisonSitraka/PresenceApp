@@ -99,7 +99,8 @@
                                     </td>
                                     <td><strong><button type="button" data-toggle="modal" data-target=""
                                                 class="btn btn-primary container">
-                                                <i class="fa-solid fa-eye"></i></button></strong>
+                                              <i class="fa-regular fa-file-powerpoint contai"></i></button></strong>
+                                               
                                     </td>
                                    
                             @endforeach
@@ -153,7 +154,9 @@
                 </div>
             </div>
         </div>
-        {{-- Fin --}}
+        {{-- Fin PRESENCE --}}
+
+        {{-- modal PRESENCE --}}
 
 
         {{-- {{-- <div class="container home">

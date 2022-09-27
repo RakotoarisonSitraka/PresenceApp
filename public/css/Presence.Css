@@ -2,6 +2,7 @@
     margin-top: 50px;
     background-color: #ebf6ff;
     padding: 2rem 1.5rem;
+    margin-left: 310px;
     /* min-height: calc(100vh); */
     
 }
@@ -32,4 +33,7 @@
 .card-single:hover{
     background-color: #7aefff;
     color: #fff;
+}
+.contai{
+    font-size: 18px;
 }

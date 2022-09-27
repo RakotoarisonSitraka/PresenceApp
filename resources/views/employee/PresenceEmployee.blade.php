@@ -7,30 +7,30 @@
         <div class="cards">
             <div class="card-single">
                 <div>
-                    <h2>2.000.000</h2>
-                    <small>Ventes</small>
+                    <h2>50</h2>
+                    <small>Nombres des employés</small>
                 </div>
                 <div>
-                    <span class="fa fa-shopping-cart"></span>
+                    <span class="fa-solid fa-user"></span>
                 </div>
             </div>
             <div class="card-single">
                 <div>
-                    <h2>+30</h2>
-                    <small>Stock</small>
+                    <h2>5</h2>
+                    <small>Section</small>
                 </div>
                 <div>
-                    <span class="fa fa-newspaper"></span>
+                    <span class="fa fa-house"></span>
                 </div>
             </div>
 
             <div class="card-single">
                 <div>
-                    <h2>58</h2>
+                    <h2>8</h2>
                     <small>Fournisseur</small>
                 </div>
                 <div>
-                    <span class="fa fa-outdent"></span>
+                    <span class=""></span>
                 </div>
             </div>
 
