@@ -74,12 +74,12 @@
                                     <i class="fas fa-times"></i>
                                 </a>
                                 <div class="sidebar-brand">
-                                    <h2><span class="fa fa-user-O">Employee</span></h2>
+                                    <h2><span class="fa fa-user-O">Employes</span></h2>
                                 </div>
                                 <div class="sidebar-menu">
                                     <ul>
                                         <li><a href="/home" class="active"><span
-                                                    class="fa fa-home"></span><span>Accueil</span></a></li>
+                                                    class="fa fa-list"></span><span>Listes des employés</span></a></li>
                                         {{-- <li><a href="#"><span class="fa fa-tasks"></span><span>Taches</span></a>
                                         </li> --}}
                                         {{-- <li><a href="#"><span
