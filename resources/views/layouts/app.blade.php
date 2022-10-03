@@ -66,7 +66,9 @@
                         <div class="sidebar">
                             <span class="slide">
                                 <a href="#" onclick="openSlideMenu()">
-                                    <i class="fas fa-bars"></i>
+                                    {{-- <i class="fas fa-bars"></i> --}}
+                                    <img class="sarii" src="{{asset('img/nogae.jpg')}}"
+                                        alt="Image" >
                                 </a>
                             </span>
                             <div id="menu" class="nav">
@@ -97,7 +99,7 @@
                                 </div>
                             </div>
                            
-                                  <form action="{{route('Recherche')}}" method="GET" class="d-flex rech">
+                                  <form  action="{{route('Recherche')}}" method="GET" class="d-flex rech">
                                     <input class="form-control me-2" type="search" placeholder="Tapez le nom d'employes..." aria-label="" name="query">
                                     <button class="btn btn-outline-success" type="submit">Recherche</button>
                                   </form>

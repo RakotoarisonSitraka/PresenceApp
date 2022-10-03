@@ -35,7 +35,7 @@ Route::post('/AjoutEmployee',[App\http\Controllers\HomeController::class, 'AddEm
 Route::get('/Ajout-employee',[App\http\Controllers\HomeController::class, 'AjoutEmployee'])->name('Ajout-employee');
 Route::get('/home',[App\Http\Controllers\HomeController::class,'AfficherEmployer'])->name('home');
 Route::get('/Supprimer/{id}',[App\Http\Controllers\HomeController::class,'SupprimerEmployer'])->name('Suppression-employee');
-
+Route::post('/modifierEmployee/{id}',[App\Http\Controllers\HomeController::class,'ModifierEmployee'])->name('modifierEmployee');
 /*recherche */
 Route::get('/Recherche', [App\Http\Controllers\HomeController::class,'Recherche'])->name('Recherche');
 

@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Employee;
+use Illuminate\Http\File;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+
 
 class HomeController extends Controller
 {
@@ -87,7 +89,7 @@ class HomeController extends Controller
             $users->save();
             return redirect('/home');
         } else {
-            return back()->with("error", "password changed with success");
+            return back()->with("error", "email name changed with success");
         }
     }
 
@@ -109,6 +111,7 @@ class HomeController extends Controller
             'Fanampiny' => 'required',
             'Mailaka' => 'required',/*nom anle table ao am bd no atao ao aorina an le unique*/
             'Laharana' => 'required|numeric',
+            // 'Matricule'=>'Required|numeric',
             'Sary' => 'required|image|mimes:jpeg,png,jpg|max:1048',
             'Age' => 'required|numeric',
             'CIN' =>'required',
@@ -119,11 +122,12 @@ class HomeController extends Controller
         $employer->Prenom = $request->input('Fanampiny');
         $employer->Email = $request->input('Mailaka');
         $employer->Telephone = $request->input('Laharana');
+        // $employer->Matricule = $request->input('Matricule');
         $employer->Age = $request->input('Age');
         $employer->CIN = $request->input('CIN');
         $employer->Addresse = $request->input('Adresse');
         $employer->Sexe = $request->input('Sexe');
-        $employer->Position = $request->input('Position');
+        // $employer->Position = $request->input('Position');
         $employer->Section = $request->input('Section');
         $employer->Ville = $request->input('Ville');
         //$employer->Profil= $request->input('Sary');
@@ -135,11 +139,46 @@ class HomeController extends Controller
         );
         $donnees = $employer->save();
         if ($donnees) {
-            return redirect('/home')->with("status", "l'employée est  inseré avec succés!");
+            return redirect('/home')->with("status", "employé inseré avec succés!");
         } else {
             return back()->with('error', "Erreur");
         }
     }
+
+    /*modifier l'employes*/
+     public function ModifierEmployee(Request $request, $id){
+        $employer = Employee::find($id);
+        if ($employer) {
+            // dd($request);
+            $employer->Nom = $request->input('Anarana');
+            $employer->Prenom = $request->input('Fanampiny');
+            $employer->Email = $request->input('Mailaka');
+            $employer->Telephone = $request->input('Laharana');
+            // $employer->Matricule = $request->input('Matricule');
+            $employer->Age = $request->input('Age');
+            $employer->CIN = $request->input('CIN');
+            $employer->Addresse = $request->input('Adresse');
+            $employer->Sexe = $request->input('Sexe');
+            // $employer->Position = $request->input('Position');
+            $employer->Section = $request->input('Section');
+            $employer->Ville = $request->input('Ville');
+            if ($request["Sary"]) {
+                $employer->Profil=$filename= time() .'.' .$request["Sary"]->extension();
+                $request->file('Sary')->storeAs(
+                    'ImageEmployee',
+                    $filename,
+                    'public'
+                );
+            }
+            
+            $employer->save();
+        //    dd($employer->save());
+            return redirect('/home')->with("status", "Donnée bien modifié avec succés!");
+        } else {
+            return back()->with("error", "email name changed with success");
+        }
+        
+     }
     /*affichage employee*/
     public function AfficherEmployer()
     {

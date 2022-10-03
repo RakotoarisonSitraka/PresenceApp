@@ -117,6 +117,7 @@
 }
 .rech{
     margin-left: 580px;
+    margin-top: -40px;
 }
 .recherche{
     margin-left: 310px;
@@ -133,4 +134,21 @@
 }
 .homepagination{
     margin-left: 380px;
+}
+.sarii{
+    margin-top: -13px;
+    width: 108px;
+    height: 79px;
+    margin-left: -38px;
+}
+.matric{
+    font-family: Verdana;
+}
+.modalEditStaff{
+    background-color: #0084ff;
+    color: white;
+}
+.ModifEmploye{
+    background-color: rgb(118, 184, 238);
+    color: white;
 }

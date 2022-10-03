@@ -21,7 +21,7 @@
                         @endif
                         <tr class="">
                             <td class="table-light" id="td"><strong>
-                                    <h5 class="titre" id="td">Id</h5>
+                                    <h5 class=" matric" id="td">Matricule</h5>
                                 </strong></td>
                             <td class="table-info " id="td"><strong>
                                     <h5 class="titre">Nom</h5>
@@ -94,9 +94,179 @@
                                             </div>
                                         </div>
                                     </td>
-                                    <td><strong><button type="button" data-toggle="modal" data-target="#Modifier"
+                                    <td><strong><button type="button" data-toggle="modal"
+                                                data-target="{{ '#Modifier' . $staff->id }}"
                                                 class="btn btn-success container">
                                                 <i class="fa-solid fa-file-pen"></i></button></strong>
+
+                                                  {{-- modal modification --}}
+                                    <div class="modal fade" id="{{ 'Modifier' . $staff->id }}" tabindex="-1"
+                                        aria-labelledby="ModifierLabel" aria-hidden="true" data-backdrop="static"
+                                        data-keyboard="false">
+                                        <div class="modal-dialog modal-lg ">
+                                            <div class="modal-content">
+                                                <div class="modal-header ModifEmploye">
+                                                    <h5 class="modal-title" id="ModifierLabel"><strong>Modification
+                                                            d'Employée</strong></h5>
+                                                    <button type="button" class="btn-close" data-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form action="{{ url('/modifierEmployee/' . $staff->id) }}"
+                                                        method="POST" enctype="multipart/form-data">
+                                                        @csrf
+                                                        <h5>Matricule: {{ $staff->id }}</h5>
+                                                        <input type="hidden" value="{{ $staff->id }}">
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <div class="form-group">
+                                                                    <label for="Nom" class="textLabel">Nom</label>
+                                                                    <input type="text" name="Anarana"
+                                                                        class="form-control " value="{{ $staff->Nom }}"
+                                                                        @error('Anarana') is-invalid @enderror>
+                                                                    @error('Anarana')
+                                                                        <span class="text-danger">{{ $message }}</span>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="form-group ">
+                                                                    <label for="Prenom" class="textLabel">Prénom</label>
+                                                                    <input type="text" name="Fanampiny"
+                                                                        class="form-control"
+                                                                        value="{{ $staff->Prenom }}"@error('Fanampiny') is-invalid @enderror>
+                                                                    @error('Fanampiny')
+                                                                        <span class="text-danger">{{ $message }}</span>
+                                                                    @enderror
+                                                                </div>
+                                                            </div><br><br><br>
+                                                            <div class="form-group container">
+                                                                <label for="Email" class="textLabel">Email</label>
+                                                                <input type="email" name="Mailaka" class="form-control"
+                                                                    value="{{ $staff->Email }}"@error('Mailaka') is-invalid @enderror>
+                                                                @error('Mailaka')
+                                                                    <span class="text-danger">{{ $message }}</span>
+                                                                @enderror
+                                                            </div><br><br><br><br>
+
+                                                            <div class="col">
+                                                                <div class="form-group ">
+                                                                    <label for="Age" class="textLabel">Age</label>
+                                                                    <input type="number" name="Age"
+                                                                        class="form-control"value="{{ $staff->Age }}"@error('Age') is-invalid @enderror>
+                                                                    @error('Age')
+                                                                        <span class="text-danger">{{ $message }}</span>
+                                                                    @enderror
+                                                                </div><br>
+
+                                                            </div>
+
+                                                            <div class="col">
+                                                                <div class="form-group">
+                                                                    <label for="telephone"
+                                                                        class="textLabel">Telephone</label>
+                                                                    <input type="number" name="Laharana"
+                                                                        class="form-control"
+                                                                        value="{{ $staff->Telephone }}"
+                                                                        @error('Laharana') is-invalid @enderror>
+                                                                    @error('Laharana')
+                                                                        <span class="text-danger">{{ $message }}</span>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="form-group ">
+                                                                    <label for="cin" class="textLabel">CIN</label>
+                                                                    <input type="text" name="CIN"
+                                                                        class="form-control" value="{{ $staff->CIN }}"
+                                                                        @error('CIN') is-invalid @enderror>
+                                                                    @error('CIN')
+                                                                        <span class="text-danger">{{ $message }}</span>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="form-group ">
+                                                                    <label for="Adresse"
+                                                                        class="textLabel">Adresse</label>
+                                                                    <input type="text" name="Adresse"
+                                                                        class="form-control"
+                                                                        value="{{ $staff->Addresse }}"@error('Adresse') is-invalid @enderror>
+                                                                    @error('Adresse')
+                                                                        <span class="text-danger">{{ $message }}</span>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
+                                                            <center>
+                                                                <div class="mb-3">
+                                                                    <label for="{{ 'formFileDisabled' . $staff->id }}"
+                                                                        class="TypeFile form-group">Photo
+                                                                        selectionnée</label>
+                                                                    <input class="form-control" name="Sary"
+                                                                        type="file" id="{{ 'formFileDisabled' . $staff->id }}"
+                                                                        @error('Sary') is-invalid @enderror>
+                                                                    <img src="{{ asset('storage/ImageEmployee/' . $staff->Profil) }}"
+                                                                        alt="Image" width="70px" height="70px">
+                                                                </div>
+                                                            </center>
+                                                            <div class="col">
+                                                                <label for="Sexe">Sexe</label>
+                                                                <div class="form-group">
+                                                                    <select class="form-select"aria-label=""
+                                                                        name="Sexe">
+
+                                                                        <option value="Homme">Homme</option>
+                                                                        <option value="Femme">Femme</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <label for="Ville">Ville d'Origine</label>
+                                                                <div class="form-group">
+                                                                    <select class="form-select" aria-label=""
+                                                                        name="Ville">
+                                                                        <option value="Antananarivo">Antananarivo</option>
+                                                                        <option value="Antsirabe">Antsirabe</option>
+                                                                        <option value="Fianarantsoa">Fianarantsoa</option>
+                                                                        <option value="Toliary">Toliary</option>
+                                                                        <option value="Antsiranana">Antsiranana</option>
+                                                                        <option value="Mahajanga">Mahajanga</option>
+                                                                        <option value="Toamasina">Toamasina</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div><br>
+                                                            <div class="col">
+                                                                <label for="Position">Role</label>
+                                                                <div class="form-group">
+                                                                    <select class="form-select" aria-label=""
+                                                                        name="Position">
+                                                                        <option value="Infographistes">Infographistes
+                                                                        </option>
+                                                                        <option value="Développeurs Mobile">Développeurs
+                                                                            Mobile</option>
+                                                                        <option value="Développeurs web">Développeurs web
+                                                                        </option>
+                                                                        <option value="Intégrateur Web">Intégrateur Web
+                                                                        </option>
+                                                                        <option value=" Commerciales"> Commerciales
+                                                                        </option>
+                                                                        <option value="Gestionnaire de contenu">
+                                                                            Gestionnaire de contenu</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div><br>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                data-dismiss="modal">Fermer</button>
+                                                            <button type="submit"
+                                                                class="btn btn-primary">Valider</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     </td>
                                     <td><strong><button type="button" data-toggle="modal"
                                                 data-target="{{ '#Presence' . $staff->id }}"
@@ -111,15 +281,16 @@
                                         data-keyboard="false">
                                         <div class="modal-dialog modal-lg ">
                                             <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id=""><strong>Présence des
-                                                            Employés</strong></h5>
+                                                <div class="modal-header modalEditStaff">
+                                                    <h5 class="modal-title" id=""><strong>Présence d'
+                                                            Employé</strong></h5>
                                                     <button type="button" class="btn-close" data-dismiss="modal"
                                                         aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body">
                                                     <h4>Prenom: {{ $staff->Prenom }} </h4><br>
-                                                   <center> Option:</center><select class="form-select md-6" aria-label="" name="">
+                                                    <center> Option:</center><select class="form-select md-6"
+                                                        aria-label="" name="">
                                                         <option selected>Absent</option>
                                                         <option value="">Present</option>
                                                     </select><br>
@@ -164,59 +335,23 @@
                                     </div>
 
                                     {{-- modal PRESENCE --}}
+
+
+                               
+                                </tr>
                             @endforeach
-                            </tr>
                         @endif
-
-
                     </table>
                     <div class="pagination-block homepagination">
                         {{ $Employes->links('layouts.paginationlinks') }}
                     </div>
                 </div>
-
-
             </div>
         </div>
 
         {{-- fin --}}
 
-        {{-- modal modification --}}
-        <div class="modal fade" id="Modifier" tabindex="-1" aria-labelledby="ModifierLabel" aria-hidden="true"
-            data-backdrop="static" data-keyboard="false">
-            <div class="modal-dialog modal-lg ">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="ModifierLabel"><strong>Modification d'Employée</strong></h5>
-                        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form>
-                            <div class="mb-3">
-                                <label for="Nom" class="col-form-label">Nom:</label>
-                                <input type="text" class="form-control" id="Nom">
-                            </div>
-                            <div class="mb-3">
-                                <label for="Prenom" class="col-form-label">Prenom:</label>
-                                <input type="text" class="form-control" id="Prenom">
-                            </div>
-                            <div class="mb-3">
-                                <label for="Email" class="col-form-label">Email:</label>
-                                <input type="email" class="form-control" id="Email">
-                            </div>
-                            <div class="mb-3">
-                                <label for="text" class="col-form-label">Telephone:</label>
-                                <input type="text" class="form-control" id="Telephone">
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Send message</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+
 
 
 

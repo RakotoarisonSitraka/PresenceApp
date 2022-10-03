@@ -55,6 +55,15 @@
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div><br><br><br><br>
+            {{-- <div class="col">
+                <div class="form-group">
+                    <label for="Matricule" class="textLabel">Matricule</label>
+                    <input type="number" name="Matricule" class="form-control"  @error('Matricule') is-invalid @enderror>
+                    @error('Matricule')
+                    <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+            </div> --}}
             <div class="col">
                 <div class="form-group">
                     <label for="telephone" class="textLabel">Telephone</label>
@@ -90,7 +99,7 @@
             <div class="col">
                 <div class="form-group">
                     <select class="form-select" aria-label="" name="Sexe">
-                        <option selected>Sexe</option>
+                        <option selected><strong>--Sexe--</strong></option>
                         <option value="Homme">Homme</option>
                         <option value="Femme">Femme</option>
                        
@@ -100,7 +109,7 @@
             <div class="col">
                 <div class="form-group">
                     <select class="form-select" aria-label="" name="Ville">
-                        <option selected>Ville d'origine</option>
+                        <option selected><strong>--Ville d'origine--</strong></option>
                         <option value="Antananarivo">Antananarivo</option>
                         <option value="Antsirabe">Antsirabe</option>
                         <option value="Fianarantsoa">Fianarantsoa</option>
@@ -127,7 +136,7 @@
             <div class="col">
                 <div class="form-group">
                     <select class="form-select" aria-label="" name="Position">
-                        <option selected>Roles</option>
+                        <option selected><strong>--Roles--</strong></option>
                         <option value="Infographistes">Infographistes</option>
                         <option value="Développeurs Mobile">Développeurs Mobile</option>
                         <option value="Développeurs web">Développeurs web</option>
