@@ -32,7 +32,7 @@ li{
     margin-left: 54px;
 }
 .sidebar-menu{
-    margin-top: -25px;
+    margin-top: -28px;
 }
 .sidebar-menu a{
     padding-left:1rem;
@@ -89,4 +89,24 @@ li{
 }
 .fa{
     margin-top: px;
+}
+.RolesEmp{
+    margin-left: -3px;
+    width: 257px;
+    text-align: left;
+}
+.IconRole{
+    margin-left: 130px;
+    font-size: 19px;
+}
+.dropdownRole{
+    width: 257px;
+    height: 130px;
+    background-color: rgb(58, 133, 231);
+}
+#menuRole{
+  background-color: #2b7cc7;
+  border-radius: 60px;
+  text-align: center;
+  margin-top: -17px;
 }

@@ -24,6 +24,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
+//partie USER
+Route::get('/ListeAdmin',[App\Http\Controllers\HomeController::class,'index'])->name('ListeAdmin');
+Route::get('/SupprimerUser/{id}',[App\Http\Controllers\HomeController::class,'SupprimerUser'])->name('SupprimerUser');
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::post('/modifier/{id}',[App\Http\Controllers\HomeController::class,'modifier'])->name('modifier');
 Route::get('/change-mdp',[App\http\Controllers\HomeController::class, 'ChangePassword'])->name('change-mdp');
@@ -41,3 +44,6 @@ Route::get('/Recherche', [App\Http\Controllers\HomeController::class,'Recherche'
 
 /*présence employées*/
 Route::get('/Presence',[App\Http\Controllers\HomeController::class,'Presence'])->name('Presence');
+
+/*statistic*/
+Route::get('/Statistique',[App\Http\Controllers\HomeController::class,'Statistique'])->name('Statistique');

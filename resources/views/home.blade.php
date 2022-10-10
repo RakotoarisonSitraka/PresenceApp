@@ -7,8 +7,8 @@
         <div class="row justify-content-center">
             <div class="col-md-13">
                 <div class="card-header">
-                    <h6 class="h6">Liste des Employees <a href="{{ url('Ajout-employee') }}"
-                            class="fa-solid fa-square-plus fontAdd "></a></h6>
+                    <h6 class="h6">Liste des Employés <a href=""
+                            class="fa fa-list fontAdd "></a></h6>
                 </div>
                 <div>
                 </div>
@@ -272,10 +272,7 @@
                                                 data-target="{{ '#Presence' . $staff->id }}"
                                                 class="btn btn-primary container">
                                                 <i class="fa-regular fa-file-powerpoint contai"></i></button></strong>
-
-                                    </td>
-
-                                    {{-- Fin PRESENCE --}}
+                                                  {{-- Fin PRESENCE --}}
                                     <div class="modal fade" id="{{ 'Presence' . $staff->id }}" tabindex="-1"
                                         aria-labelledby="PresenceLabel" aria-hidden="true" data-backdrop="static"
                                         data-keyboard="false">
@@ -327,14 +324,18 @@
 
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary"
-                                                        data-dismiss="modal">Fermer</button>
-                                                    <button type="button" class="btn btn-primary">Enregistrer</button>
+                                                        data-dismiss="modal">Annuler</button>
+                                                    <button type="button" class="btn btn-primary">Valider</button>
                                                 </div><br><br>
                                             </div>
                                         </div>
                                     </div>
 
                                     {{-- modal PRESENCE --}}
+
+                                    </td>
+
+                                  
 
 
                                

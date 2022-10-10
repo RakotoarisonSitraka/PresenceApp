@@ -36,8 +36,8 @@
 
             <div class="card-single">
                 <div>
-                    <h2>20k</h2>
-                    <small>Communauté</small>
+                    <h2>6</h2>
+                    <small>Roles</small>
                 </div>
                 <div>
                     <span class="fa fa-newspaper"></span>

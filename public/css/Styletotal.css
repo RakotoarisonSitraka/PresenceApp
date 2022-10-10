@@ -1,5 +1,5 @@
 .sar{
-    margin-left: 230px;
+    margin-left: 163px;
 }
 .b{
     margin-left: 35px;
@@ -151,4 +151,38 @@
 .ModifEmploye{
     background-color: rgb(118, 184, 238);
     color: white;
+}
+.CardLogin{
+    margin-left: 65px;
+}
+.BodyLogin{
+    margin-left: -87px;
+}
+.loginh4{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(92, 125, 141);
+}
+.modalEditUser{
+    background-color:rgb(75, 155, 0) ;
+    color: white;
+}
+.leftbar:hover{
+    border-left: 3px solid blue;
+}
+.ContenuAdmin{
+    margin-top: 90px;
+    width: 800px;
+    margin-left: 180px;
+}
+.suppUser{
+    text-decoration: none;
+    color: white;
+}
+.suppUser:hover{
+    color: white;
+}
+.Stat{
+    /* margin-left: 70px; */
+    margin-top: 0px;
+    width: 150px;
 }

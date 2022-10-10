@@ -78,22 +78,46 @@
                                 <div class="sidebar-brand">
                                     <h2><span class="fa fa-user-O">Employes</span></h2>
                                 </div>
-                                <div class="sidebar-menu">
+                                <div class="sidebar-menu"> 
+                                     {{-- fa fa-lis --}}
                                     <ul>
-                                        <li><a href="/home" class="active"><span
-                                                    class="fa fa-list"></span><span>Listes des employés</span></a></li>
+                                        <li><a href="{{ url('Ajout-employee') }}" class="active"><span
+                                                    class="fa fa-registered "></span><span>Enregistrement</span></a></li>
                                         {{-- <li><a href="#"><span class="fa fa-tasks"></span><span>Taches</span></a>
                                         </li> --}}
                                         {{-- <li><a href="#"><span
                                                     class="fa fa-registered"></span><span>Enregistrement</span></a></li> --}}
+                                        <li><a href="/home"><span class="fa fa-list"></span><span>Liste des employes</span></a>
+                                        </li>            
                                         <li><a href="{{ route('Presence')}}"><span
-                                                    class="fa fa-clipboard"></span><span>Presence</span></a>
+                                                    class="fa fa-list"></span><span>Liste de presence</span></a>
+                                                    
                                         </li>
-                                        <li><a href="#"><span
+                                        <li>
+                                            <a href="" class="btn btn-primary dropdown-toggle container RolesEmp" data-toggle="dropdown">
+                                                <span class="fa fa-clipboard"></span> Role <span class="caret IconRole"></span></a>
+                                                <ul class="dropdown-menu dropdownRole">
+                                                    <li>
+                                                        <a class="container"  id="menuRole" href="">
+                                                            Ajouter
+                                                        </a>
+                                                       
+                                                    </li>
+                                                    <li class="">
+                                                        <a class=" container"  id="menuRole" href="">
+                                                            Modifier
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                        </li>
+                                        {{-- <li><a href=""><span
+                                            class="fa-solid fa-user" ></span><span data-toggle="dropdown">Role</span></a>
+                                            
+                                        </li> --}}
+                                        <li><a href="{{ route('Statistique') }}"><span
                                                     class="fa fa-line-chart"></span><span>Statistiques</span></a></li>
 
-                                        <li><a href="#"><span class="fa fa-user"></span><span>Contact</span></a>
-                                        </li>
+                                      
 
                                     </ul>
                                 </div>
@@ -218,14 +242,32 @@
 
                         <div class="dropdown-menu dropdown-menu-end  Nave" aria-labelledby="navbarDropdown">
                             <center>
-                                <a class="btn btn-light container">Parametre</a><br>
+                                <Button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+                                    Paramètre Profil <span class="caret"></span></Button>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a class="btn btn-light container leftbar" href="{{ route('change-mdp') }}">
+                                                {{ __('Mot de passe') }}
+                                            </a>
+                                        </li>
+                                        <li class="leftbar">
+                                            <button type="button" data-toggle="modal" data-target="#modif"
+                                            class="btn btn-light container "> Information
+                                            </button>
+                                        </li>
+                                    </ul><br><br>
+                                    <a type="button" href="{{ route('ListeAdmin')}}"
+                                    class="btn btn-outline-primary container">Administrateurs
+                                </a><br><br>
+
+                                {{-- <a class="btn btn-light container">Parametre</a><br>
                                 <a class="btn btn-primary container" href="{{ route('change-mdp') }}">
                                     {{ __('Mot de passe') }}
                                 </a><br><br>
                                 <button type="button" data-toggle="modal" data-target="#modif"
                                     class="btn btn-success container"> Profil
-                                </button><br><br>
-                                <a class="btn btn-warning container" href="{{ route('logout') }}"
+                                </button><br><br> --}}
+                                <a class="btn btn-danger container" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
                                     {{ __('Se deconnecter') }}
@@ -246,14 +288,17 @@
     <main class="py-4">
         @yield('content')
     </main>
-    <div class="modal fade" id="modif" tabindex="-1" role="dialog" aria-labelledby="ModifLabel">
+    <div class="modal fade" id="modif" tabindex="-1" role="dialog" aria-labelledby="ModifLabel"   data-keyboard="false"
+    aria-hidden="true" data-backdrop="static">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Modification Profil</h4>
-                    <button class="btn btn-light" class="close" data-dismiss="modal" aria-label="Close">
+                <div class="modal-header modalEditUser">
+                    <h4 class="modal-title">Modification d'information</h4>
+                    <button type="button" class="btn-close" data-dismiss="modal"
+                    aria-label="Close"></button>
+                    {{-- <button class="btn btn-light" class="btn-close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
-                    </button>
+                    </button> --}}
                 </div><br>
 
                 {{-- <div class="modal-header">

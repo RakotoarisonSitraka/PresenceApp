@@ -33,8 +33,17 @@ class HomeController extends Controller
     public function index()
     {
         //return view('home');
-        $users = User::all();
-        return view('home', compact('users'));
+        $users = User::orderBy('id','ASC')->paginate(1);
+        // $users= User::with()  orderBy('id','DESC')->paginate(4)
+        return view('ListUser', compact('users'));
+    }
+    public function SupprimerUser($id){
+        $staff = User::find($id);
+        $staff->delete();   
+
+        return view('ListUser')->with('status', "l'employé est Supprimé de la liste");
+        //  return 'ok!';
+
     }
 
 
@@ -128,7 +137,7 @@ class HomeController extends Controller
         $employer->Addresse = $request->input('Adresse');
         $employer->Sexe = $request->input('Sexe');
         // $employer->Position = $request->input('Position');
-        $employer->Section = $request->input('Section');
+        // $employer->Section = $request->input('Section');
         $employer->Ville = $request->input('Ville');
         //$employer->Profil= $request->input('Sary');
         $employer->Profil=$filename= time() .'.' .$request->Sary->extension();
@@ -160,7 +169,7 @@ class HomeController extends Controller
             $employer->Addresse = $request->input('Adresse');
             $employer->Sexe = $request->input('Sexe');
             // $employer->Position = $request->input('Position');
-            $employer->Section = $request->input('Section');
+            // $employer->Section = $request->input('Section');
             $employer->Ville = $request->input('Ville');
             if ($request["Sary"]) {
                 $employer->Profil=$filename= time() .'.' .$request["Sary"]->extension();
@@ -219,5 +228,11 @@ class HomeController extends Controller
 
     public function Presence(){
         return view('employee.PresenceEmployee');
+    }
+    public function Statistique(){
+        $users= User::count();
+        $mpiasa= Employee::count();
+        return view('employee.Statistique', compact('users','mpiasa'));
+        // return view('employee.Statistique');
     }
 }

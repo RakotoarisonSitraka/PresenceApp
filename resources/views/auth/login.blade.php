@@ -7,18 +7,18 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card a">
-                    <img src="{{ asset('img\ima.jpg') }}" alt="" width="345px" height="230px" class="sar"><br><br>
+                <div class="card CardLogin">
+                    <img src="{{ asset('img/nogae.jpg') }}" alt="" width="345px" height="230px" class="sar"><br><br>
                     {{-- <div class="card-header">{{ __('Login') }}</div> --}}
                     <i class="fa-light fa-envelope-dot"></i>
 
-                    <div class="card-body c">
+                    <div class="card-body BodyLogin">
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
 
                             <div class="row mb-3">
                                 <label for="email"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('Email') }}</label>
+                                    class="col-md-4 col-form-label text-md-end"><h4 class="loginh4">Email</h4></label>
 
                                 <div class="col-md-6 InputWithIcon IconBg ">
                                     <input id="email" type="email"
@@ -35,7 +35,7 @@
 
                             <div class="row mb-3">
                                 <label for="password"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('Mot de passe') }}</label>
+                                    class="col-md-4 col-form-label text-md-end"><h4 class="loginh4">Mot de passe</h4></label>
 
                                 <div class="col-md-6 InputWithIcon IconBg">
                                     <input id="password" type="password"
