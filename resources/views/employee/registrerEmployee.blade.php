@@ -135,14 +135,11 @@
             </div> --}}
             <div class="col">
                 <div class="form-group">
-                    <select class="form-select" aria-label="" name="Position">
+                    <select class="form-select" aria-label="" name="role">
                         <option selected><strong>--Roles--</strong></option>
-                        <option value="Infographistes">Infographistes</option>
-                        <option value="Développeurs Mobile">Développeurs Mobile</option>
-                        <option value="Développeurs web">Développeurs web</option>
-                        <option value="Intégrateur Web">Intégrateur Web</option>
-                        <option value=" Commerciales"> Commerciales</option>
-                        <option value="Gestionnaire de contenu">Gestionnaire de contenu</option>
+                        @foreach ($roles as $anjara)
+                            <option value="{{ $anjara->id }}">{{ $anjara->Type_Role}}</option>
+                        @endforeach
                     </select>
                 </div>
                 

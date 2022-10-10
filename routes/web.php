@@ -47,6 +47,7 @@ Route::get('/Presence',[App\Http\Controllers\HomeController::class,'Presence'])-
 
 /*Ajout de role*/
 Route::get('/AjoutRole',[App\Http\Controllers\HomeController::class,'AjoutRole'])->name('AjoutRole');
+Route::post('/SauverRoles',[App\Http\Controllers\HomeController::class,'SauverRoles'])->name('SauverRoles');
 
 /*statistic*/
 Route::get('/Statistique',[App\Http\Controllers\HomeController::class,'Statistique'])->name('Statistique');

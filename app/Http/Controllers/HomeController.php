@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Employee;
+use App\Models\Roles;
 use Illuminate\Http\File;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -105,8 +106,9 @@ class HomeController extends Controller
     //CRUD EMPLOYEE
     public function AjoutEmployee()
     {
-        // return view('employee.ajout-employee');
-        return view('employee.registrerEmployee');
+        // return view('employee.ajout-employee'); manao affichage nle role
+        $roles= Roles::all();
+        return view('employee.registrerEmployee',compact('roles'));
     }
     public function AddEmployee(Request $request)
     {
@@ -125,6 +127,7 @@ class HomeController extends Controller
             'Age' => 'required|numeric',
             'CIN' =>'required',
             'Adresse' =>'required',
+            'role'=>'required' ,
         ]);
         $employer = new Employee();
         $employer->Nom = $request->input('Anarana');
@@ -139,6 +142,7 @@ class HomeController extends Controller
         // $employer->Position = $request->input('Position');
         // $employer->Section = $request->input('Section');
         $employer->Ville = $request->input('Ville');
+        $employer->role_id = $request->input('role');
         //$employer->Profil= $request->input('Sary');
         $employer->Profil=$filename= time() .'.' .$request->Sary->extension();
         $request->file('Sary')->storeAs(
@@ -229,6 +233,20 @@ class HomeController extends Controller
     public function AjoutRole(){
         return view('Roles.AjoutRoles');
     }
+    public function SauverRoles(Request $request){
+        $request->validate([
+            'NomRole' => 'required|string'
+        ]);
+        $roles = new Roles();
+        $roles->Type_Role= $request->input('NomRole');
+        $donnee = $roles->save();
+        if ($donnee) {
+            return back()->with("status", "Roles ajouté avec succés!");
+        } else {
+            return back()->with('error', "Erreur");
+        }
+    }
+
 
     public function Presence(){
         return view('employee.PresenceEmployee');
