@@ -98,7 +98,7 @@
                                                 <span class="fa fa-clipboard"></span> Role <span class="caret IconRole"></span></a>
                                                 <ul class="dropdown-menu dropdownRole">
                                                     <li>
-                                                        <a class="container"  id="menuRole" href="">
+                                                        <a class="container"  id="menuRole" href="{{ route('AjoutRole')}}">
                                                             Ajouter
                                                         </a>
                                                        

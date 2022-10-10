@@ -225,10 +225,16 @@ class HomeController extends Controller
     
    
     }
+    /*roles*/
+    public function AjoutRole(){
+        return view('Roles.AjoutRoles');
+    }
 
     public function Presence(){
         return view('employee.PresenceEmployee');
     }
+
+
     public function Statistique(){
         $users= User::count();
         $mpiasa= Employee::count();

@@ -45,5 +45,8 @@ Route::get('/Recherche', [App\Http\Controllers\HomeController::class,'Recherche'
 /*présence employées*/
 Route::get('/Presence',[App\Http\Controllers\HomeController::class,'Presence'])->name('Presence');
 
+/*Ajout de role*/
+Route::get('/AjoutRole',[App\Http\Controllers\HomeController::class,'AjoutRole'])->name('AjoutRole');
+
 /*statistic*/
 Route::get('/Statistique',[App\Http\Controllers\HomeController::class,'Statistique'])->name('Statistique');
