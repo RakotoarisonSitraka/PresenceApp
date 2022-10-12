@@ -231,7 +231,10 @@ class HomeController extends Controller
     }
     /*roles*/
     public function AjoutRole(){
-        return view('Roles.AjoutRoles');
+        $roles = Roles::orderBy('id','DESC')->paginate(2);
+        // $users= User::with()  orderBy('id','DESC')->paginate(4)
+        // return view('ListUser', compact('users'));
+        return view('Roles.AjoutRoles', compact('roles'));
     }
     public function SauverRoles(Request $request){
         $request->validate([

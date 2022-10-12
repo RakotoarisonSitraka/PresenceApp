@@ -81,16 +81,22 @@
                                 <div class="sidebar-menu"> 
                                      {{-- fa fa-lis --}}
                                     <ul>
-                                        <li><a href="{{ url('Ajout-employee') }}" class="active"><span
-                                                    class="fa fa-registered "></span><span>Enregistrement</span></a></li>
+                                        <li><a href="/home" class="active"><span
+                                            class="fa fa-list "></span><span>Liste des employes</span></a></li>      
+                                        {{-- <li><a href="/home"><span class="fa fa-list"></span><span>Liste des employes</span></a>
+                                        </li>  --}}
                                         {{-- <li><a href="#"><span class="fa fa-tasks"></span><span>Taches</span></a>
                                         </li> --}}
                                         {{-- <li><a href="#"><span
-                                                    class="fa fa-registered"></span><span>Enregistrement</span></a></li> --}}
-                                        <li><a href="/home"><span class="fa fa-list"></span><span>Liste des employes</span></a>
-                                        </li>            
+                                                    class="fa fa-registered"></span><span>Enregistrement</span></a></li> 
+                                                     <li><a href="{{ url('Ajout-employee') }}" class="active"><span
+                                            class="fa fa-registered "></span><span>Enregistrement</span></a></li>        
+                                                    --}}
+                                         
+                                        <li><a href="{{ url('Ajout-employee') }}"><span
+                                         class="fa fa-registered "></span><span>Enregistrement</span></a></li>   
                                         <li><a href="{{ route('Presence')}}"><span
-                                                    class="fa fa-list"></span><span>Liste de presence</span></a>
+                                                    class="fa fa-list"></span><span>Liste des presences</span></a>
                                                     
                                         </li>
                                         <li>
@@ -103,11 +109,11 @@
                                                         </a>
                                                        
                                                     </li>
-                                                    <li class="">
+                                                    {{-- <li class="">
                                                         <a class=" container"  id="menuRole" href="">
                                                             Modifier
                                                         </a>
-                                                    </li>
+                                                    </li> --}}
                                                 </ul>
                                         </li>
                                         {{-- <li><a href=""><span

@@ -1,13 +1,13 @@
 @extends('layouts.app')
 @section('titre')
-    Ajout d'administrateur
+Enregistrement d'administrateur
 @endsection
 @section('content')
     <div class="container reg register">
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
-                <div class="card-header"><h2>Ajouter d" administrateur</h2></div>
+                <div class="card-header"><h2>Enregistrement d' administrateur</h2></div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">

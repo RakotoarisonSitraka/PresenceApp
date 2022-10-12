@@ -12,7 +12,7 @@
             {{ session('error') }}
         </div>
     @endif
-    <form action="{{ route('add-employee') }}" class=" formee" enctype="multipart/form-data" method="POST">
+    <form action="{{ route('add-employee') }}" class=" formee formRegister" enctype="multipart/form-data" method="POST">
         @csrf
         <div>
             <li class="enregistrement">
@@ -148,7 +148,7 @@
         </div>
         <center>
             <button class="btn btn-success but mx-auto">Enregistrer</button>
-        </center>
+        </center><br><br>
 
 
     </form>

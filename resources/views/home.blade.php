@@ -76,7 +76,7 @@
                                                         <h1><strong>Suppression</strong></h1>
                                                     </div>
                                                     <div class="modal-body">
-                                                        Voulez vous Supprimer cette employée??
+                                                        Voulez vous Supprimer cette employé??
                                                     </div>
                                                     <div class="modal-footer">
 
@@ -107,7 +107,7 @@
                                             <div class="modal-content">
                                                 <div class="modal-header ModifEmploye">
                                                     <h5 class="modal-title" id="ModifierLabel"><strong>Modification
-                                                            d'Employée</strong></h5>
+                                                            d'Employé</strong></h5>
                                                     <button type="button" class="btn-close" data-dismiss="modal"
                                                         aria-label="Close"></button>
                                                 </div>
