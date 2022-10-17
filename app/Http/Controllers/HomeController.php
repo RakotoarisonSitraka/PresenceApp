@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Employee;
+use App\Models\Presence;
 use App\Models\Roles;
 use Illuminate\Http\File;
 use Illuminate\Support\Facades\Auth;
@@ -172,6 +173,7 @@ class HomeController extends Controller
             $employer->CIN = $request->input('CIN');
             $employer->Addresse = $request->input('Adresse');
             $employer->Sexe = $request->input('Sexe');
+            $employer->role_id = $request->input('role');
             // $employer->Position = $request->input('Position');
             // $employer->Section = $request->input('Section');
             $employer->Ville = $request->input('Ville');
@@ -196,8 +198,9 @@ class HomeController extends Controller
     public function AfficherEmployer()
     {
         //return view('home');
+        $roles= Roles::all();
         $Employes = Employee::orderBy('id','DESC')->paginate(4);
-        return view('home', compact('Employes'));
+        return view('home', compact('Employes','roles'));
     }
     /*Suppression staff*/
     public function SupprimerEmployer($id)
@@ -250,9 +253,30 @@ class HomeController extends Controller
         }
     }
 
-
+/*présence*/
     public function Presence(){
-        return view('employee.PresenceEmployee');
+        $Presence=Presence::with('employee')->orderBy('Date','DESC')->paginate(3);
+        // $MpiasaInfo=Employee::get();
+        // $InfoEmployee=Employee::orderBy('Prenom','DESC');
+        return view('employee.PresenceEmployee', compact('Presence'));
+    }
+    public function SauverPresence(Request $request){
+        $request->validate([
+            'Dynamisme' => 'required|string',
+            'Date' => 'required',
+        ]);
+        $Presence = new Presence();
+        $Presence->employee_id = $request->input('employeeId');
+        $Presence->Options= $request->input('Dynamisme');
+        $Presence->Date= $request->input('Date');
+        $Presence->Heure_Entree= $request->input('HeureEntre');
+        $Presence->Heure_Sortie= $request->input('HeureSortie');
+        $donnee = $Presence->save();
+        if ($donnee) {
+            return redirect('/Presence')->with("status", "Presence enregistré avec succés!");
+        } else {
+            return back()->with('error', "Erreur");
+        }
     }
 
 

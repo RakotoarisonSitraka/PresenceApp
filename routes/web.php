@@ -42,8 +42,13 @@ Route::post('/modifierEmployee/{id}',[App\Http\Controllers\HomeController::class
 /*recherche */
 Route::get('/Recherche', [App\Http\Controllers\HomeController::class,'Recherche'])->name('Recherche');
 
-/*présence employées*/
+
+/*présence*/
+/*présence employées manapoitra anle page mis anle presence vao avy napidirina*/
 Route::get('/Presence',[App\Http\Controllers\HomeController::class,'Presence'])->name('Presence');
+/*maka  ny données avy am requete*/
+Route::post('/SauverPresence',[App\Http\Controllers\HomeController::class,'SauverPresence'])->name('SauverPresence');
+
 
 /*Ajout de role*/
 Route::get('/AjoutRole',[App\Http\Controllers\HomeController::class,'AjoutRole'])->name('AjoutRole');

@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('Options');
             $table->date('Date');
-            $table->time('Heure_Entree');
-            $table->time('Heure_Sortie');
+            // $table->time('Heure_Entree')->nullable();
+            // $table->time('Heure_Sortie')->nullable();
             $table->timestamps();
         });
     }
@@ -31,5 +31,6 @@ return new class extends Migration
     public function down()
     {
         Schema::dropIfExists('presences');
+        
     }
 };
