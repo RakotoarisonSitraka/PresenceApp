@@ -53,6 +53,9 @@ Route::post('/SauverPresence',[App\Http\Controllers\HomeController::class,'Sauve
 /*Ajout de role*/
 Route::get('/AjoutRole',[App\Http\Controllers\HomeController::class,'AjoutRole'])->name('AjoutRole');
 Route::post('/SauverRoles',[App\Http\Controllers\HomeController::class,'SauverRoles'])->name('SauverRoles');
-
+Route::get('/SupprimerRole/{id}',[App\Http\Controllers\HomeController::class,'SupprimerRole'])->name('SupprimerRole');
+Route::post('/ModifierRole/{id}',[App\Http\Controllers\HomeController::class,'ModifierRole'])->name('ModifierRole');
+/*Horaire du présence*/
+Route::get('/Heure/{id}',[App\Http\Controllers\HomeController::class,'Heure'])->name('Heure');
 /*statistic*/
 Route::get('/Statistique',[App\Http\Controllers\HomeController::class,'Statistique'])->name('Statistique');

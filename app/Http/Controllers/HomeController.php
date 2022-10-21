@@ -234,10 +234,15 @@ class HomeController extends Controller
     }
     /*roles*/
     public function AjoutRole(){
-        $roles = Roles::orderBy('id','DESC')->paginate(2);
+        $roles = Roles::orderBy('Type_Role','ASC')->paginate(2);
         // $users= User::with()  orderBy('id','DESC')->paginate(4)
         // return view('ListUser', compact('users'));
         return view('Roles.AjoutRoles', compact('roles'));
+    }
+    public function SupprimerRole($id){
+        $roles = Roles::find($id);
+        $roles->delete();
+        return back()->with('status', "Role supprimé avec succés!");
     }
     public function SauverRoles(Request $request){
         $request->validate([
@@ -252,13 +257,28 @@ class HomeController extends Controller
             return back()->with('error', "Erreur");
         }
     }
+    public function ModifierRole(Request $request,$id){
+        $roles = Roles::find($id);
+        if ($roles) {
+            // dd($request);
+            $roles->Type_Role = $request->input('TypeRole');
+            $roles->save();
+            return back()->with("status", "Role modifié!");
+        }else {
+            return back()->with("error", "email name changed with success");
+        }
+       
+          
+    }
+
 
 /*présence*/
     public function Presence(){
         $Presence=Presence::with('employee')->orderBy('Date','DESC')->paginate(3);
+        $NbrPresent=Presence::count();
         // $MpiasaInfo=Employee::get();
         // $InfoEmployee=Employee::orderBy('Prenom','DESC');
-        return view('employee.PresenceEmployee', compact('Presence'));
+        return view('employee.PresenceEmployee', compact('Presence','NbrPresent'));
     }
     public function SauverPresence(Request $request){
         $request->validate([
@@ -278,7 +298,20 @@ class HomeController extends Controller
             return back()->with('error', "Erreur");
         }
     }
-
+    /*liste des présence affichage*/
+    public function Heure(Request $request, $id){
+        $Presence = Presence::find($id);
+        // $Presence=Presence::with('presence')->orderBy('Date','DESC')->paginate(3);
+        if ( $Presence) {
+            // $heureEntre=$Presence->Heure_Entree;
+            // $heureSortie=$Presence->Heure_Sortie;
+            // $calc= $heureEntre -  $heureSortie;
+            // echo $calc;
+          return view('employee.Heure',compact('Presence'));   
+        }
+      
+        // return $id;
+    }
 
     public function Statistique(){
         $users= User::count();

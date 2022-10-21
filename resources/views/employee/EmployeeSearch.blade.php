@@ -263,48 +263,74 @@
                                                         aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <h4>Prenom: {{ $valiny->Prenom }} </h4><br>
-                                                    <center> Option:</center><select class="form-select md-6"
-                                                        aria-label="" name="">
-                                                        <option selected>Absent</option>
-                                                        <option value="">Present</option>
-                                                    </select><br>
-                                                    <div class="row form-group">
-                                                        <label for="date" class="col-sm-3 ">Date d'Aujourd'hui</label>
-                                                        <div class="col-sm-6">
-                                                            <div class="input-group date" id="datepicker">
-                                                                <input type="date" class="form-control">
-
+                                                    {{ $valiny->Prenom }}
+                                                    <form action="{{ route('SauverPresence') }}" method="POST"
+                                                        enctype="multipart/form-data">
+                                                        @csrf
+                                                        <input type="hidden" name="employeeId" value="{{ $valiny->id }}">
+                                                        {{-- @foreach ($roles as $anjara)
+                                                        <option value="{{ $anjara->id }}">{{ $anjara->Type_Role}}</option>
+                                                    @endforeach --}}
+                                                        {{-- Prenom:<input class="form-control" value="" 
+                                                        name="NomEmployeePresence"> --}}
+                                                        <center> Assiduité :</center><select class="form-select md-6"
+                                                            aria-label="" name="Dynamisme">
+                                                            {{-- <option value="Absent"selected>Absent</option> --}}
+                                                            <option value="Present">Present</option>
+                                                        </select><br>
+                                                        <div class="row form-group">
+                                                            <label for="date" class="col-sm-3 ">Date
+                                                                d'Aujourd'hui</label>
+                                                            <div class="col-sm-6">
+                                                                <div class="input-group date" id="datepicker">
+                                                                    <input type="date" class="form-control"
+                                                                    name="Date"   @error('Date') is-invalid @enderror>
+                                                                    @error('Date')
+                                                                      <span class="text-danger">{{ $message }}</span>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
+                                                        </div><br>
+                                                        <div class="row form-group">
+                                                            <label for="time" class="col-sm-3 ">Heure
+                                                                d'entrée</label>
+                                                            <div class="col-sm-6">
+                                                                <div class="input-group date" id="datepicker">
+                                                                    <input type="Time" class="form-control"
+                                                                        min="00:00"    name="HeureEntre"  
+                                                                     @error('HeureEntre') is-invalid @enderror>
+                                                                     @error('HeureEntre')
+                                                                       <span class="text-danger">{{ $message }}</span>
+                                                                     @enderror
+                                                                </div>
+                                                            </div>
+                                                        </div><br>
+                                                        <div class="row form-group">
+                                                            <label for="date" class="col-sm-3 ">Heure de
+                                                                sortie</label>
+                                                            <div class="col-sm-6">
+                                                                <div class="input-group date" id="datepicker">
+                                                                    <input type="Time" class="form-control"
+                                                                        min="00:00"  name="HeureSortie"  
+                                                                        @error('HeureSortie') is-invalid @enderror>
+                                                                        @error('HeureSortie')
+                                                                          <span class="text-danger">{{ $message }}</span>
+                                                                        @enderror
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div><br>
-                                                    <div class="row form-group">
-                                                        <label for="date" class="col-sm-3 ">Heure d'entrée</label>
-                                                        <div class="col-sm-6">
-                                                            <div class="input-group date" id="datepicker">
-                                                                <input type="Time" class="form-control"
-                                                                    min="00:00">
 
-                                                            </div>
-                                                        </div>
-                                                    </div><br>
-                                                    <div class="row form-group">
-                                                        <label for="date" class="col-sm-3 ">Heure de sortie</label>
-                                                        <div class="col-sm-6">
-                                                            <div class="input-group date" id="datepicker">
-                                                                <input type="Time" class="form-control"
-                                                                    min="00:00">
+                                                      </div><br><br><br>
 
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div><br><br><br>
-
-                                                <div class="modal-footer">
+                                                   <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary"
-                                                        data-dismiss="modal">Fermer</button>
-                                                    <button type="button" class="btn btn-primary">Enregistrer</button>
-                                                </div><br><br>
+                                                        data-dismiss="modal">Annuler</button>
+                                                    <button type="submit" class="btn btn-primary">Valider</button>
+                                                   </div><br><br>
+                                                </form>
+                                            </div>
+
+                                               
                                             </div>
                                         </div>
                                     </div>

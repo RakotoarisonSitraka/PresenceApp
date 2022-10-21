@@ -9,12 +9,12 @@
             {{ session('status') }}
           </div>
         @endif
-        <div class="card-header Stat">
+        {{-- <div class="card-header Stat">
             <h6 class="h6">Liste</h6>
-        </div>
+        </div> --}}
         <div class="cards">
            
-            <div class="card-single CardSing">
+            {{-- <div class="card-single CardSing">
                 <div>
                     <h2>50</h2>
                     <small>Nombres des employés</small>
@@ -22,42 +22,21 @@
                 <div>
                     <span class="fa-solid fa-user"></span>
                 </div>
-            </div>
-            <div class="card-single">
+            </div>--}}
+            <div class="card-single CardRole">
                 <div>
-                    <h2>5</h2>
-                    <small>Section</small>
+                    <h2>{{$NbrPresent}}</h2>
+                    <small>Présents Aujourd'hui</small>
                 </div>
                 <div>
                     <span class="fa fa-house"></span>
                 </div>
-            </div>
-{{-- 
-            <div class="card-single">
-                <div>
-                    <h2>8</h2>
-                    <small>Fournisseur</small>
-                </div>
-                <div>
-                    <span class=""></span>
-                </div>
-            </div>
-
-            <div class="card-single">
-                <div>
-                    <h2>6</h2>
-                    <small>Roles</small>
-                </div>
-                <div>
-                    <span class="fa fa-newspaper"></span>
-                </div>
-            </div> --}}
-          
+            </div>           
         </div>
         <div class="composant">
             <form  action="" method="" class="d-flex rech">
-                <input class="form-control" id="InputPresence" type="search" placeholder="Recherche..." aria-label="" name="">
-                <button class="btn btn-outline-warning " type="submit">Recherche</button>
+                <input class="form-control" id="InputPresence" type="search" placeholder="Recherche par date (exemple 2022-10-17)..." aria-label="" name="">
+                <button class="btn btn-outline-warning " type="submit">Chercher</button>
             </form><br><br>
             <div class="ventes">
                 <div class="case">
@@ -66,18 +45,24 @@
                             Voir plus <span class="fa fa-arrow-right"></span>
                         </button> --}}
                     </div>
-                  
+                   <form action="">
                     <div class="body-case">
-                        <div class="tableau">
-                            <table class="table tab MainPresence">
+                        <div class="tableau">         
+                           <table class="table tab MainPresence TabRole">            
                                 <thead>
                                     <tr>
-                                       <th data-sortable="true" data-field="id">Date</th>
+                                        <th id="ListeRole">
+                                            <center><i class="fa fa-list listePresence"></i>Liste des présences</center>
+                                          
+                                        </th>
+                                    </tr>                 
+                                    <tr>
+                                       <th data-sortable="true" data-field="id">Date <i class=""></i></th>
                                        {{-- <th data-sortable="true" data-field="Nom">Heure d'Entrée</th>
                                        <th data-sortable="true" data-field="Nom">Heure de sortie</th>   --}}
                                        <th data-sortable="true" data-field="Prenom ">Prénom</th>  
                                        <th data-sortable="true" data-field="Assiduité ">Assiduité</th>  
-                                       <th data-sortable="true" data-field="Option">Option</th>               
+                                       <th data-sortable="true" data-field="Option"><center>Option</center></th>               
                                     </tr>
                                   </thead>
                                   <tbody>
@@ -91,13 +76,23 @@
                                     
                                       <th>{{$Donnes->Options}}</th>
                                       <th><strong><button 
-                                        type="submit" class="btn btn-success container widthBtnRole">
-                                          Voir Plus</button></strong></th>
-                                     
+                                        type="button" class="btn btn-success container widthBtnRole">
+                                          Actif</button></strong></th>
+                                          <th>
+                                            <strong><a href="{{ url('/Heure/' . $Donnes->id) }}"
+                                                 class="btn btn-outline-primary container widthBtnRole">
+                                                  Horaire</a></strong>
+                                          </th>     
+                                          <th>
+                                            <strong><button 
+                                                type="button" class="btn btn-warning container widthBtnRole">
+                                                  Annuler</button></strong>
+                                          </th>  
+                                                       
                                      @endforeach
                                      @endif
-                                            
-                                                   </th>
+                                         
+        
                                                    
                                              </tr>
                                        
@@ -110,6 +105,8 @@
                         </div>
                     </div>
                 </div>
+                   </form>
+                   
             </div>
 
         </div>

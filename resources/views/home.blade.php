@@ -252,12 +252,12 @@
                                                                     </div>
                                                                 </div><br>
                                                                 <div class="col">
-                                                                    <label for="Position">Role</label>
+                                                                    <label for="Position">Fonction</label>
                                                                     <div class="form-group">
 
                                                                         <select class="form-select" aria-label=""
                                                                             name="role">
-                                                                            <option selected><strong>--Roles--</strong>
+                                                                            <option selected><strong>--Fonction--</strong>
                                                                             </option>
                                                                             @foreach ($roles as $anjara)
                                                                                 <option value="{{ $anjara->id }}">
@@ -272,7 +272,7 @@
                                                                 <button type="button" class="btn btn-secondary"
                                                                     data-dismiss="modal">Fermer</button>
                                                                 <button type="submit"
-                                                                    class="btn btn-primary">Valider</button>
+                                                                    class="btn btn-primary">Modifier</button>
                                                             </div>
                                                         </form>
                                                     </div>
@@ -309,7 +309,7 @@
                                                             name="NomEmployeePresence"> --}}
                                                             <center> Assiduité :</center><select class="form-select md-6"
                                                                 aria-label="" name="Dynamisme">
-                                                                <option value="Absent"selected>Absent</option>
+                                                                {{-- <option value="Absent"selected>Absent</option> --}}
                                                                 <option value="Present">Present</option>
                                                             </select><br>
                                                             <div class="row form-group">

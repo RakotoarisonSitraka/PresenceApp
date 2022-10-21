@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::table('employees', function (Blueprint $table) {
             $table->foreignId('role_id')->nullable()->constrained()->onDelete('set null')->onUpdate('cascade');
+            // $table->date('Date_Entre')->after('Profil');
         });
     }
 

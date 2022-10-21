@@ -22,6 +22,7 @@ return new class extends Migration
             // $table->string('Position')->nullable()->after('Profil');
             $table->string('Sexe')->nullable()->after('Profil');
             $table->string('Ville')->nullable()->after('Profil');
+           
             // $table->string('Matricule')->nullable()->after('Profil');
         });
     }
@@ -41,6 +42,7 @@ return new class extends Migration
             // $table->dropColumn('Position');
             $table->dropColumn('Sexe');
             $table->dropColumn('Ville');
+           
             // $table->dropColumn('Matricule');
         });
     }

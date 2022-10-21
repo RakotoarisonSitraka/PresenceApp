@@ -38,7 +38,7 @@
                                     class="col-md-4 col-form-label text-md-end"><h4 class="loginh4"></h4></label>
 
                                 <div class="col-md-6 InputWithIcon IconBg">
-                                    <input id="password" type="password" placeholder="Tapez votre Email...."
+                                    <input id="password" type="password" placeholder="Tapez votre mot de passe...."
                                         class="form-control MyInput @error('password') is-invalid @enderror" name="password"
                                         required autocomplete="current-password">
                                         <i class="fa-solid fa-lock i"></i>

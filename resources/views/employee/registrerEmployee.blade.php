@@ -136,7 +136,7 @@
             <div class="col">
                 <div class="form-group">
                     <select class="form-select" aria-label="" name="role">
-                        <option selected><strong>--Roles--</strong></option>
+                        <option selected><strong>--Fonction--</strong></option>
                         @foreach ($roles as $anjara)
                             <option value="{{ $anjara->id }}">{{ $anjara->Type_Role}}</option>
                         @endforeach

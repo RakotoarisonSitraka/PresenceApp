@@ -30,7 +30,7 @@ return new class extends Migration
         Schema::table('presences', function (Blueprint $table) {
             $table->dropColumn('Heure_Entree');
             $table->dropColumn('Heure_Sortie');
-            $table->dropConstrainedForeignId('presence_id');
+            $table->dropConstrainedForeignId('employee_id');
         });
     }
 };

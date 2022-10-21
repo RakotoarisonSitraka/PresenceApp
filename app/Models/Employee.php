@@ -17,4 +17,7 @@ class Employee extends Model
         'Profil',
 
     ];
+    public function presence(){
+        return $this->hasMany(Presence::class);
+    }
 }
