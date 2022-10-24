@@ -144,14 +144,14 @@
 .matric{
     font-family: Verdana;
 }
-.modalEditStaff{
-    background-color: #0084ff;
+.modalPresence{
+    background-color:rgb(54, 121, 247);
     color: white;
 }
-.ModifEmploye{
-    background-color: rgb(118, 184, 238);
-    color: white;
+.modalEdit{
+    font-size: 18px;
 }
+
 .CardLogin{
     margin-left: 65px;
 }
@@ -264,4 +264,14 @@
 }
 .presencePhoto{
     margin-top: -29px;
+}
+.DetailsEmploye{
+    background-color: #00ccff;
+    font-size: 16px;
+    
+    color: white;
+}
+.ModifEmployes{
+    background-color:rgb(62, 161, 62);
+    color: white;
 }

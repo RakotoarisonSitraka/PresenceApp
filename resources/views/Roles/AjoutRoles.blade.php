@@ -48,8 +48,10 @@ Ajout des roles
                 @if (is_countable($roles) && count($roles) != 0)
                 @foreach ($roles as $anjara)
                 <tr>
+                    
                   {{-- <th>{{ $anjara->id}}</th> --}}
                   <th>{{$anjara->Type_Role}}</th>
+                  {{-- <th>{{$anjara->employees->Nom}}</th> --}}
                   <th><strong><button data-toggle="modal" data-target="{{'#Modifier' . $anjara->id }}"
                     class="btn btn-success container widthBtnRole" type="button">
                       Modifier</button></strong>

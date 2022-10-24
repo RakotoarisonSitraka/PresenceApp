@@ -20,11 +20,12 @@
 }
 #td{
     padding-left:9px;
+    
 }
 .titre{
-    text-transform: uppercase;
-    font-size: 0.9em;
-    font-family: 'verdana', Times, serif;
+    text-transform: capitalize;
+    font-size: 1em;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
     font-weight: 900;
     text-align: center;
 }
@@ -38,8 +39,9 @@
 .scroll{
     overflow: auto;
     height: 500px;
-    width: 983px;
+    width:999px;
     font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 ::-webkit-scrollbar{
     width: 16px;
@@ -76,8 +78,19 @@
     font-size: 20px;
 }
 .fontAdd{
-    margin-left: 690px;
+    margin-left: 730px;
     font-size: 26px;
     color: white;
     text-decoration: none;
+}
+.ContainerListeEmployes{
+    margin-left: 20px;
+}
+.GaucheDetails{
+    margin-left: 10px;
+    text-align: center;
+
+}
+#telephoneDetails{
+    margin-left: -14px;
 }

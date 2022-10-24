@@ -101,7 +101,7 @@
                                         </li>
                                         <li>
                                             <a href="" class="btn btn-primary dropdown-toggle container RolesEmp" data-toggle="dropdown">
-                                                <span class="fa fa-clipboard"></span> Role <span class="caret IconRole"></span></a>
+                                                <span class="fa fa-clipboard"></span> Fonction <span class="caret IconRole"></span></a>
                                                 <ul class="dropdown-menu dropdownRole">
                                                     <li>
                                                         <a class="container"  id="menuRole" href="{{ route('AjoutRole')}}">

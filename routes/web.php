@@ -35,6 +35,7 @@ Route::post('/change-mdp',[App\http\Controllers\HomeController::class, 'updatePa
 //coté employée
 // Route::get('/Ajout-employee',[App\http\Controllers\HomeController::class, 'AjoutEmployee'])->name('Ajout-employee');
 Route::post('/AjoutEmployee',[App\http\Controllers\HomeController::class, 'AddEmployee'])->name('add-employee');
+// Route::get('/DetailsEmployes',[App\http\Controllers\HomeController::class, 'DetailsEmployes'])->name('DetailsEmployes');
 Route::get('/Ajout-employee',[App\http\Controllers\HomeController::class, 'AjoutEmployee'])->name('Ajout-employee');
 Route::get('/home',[App\Http\Controllers\HomeController::class,'AfficherEmployer'])->name('home');
 Route::get('/Supprimer/{id}',[App\Http\Controllers\HomeController::class,'SupprimerEmployer'])->name('Suppression-employee');
@@ -48,7 +49,7 @@ Route::get('/Recherche', [App\Http\Controllers\HomeController::class,'Recherche'
 Route::get('/Presence',[App\Http\Controllers\HomeController::class,'Presence'])->name('Presence');
 /*maka  ny données avy am requete*/
 Route::post('/SauverPresence',[App\Http\Controllers\HomeController::class,'SauverPresence'])->name('SauverPresence');
-
+Route::get('/AnnulerPresence/{id}',[App\Http\Controllers\HomeController::class,'AnnulerPresence'])->name('AnnulerPresence');
 
 /*Ajout de role*/
 Route::get('/AjoutRole',[App\Http\Controllers\HomeController::class,'AjoutRole'])->name('AjoutRole');

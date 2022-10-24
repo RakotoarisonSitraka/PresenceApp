@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Employee;
 use App\Models\Presence;
-use App\Models\Roles;
+use App\Models\Role;
 use Illuminate\Http\File;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -108,7 +108,7 @@ class HomeController extends Controller
     public function AjoutEmployee()
     {
         // return view('employee.ajout-employee'); manao affichage nle role
-        $roles= Roles::all();
+        $roles= Role::all();
         return view('employee.registrerEmployee',compact('roles'));
     }
     public function AddEmployee(Request $request)
@@ -158,7 +158,10 @@ class HomeController extends Controller
             return back()->with('error', "Erreur");
         }
     }
-
+    /*détails employes*/
+     public function DetailsEmployes(){
+        return 'Ok!';
+     }
     /*modifier l'employes*/
      public function ModifierEmployee(Request $request, $id){
         $employer = Employee::find($id);
@@ -198,7 +201,7 @@ class HomeController extends Controller
     public function AfficherEmployer()
     {
         //return view('home');
-        $roles= Roles::all();
+        $roles= Role::all();
         $Employes = Employee::orderBy('id','DESC')->paginate(4);
         return view('home', compact('Employes','roles'));
     }
@@ -234,13 +237,13 @@ class HomeController extends Controller
     }
     /*roles*/
     public function AjoutRole(){
-        $roles = Roles::orderBy('Type_Role','ASC')->paginate(2);
+        $roles = Role::orderBy('Type_Role','ASC')->paginate(2);
         // $users= User::with()  orderBy('id','DESC')->paginate(4)
         // return view('ListUser', compact('users'));
         return view('Roles.AjoutRoles', compact('roles'));
     }
     public function SupprimerRole($id){
-        $roles = Roles::find($id);
+        $roles = Role::find($id);
         $roles->delete();
         return back()->with('status', "Role supprimé avec succés!");
     }
@@ -248,7 +251,7 @@ class HomeController extends Controller
         $request->validate([
             'NomRole' => 'required|string'
         ]);
-        $roles = new Roles();
+        $roles = new Role();
         $roles->Type_Role= $request->input('NomRole');
         $donnee = $roles->save();
         if ($donnee) {
@@ -258,7 +261,7 @@ class HomeController extends Controller
         }
     }
     public function ModifierRole(Request $request,$id){
-        $roles = Roles::find($id);
+        $roles = Role::find($id);
         if ($roles) {
             // dd($request);
             $roles->Type_Role = $request->input('TypeRole');
@@ -301,22 +304,33 @@ class HomeController extends Controller
     /*liste des présence affichage*/
     public function Heure(Request $request, $id){
         $Presence = Presence::find($id);
-        // $Presence=Presence::with('presence')->orderBy('Date','DESC')->paginate(3);
-        if ( $Presence) {
-            // $heureEntre=$Presence->Heure_Entree;
-            // $heureSortie=$Presence->Heure_Sortie;
-            // $calc= $heureEntre -  $heureSortie;
-            // echo $calc;
-          return view('employee.Heure',compact('Presence'));   
-        }
-      
+        $Role=Role::where('id',$Presence->employee->role_id)->first();  /*feych roles anle employee izay amle presence no atao eto
+           comparaison no atao ato refa mis clé etrangère de le identifiant no comparena atao anaty condition */
+        // dd($Role);   
+          return view('employee.Heure',compact('Presence','Role'));    
         // return $id;
+    }
+    public function AnnulerPresence($id)
+    {
+        $AnnulerPresence = Presence::find($id);
+        $AnnulerPresence->delete();         
+        return back()->with('status', "Présence annulé !");
     }
 
     public function Statistique(){
         $users= User::count();
         $mpiasa= Employee::count();
-        return view('employee.Statistique', compact('users','mpiasa'));
+        $fonction=Role::count();
+        $RoleAvecNrbEmployee=Role::withCount('employees')->get();
+        /*withcount: maka isa miaraka am données... eto zao maka isany employes izay
+        misahana ny roles tsirairay  */
+        foreach ($RoleAvecNrbEmployee as $role) {
+            $role->employees=Employee::where('role_id',$role->id)->get();
+        }
+        // $EmployeeParFonction=Employee::where('role_id',$RoleAvecNrbEmployee);
+        /*m fetch withCont mitovy am with ian fa m compte ftsn*/
+        // dd($RoleAvecNrbEmployee);
+        return view('employee.Statistique', compact('users','mpiasa','fonction','RoleAvecNrbEmployee'));
         // return view('employee.Statistique');
     }
 }

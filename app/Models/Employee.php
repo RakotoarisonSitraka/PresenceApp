@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Roles;
 
 class Employee extends Model
 {
@@ -17,7 +18,10 @@ class Employee extends Model
         'Profil',
 
     ];
-    public function presence(){
-        return $this->hasMany(Presence::class);
-    }
+   public function presences(){
+          $this->hasMany(Presence::class);
+   }
+   public function role(){
+    return $this->belongsTo(Role::class);
+   }
 }

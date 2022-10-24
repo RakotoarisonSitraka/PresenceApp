@@ -15,9 +15,11 @@
           height="210" alt="image">
      </strong><br><br>
    <div>
-    <div class="Photo">Photo</div>
-    <option>{{ $Presence->employee->employee_id}}</option>
-    {{-- <div>Fonction :{{$Presence->employee->role_id}}</div> --}}
+    <div class=""><strong>Nom: </strong>{{$Presence->employee->Prenom}}</div>
+    <h3>Fonction:{{ $Role->Type_Role}}</h3>
+    {{-- <h1>{{ $Role->}}</h1> --}}
+    {{-- <option value="{{ $Presence->employee->id }}">{{ $Presence->employee->role_id}}</option> --}}
+    {{-- <div>Fonction :{{$Presence->role->Type_role}}</div> --}}
    </div>
     {{-- <div class="infoEmployee">
        ff
@@ -26,12 +28,12 @@
        <thead>
          <tr>
           <th id="HoraireEmp">
-            <center><i class="fa fa-list listePresence"></i>Horaires d' employé</center>
+            <center><i class="fa fa-clock listePresence"></i>Horaires d' employé</center>
           <th>
         </tr>
         <tr>
-           <th>Matricule</th>
-           <th>Prénom </th>
+           {{-- <th>Matricule</th>
+           <th>Prénom </th> --}}
            <th>Date</th>
            <th>Heure d'entrée</th>
            <th>Heure de sortie</th>
@@ -39,8 +41,8 @@
        </thead>
        <tbody>
          <tr>
-           <th>{{$Presence->employee->id}}</th>
-           <th>{{$Presence->employee->Prenom}}</th>
+           {{-- <th>{{$Presence->employee->id}}</th>
+           <th>{{$Presence->employee->Prenom}}</th> --}}
            <th>{{$Presence->Date}}</th>
            <th>{{$Presence->Heure_Entree}}</th>
            <th>{{$Presence->Heure_Sortie}}</th>

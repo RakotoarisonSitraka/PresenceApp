@@ -39,8 +39,8 @@ Statistique des employés
 
         <div class="card-single">
             <div>
-                <h2>6</h2>
-                <small>Roles</small>
+                <h2>{{$fonction}}</h2>
+                <small>Fonctions</small>
             </div>
             <div>
                 <span class="fa fa-newspaper"></span>
@@ -52,50 +52,44 @@ Statistique des employés
         <div class="ventes">
             <div class="case">
                 <div class="header-case">
-                    <h2>Listes</h2>
-                    <button class="buttonn">
+                    <h2>Nombre des employé pour chaque fonction</h2>
+                    {{-- <button class="buttonn">
                         Voir plus <span class="fa fa-arrow-right"></span>
-                    </button>
-                </div>
+                    </button> --}}
+                </div><br>
                 <div class="body-case">
-                    <div class="tableau">
-                        <table width="100%">
-                            <thead>
-                                <tr>
-                                    <td>lolo</td>
-                                    <td>lili</td>
-                                    <td>lala</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>klaa</td>
-                                    <td>lady</td>
-                                    <td><span class="status-produit color-one">mass</span></td>
-                                </tr>
-                                <tr>
-                                    <td>klaa</td>
-                                    <td>lady</td>
-                                    <td><span class="status-produit color-two">mass</span></td>
-                                </tr>
-                                <tr>
-                                    <td>klaa</td>
-                                    <td>lady</td>
-                                    <td><span class="status-produit color-three">mass</span></td>
-                                </tr>
-                                <tr>
-                                    <td>klaa</td>
-                                    <td>lady</td>
-                                    <td><span class="status-produit color-four">mass</span></td>
-                                </tr>
-                                <tr>
-                                    <td>klaa</td>
-                                    <td>lady</td>
-                                    <td><span class="status-produit color-five">mass</span></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Fonction</th>
+                                <th scope="col">Effectif</th>
+                                <th scope="col">Nom d'employé</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($RoleAvecNrbEmployee as $Role)
+                             <tr>
+                                 <th>{{ $Role->Type_Role }}</th>
+                                 <th> {{ $Role->employees_count}}</th>
+                                 <th>
+                                    @foreach ($Role->employees as $employee)
+                                        {{ $employee->Nom}}
+                                    @endforeach
+                                 </th>
+                             </tr>
+                          
+                           
+                            {{-- {{  $Role->employees}} --}}
+                          
+                        @endforeach
+                            <tr>
+                                <th></th>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                  
+                      
                 </div>
             </div>
         </div>

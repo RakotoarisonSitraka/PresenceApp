@@ -142,7 +142,8 @@
                         @endforeach
                     </select>
                 </div>
-                
+
+                {{-- {{ $roles->employee->Type_Role}} --}}
             </div><br><br><br>
 
         </div>

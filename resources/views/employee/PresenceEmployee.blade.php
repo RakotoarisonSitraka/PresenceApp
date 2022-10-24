@@ -35,7 +35,7 @@
         </div>
         <div class="composant">
             <form  action="" method="" class="d-flex rech">
-                <input class="form-control" id="InputPresence" type="search" placeholder="Recherche par date (exemple 2022-10-17)..." aria-label="" name="">
+                <input class="form-control" id="InputPresence" type="search" placeholder="Recherche de présence par date (exemple AA-MM-JJ)..." aria-label="" name="">
                 <button class="btn btn-outline-warning " type="submit">Chercher</button>
             </form><br><br>
             <div class="ventes">
@@ -52,6 +52,7 @@
                                 <thead>
                                     <tr>
                                         <th id="ListeRole">
+                                            {{-- <i class="fa-solid fa-timer"></i> --}}
                                             <center><i class="fa fa-list listePresence"></i>Liste des présences</center>
                                           
                                         </th>
@@ -64,6 +65,7 @@
                                        <th data-sortable="true" data-field="Assiduité ">Assiduité</th>  
                                        <th data-sortable="true" data-field="Option"><center>Option</center></th>               
                                     </tr>
+            
                                   </thead>
                                   <tbody>
                                     @if (is_countable($Presence) && count($Presence) != 0)
@@ -84,10 +86,34 @@
                                                   Horaire</a></strong>
                                           </th>     
                                           <th>
-                                            <strong><button 
-                                                type="button" class="btn btn-warning container widthBtnRole">
+                                            <strong><button  data-target="{{ '#AnnulerPresence' . $Donnes->id }}"
+                                             data-toggle="modal"    type="button" class="btn btn-warning container widthBtnRole">
                                                   Annuler</button></strong>
+                                                 {{-- modal suppression --}}
+                                        <div class="modal fade" id="{{ 'AnnulerPresence' . $Donnes->id }}" tabindex="-1"
+                                            role="dialog" aria-labelledby="AnnulerLabel">
+                                            <div class="modal-dialog modal-lg" role="document">
+                                                <div class="modal-content">
+                                                    {{-- <div class="modal-header">
+                                                        <h1><strong></strong></h1>
+                                                    </div> --}}
+                                                    <div class="modal-body">
+                                                        Voulez vous vraiment annuler la présence de cette employé??
+                                                    </div>
+                                                    <div class="modal-footer">
+
+                                                        <a class="btn btn-danger"
+                                                            href="/AnnulerPresence/{{ $Donnes->id }}">Oui</a>
+
+                                                        {{-- <a class="btn btn-danger" href="/Supprimer/{{$staff->id}}">Oui</a> --}}
+
+                                                        <button type="button" class="btn btn-warning"
+                                                            data-dismiss="modal">Non</button>
+                                                    </div>
+                                                </div>
+                                                {{-- fin --}}
                                           </th>  
+                                          {{-- <th>ss</th> --}}
                                                        
                                      @endforeach
                                      @endif
