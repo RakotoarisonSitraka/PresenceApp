@@ -71,6 +71,7 @@ Statistique des employés
                              <tr>
                                  <th>{{ $Role->Type_Role }}</th>
                                  <th> {{ $Role->employees_count}}</th>
+                                 {{-- eto ilay formalisme dia hoe AnaranleTable_count --}}
                                  <th>
                                     @foreach ($Role->employees as $employee)
                                         {{ $employee->Nom}}

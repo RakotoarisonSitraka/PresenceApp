@@ -43,6 +43,136 @@
 
                                     </strong></td>
                                 <td>
+                                    {{-- <strong><button data-toggle="modal" data-target="{{ '#Details' . $valiny->id }}"
+                                        type="button" class="btn btn-outline-info container">
+                                        <i class="fa-solid fa"></i>Details</button></strong> --}}
+
+                                       {{-- modal Details --}}
+                                    <div class="modal fade" id="{{ 'Details' . $valiny->id }}" tabindex="-1"
+                                        aria-labelledby="DetailsLabel" aria-hidden="true" data-backdrop="static"
+                                        data-keyboard="false">
+                                        <div class="modal-dialog modal-lg ">
+                                            <div class="modal-content">
+                                                <div class="modal-header DetailsEmploye">
+                                                    <h5 class="modal-title" id="DetailsLabel"><strong>Détails 
+                                                            d'Employé</strong></h5>
+                                                    <button type="button" class="btn-close" data-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <center>
+                                                    <div class="modal-body">
+                                                        <div class="mb-3">
+                                                            {{-- <label for="{{ 'formFileDisabled' . $staff->id }}"
+                                                                class="TypeFile form-group">Photo
+                                                                selectionnée</label> --}}
+                                                            {{-- <input class="form-control" name="Sary"
+                                                                type="file"
+                                                                id="{{ 'formFileDisabled' . $staff->id }}" --}}
+                                                                {{-- @error('Sary') is-invalid @enderror> --}}
+                                                            <img src="{{ asset('storage/ImageEmployee/' . $valiny->Profil) }}"
+                                                                alt="Image" width="120px" height="70px">
+                                                        </div>
+                                                </center>
+                                                       
+                                                        {{-- <input type="hidden" value="{{ $staff->id }}"> --}}
+                                                       <center>
+                                                        <h5><strong>Matricule:</strong> {{ $valiny->id }}</h5><br>
+                                                        <div class="row GaucheDetails">
+                                                            <div class="col ">
+                                                                <div class="form-group">
+                                                                    <label for="Nom"
+                                                                        class="textLabel"><strong>Nom:</strong> {{ $valiny->Nom }}</label>
+                                                                   
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="form-group ">
+                                                                    <label for="Prenom"
+                                                                        class="textLabel"><strong>Prénom:</strong> {{ $valiny->Prenom }}</label>
+                                                            
+                                                                </div>
+                                                        </div><br><br><br>
+                                                    
+                                                           <div class="row GaucheDetails">
+                                                            <div class="col">
+                                                                <div class="form-group container">
+                                                                    <label for="Email" class="textLabel"><strong>Email:</strong> {{ $valiny->Email }}</label>
+                                                                   
+                                                                </div>
+                                                            </div>
+                                                               
+                                                                <div class="col">
+                                                                    <div class="form-group ">
+                                                                        <label for="Age"
+                                                                            class="textLabel"><strong>Age:</strong> {{ $valiny->Age }}</label>
+                                                                       
+                                                                    </div><br>
+    
+                                                                </div>
+                                                           </div>
+                                                          
+                                                           <div class="row GaucheDetails">
+                                                            <div class="col">
+                                                                <div class="form-group">
+                                                                    <label for="telephone" id="telephoneDetails"
+                                                                        class="textLabel "><strong>Telephone:</strong>{{ $valiny->Telephone }}</label>
+                                                
+                                                                </div>
+                                                            </div>
+                                                        
+                                                            <div class="col">
+                                                                <div class="form-group ">
+                                                                    <label for="cin"
+                                                                        class="textLabel"><strong>CIN:</strong> {{ $valiny->CIN }}</label>
+                                                                
+                                                                </div>
+                                                            </div><br><br>
+                                                           </div><br><br><br>
+
+                            
+                                                            <div class="col GaucheDetails">
+                                                                <div class="form-group ">
+                                                                    <label for="Adresse"
+                                                                        class="textLabel">Adresse: {{ $valiny->Addresse }}</label>
+                                                                   
+                                                                </div>
+                                                            </div><br><br>
+                                                            <div class="col">
+                                                                <div class="form-group ">
+                                                                    <label for="Adresse"
+                                                                        class="textLabel">Sexe:{{$valiny->Sexe}}</label>
+                                                                   
+                                                                </div>
+                                                            </div><br>
+                                                        </div><br>
+                                                       <div class="row GaucheDetails">
+                                                        <div class="col">
+                                                            <div class="form-group ">
+                                                                  <label for="Ville">Ville d'Origine:{{ $valiny->Ville}}</label>
+                                                               
+                                                            </div>
+                                                        </div><br>
+                                                        <div class="col">
+                                                            <div class="form-group ">
+                                                                {{-- <label for="Position">Fonction: {{ $valiny->role->Type_Role}}</label> --}}
+                                                               
+                                                            </div>
+                                                        </div>
+                                                       </div><br><br>
+                                                    </div>
+                                                      
+                                                                   
+                                                      </div><br>
+                                                        </div><br>
+                                                       
+                                                </div>
+                                                       </center>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </td>
+                                <td>
                                     <button data-toggle="modal" data-target="{{ '#Supprim' . $valiny->id }}" type="button"
                                         class="btn btn-danger container">
                                         <i class="fa-solid fa-trash"></i></button></strong>

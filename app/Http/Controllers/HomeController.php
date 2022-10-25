@@ -223,6 +223,7 @@ class HomeController extends Controller
     
     public function Recherche(Request $request){
         // error_log("tongfa eto");
+        $roles= Role::all();
         if (isset($_GET['query'])) {
             $search_employee=$_GET['query'];
             // error_log($search_employee) % misolo texte;
@@ -230,7 +231,7 @@ class HomeController extends Controller
             $resultat->appends($request->all());
             return view('employee.EmployeeSearch',['resultat'=> $resultat, 'presence'=> $resultat]);
         }else{
-            return view('employee.EmployeeSearch');
+            return view('employee.EmployeeSearch',compact('roles'));
         }
     
    
@@ -238,9 +239,10 @@ class HomeController extends Controller
     /*roles*/
     public function AjoutRole(){
         $roles = Role::orderBy('Type_Role','ASC')->paginate(2);
+        $RoleNombre=Role::count();
         // $users= User::with()  orderBy('id','DESC')->paginate(4)
         // return view('ListUser', compact('users'));
-        return view('Roles.AjoutRoles', compact('roles'));
+        return view('Roles.AjoutRoles', compact('roles','RoleNombre'));
     }
     public function SupprimerRole($id){
         $roles = Role::find($id);
@@ -304,7 +306,8 @@ class HomeController extends Controller
     /*liste des présence affichage*/
     public function Heure(Request $request, $id){
         $Presence = Presence::find($id);
-        $Role=Role::where('id',$Presence->employee->role_id)->first();  /*feych roles anle employee izay amle presence no atao eto
+        $Role=Role::where('id',$Presence->employee->role_id)->first();  /*fetch roles anle employee 
+        izay amle presence no atao eto
            comparaison no atao ato refa mis clé etrangère de le identifiant no comparena atao anaty condition */
         // dd($Role);   
           return view('employee.Heure',compact('Presence','Role'));    
@@ -323,13 +326,16 @@ class HomeController extends Controller
         $fonction=Role::count();
         $RoleAvecNrbEmployee=Role::withCount('employees')->get();
         /*withcount: maka isa miaraka am données... eto zao maka isany employes izay
-        misahana ny roles tsirairay  */
+        misahana ny roles tsirairay..eto zao maka ny nbr ny employes izay mi executer anle role tsirairay
+        hoatra ny isany employés misahana ny  web
+          */
         foreach ($RoleAvecNrbEmployee as $role) {
             $role->employees=Employee::where('role_id',$role->id)->get();
         }
-        // $EmployeeParFonction=Employee::where('role_id',$RoleAvecNrbEmployee);
-        /*m fetch withCont mitovy am with ian fa m compte ftsn*/
-        // dd($RoleAvecNrbEmployee);
+        /*m fetch withCont mitovy am with ian fa m compte ftsn ...eto zao haka ny employes rehetra misahana 
+        ny role tsirairay hoatra hoe iza avy ny employes 15 devellopeurs izany
+        le hoe $role->employees io $clé->$valeur mety foan izay valeur atao eo */
+        // dd($RoleAvecNrbEmployee); mijery ny details an données 
         return view('employee.Statistique', compact('users','mpiasa','fonction','RoleAvecNrbEmployee'));
         // return view('employee.Statistique');
     }

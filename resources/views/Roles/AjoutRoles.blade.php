@@ -6,7 +6,7 @@ Ajout des roles
 <form  action="{{ route('SauverRoles') }}" class="rowwww" enctype="multipart/form-data" method="POST">
     @csrf
     <div class="card rolecard">
-        <h6 class="h6">Ajout des fonctions</h6>
+        <h6 class="h6">Ajout des fonctions <a href="" class="fa fa-add ajoutRole "></a></h6>
     </div><br>
     @if (session('status'))
 <div class="alert alert-success" role="alert">
@@ -34,14 +34,15 @@ Ajout des roles
     <div class="row">
        <div class="col-20 ">
            <div class="card-header">
-               <h6 class="h6 h6role">Liste des fonctions</h6>
+               <h6 class="h6 h6role">Liste des fonctions </h6>
            </div>
            <table class="table">
               <thead>
                 <tr>
                    {{-- <th data-sortable="true" data-field="id">Id</th> --}}
                    <th data-sortable="true" data-field="Nom">Fonction</th>
-                   <th data-sortable="true" data-field="Nom"><center>Option</center></th>                 
+                   <th data-sortable="true" data-field="Nom"><center>Option</center></th>  
+                   <th class="thh">Il y a ({{$RoleNombre}}) Fonctions</th>               
                 </tr>
               </thead>
               <tbody>

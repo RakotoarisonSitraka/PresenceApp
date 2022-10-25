@@ -192,11 +192,13 @@
  width: 960px;
 }
 .rolecard{
-    background-color: #03e64f;
+    background-color: #0c9239;
     color: white;
     border: none;
     box-shadow: 1px 1px 1px black;
     height: 40px;
+    text-align: center;
+    box-shadow: 4px 3px 2px black;
 }
 .formRegister{
     box-shadow: 6px  5px 6px rgb(27, 13, 13);
@@ -274,4 +276,14 @@
 .ModifEmployes{
     background-color:rgb(62, 161, 62);
     color: white;
+}
+.ajoutRole{
+    text-decoration: none;
+    color: white;
+}
+.ajoutRole:hover{
+    color: white;
+}
+.thh{
+    color: #0084ff;
 }
