@@ -15,4 +15,7 @@ class Role extends Model
     public function employees(){
         return $this->hasMany(Employee::class);
     }
+    public function Domaine(){
+        return $this->hasOne(Domaine::class);
+    }
 }

@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+// use Illuminate\Support\Carbon;
+use Carbon\Carbon;
 
 
 class HomeController extends Controller

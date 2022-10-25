@@ -88,7 +88,7 @@
                                           <th>
                                             <strong><button  data-target="{{ '#AnnulerPresence' . $Donnes->id }}"
                                              data-toggle="modal"    type="button" class="btn btn-warning container widthBtnRole">
-                                                  Annuler</button></strong>
+                                                  Annuler <i class="fa-solid fa-xmark annulerBtnPrsence"></i></button></strong>
                                                  {{-- modal suppression --}}
                                         <div class="modal fade" id="{{ 'AnnulerPresence' . $Donnes->id }}" tabindex="-1"
                                             role="dialog" aria-labelledby="AnnulerLabel">

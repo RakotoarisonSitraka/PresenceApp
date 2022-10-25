@@ -337,7 +337,7 @@
                                                                 <div class="mb-3">
                                                                     <label for="{{ 'formFileDisabled' . $staff->id }}"
                                                                         class="TypeFile form-group">Photo
-                                                                        selectionnée</label>
+                                                                        selectionnée <i class="fa-solid fa-image"></i></label>
                                                                     <input class="form-control" name="Sary"
                                                                         type="file"
                                                                         id="{{ 'formFileDisabled' . $staff->id }}"
@@ -395,10 +395,10 @@
                                                             </div><br>
                                                         </div>
                                                         <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary"
-                                                                data-dismiss="modal">Fermer</button>
+                                                            <button type="button" class="btn btn-secondary btnModalStaff"
+                                                                data-dismiss="modal">Annuler <i class="fa-solid fa-xmark"></i></button>
                                                             <button type="submit"
-                                                                class="btn btn-success">Modifier</button>
+                                                                class="btn btn-success btnModalStaff">Modifier <i class="fa-solid fa-pen-to-square"></i></button>
                                                         </div>
                                                     </form>
                                                 </div>
@@ -486,8 +486,8 @@
 
                                            <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary"
-                                                data-dismiss="modal">Annuler</button>
-                                            <button type="submit" class="btn btn-primary">Valider</button>
+                                                data-dismiss="modal">Annuler <i class="fa-solid fa-xmark"></i></button>
+                                            <button type="submit" class="btn btn-primary btnModalStaff">Valider <i class="fa-solid fa-square-check"></i></button>
                                            </div><br>
                                         </form>
                                     </div>
@@ -514,14 +514,15 @@
                                                         Voulez vous Supprimer cette employé??
                                                     </div>
                                                     <div class="modal-footer">
+                                                        <button type="button" class="btn btn-warning"
+                                                            data-dismiss="modal">Non <i class="fa-solid fa-xmark"></i></button>
 
                                                         <a class="btn btn-danger"
-                                                            href="/Supprimer/{{ $staff->id }}">Oui</a>
+                                                            href="/Supprimer/{{ $staff->id }}">Oui <i class="fa-solid fa-check"></i></a>
 
                                                         {{-- <a class="btn btn-danger" href="/Supprimer/{{$staff->id}}">Oui</a> --}}
 
-                                                        <button type="button" class="btn btn-warning"
-                                                            data-dismiss="modal">Non</button>
+                                                        
                                                     </div>
                                                 </div>
                                                 {{-- fin --}}

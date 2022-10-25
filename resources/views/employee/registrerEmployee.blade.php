@@ -92,7 +92,7 @@
                 </div>
             </div>
             <div class="mb-3">
-                <label for="formFileDisabled" class="TypeFile form-group">Photo</label>
+                <label for="formFileDisabled" class="TypeFile form-group">Photo <i class="fa-solid fa-image"></i></label>
                 <input class="form-control"  name="Sary" type="file" id="formFileDisabled" @error('Sary') is-invalid @enderror>
                
             </div>
@@ -148,7 +148,7 @@
 
         </div>
         <center>
-            <button class="btn btn-success but mx-auto">Enregistrer</button>
+            <button class="btn btn-success but mx-auto btnRegister">Enregistrer <i class="fa-solid fa-floppy-disk"></i></button>
         </center><br><br>
 
 
