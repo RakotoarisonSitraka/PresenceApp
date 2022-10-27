@@ -12,4 +12,7 @@ class Domaine extends Model
     public function Role(){
         return $this->hasOne(Role::class);
     }
+    public function employees(){
+        return $this->hasMany(Employee::class);
+    }
 }

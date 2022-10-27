@@ -55,7 +55,7 @@ Ajout des roles
                   {{-- <th>{{$anjara->employees->Nom}}</th> --}}
                   <th><strong><button data-toggle="modal" data-target="{{'#Modifier' . $anjara->id }}"
                     class="btn btn-success container widthBtnRole" type="button">
-                      Modifier</button></strong>
+                      Modifier<i class=" fa-solid fa-pen-clip"></i></button></strong>
                          {{-- modal modification --}}
                          <div class="modal fade" id="{{ 'Modifier' . $anjara->id  }}" 
                           tabindex="-1"
@@ -100,8 +100,7 @@ Ajout des roles
                       
                     </th>
                   <th><strong><button data-toggle="modal" data-target="{{'#Supprimer' . $anjara->id }}"
-                    type="button"  class="btn btn-danger container widthBtnRole">
-                        Supprimer</button></strong>
+                    type="button"  class="btn btn-danger container widthBtnRole" id="suppRole">Retirer<i class="fa-solid fa-trash-can"></i></button></strong>
                           
                          {{-- modal suppression --}}
                        <div class="modal fade" id="{{ 'Supprimer' . $anjara->id  }}" tabindex="-1"
@@ -109,10 +108,10 @@ Ajout des roles
                         <div class="modal-dialog modal-lg" role="document">
                             <div class="modal-content">
                                 <div class="modal-header supprimRoleHeader">
-                                    <h1><strong>Suppression du role</strong></h1>
+                                    <h1><strong>Suppression du fonction</strong></h1>
                                 </div>
                                 <div class="modal-body">
-                                    Voulez vous Supprimer ce role??
+                                    Voulez vous Supprimer cette fonction??
                                 </div>
                                 <div class="modal-footer">
 

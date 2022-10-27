@@ -32,7 +32,7 @@ li{
     margin-left: 54px;
 }
 .sidebar-menu{
-    margin-top: -28px;
+    margin-top: -38px;
 }
 .sidebar-menu a{
     padding-left:1rem;
@@ -47,7 +47,7 @@ li{
     padding-left: 10%;
     list-style-type: none;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    padding: 18px 30px;
+    padding: 11px 30px;
     
 
 }
@@ -109,4 +109,16 @@ li{
   border-radius: 60px;
   text-align: center;
   margin-top: -17px;
+}
+.fonction-drop{
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    border-radius: 0;
+    animation: dropdownFonction 0.3s ease-in-out;
+}
+@keyframes dropdownFonction{ /*refa cliquena le dropmenu de io n action mitranga izany hoe miataka kel avy any ambony
+    le corps*/
+from{top:133%;}
+to{top:1%;}
 }

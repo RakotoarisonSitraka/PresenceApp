@@ -183,7 +183,7 @@
 }
 .Stat{
     /* margin-left: 70px; */
-    margin-top: 0px;
+    margin-top: -04px;
     width: 150px;
 }
 .rowwww{
@@ -226,6 +226,7 @@
 
 .CardSing{
     margin-left: 600px;
+    
 }
 .h1Role{
     background-color: rgb(236, 215, 20);
@@ -295,4 +296,30 @@
 }
 .annulerBtnPrsence{
     font-size: 12px;
+}
+.fa-pen-clip{
+    font-size: 10px;
+ 
+}
+.suppRoleFontawesome{
+    display: flex;
+}
+#suppRole{
+    width: 100px;
+}
+#hrefDomaine{
+    color: black;
+}
+#hrefDomain:hover{
+    color: black;
+    font-size: 2px;
+}
+.tableDomaine{
+    margin-top: 111px;
+    margin-left: 380px;
+    width: 800px;
+}
+.optionss{
+    margin-left: 70px;
+    text-align: center;
 }

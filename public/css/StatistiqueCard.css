@@ -1,0 +1,137 @@
+.content-2{
+   /* min-height: 0vh; */
+   width: 998px;
+   display: flex;
+   justify-content: space-around; 
+   align-items: flex-start;
+   flex-wrap: wrap;
+}
+.content-2 .recent-payment{
+    min-height: 40vh;
+    /* width: 50px; */
+    flex: 900;/*fikisanany le card verticalement plus miaktra ny valeur plus mihitra makany am droite*/
+    background-color: white;
+    margin-top: 6px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /*mampisaraka anle td mba tsy ifanakaiky*/
+    display: flex;
+    flex-direction: column;
+}
+.content-2.new-students{
+  flex: 2;
+  background: white;
+}
+.titles{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 15px 10px;
+    border-bottom: 1px solid rgb(75, 199, 189);
+    background: rgb(173, 239, 255);
+    font-size: 19px;
+    font-weight: 300;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+.btnbtn{
+    background: #f05462;
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+    text-align: center;
+}
+.btnbtn:hover{
+    color: #f05462;
+    background-color: white;
+    padding: 3px 8px;
+    border:  2px solid #f05462;
+}
+#new-students{
+     flex: 522;
+     background: white;
+     margin-top: 6px;
+     min-height: 40vh;
+     margin-left :50px; 
+     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.tablestat{
+    padding: 10px;
+    border-bottom: 2px solid #999;
+}
+th,td{
+    text-align: left;
+    padding: 13px;/*tsy mifanakaiky be*/
+    margin:46px;
+}
+.statistiquePagination{
+   margin-left: 230px;
+   margin-top: 3px;
+   /* border-top: 2px solid #999;
+   display: flex;
+   align-items: center; */
+   
+}
+/*le dropdown am statistique*/
+.cust-drop{
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    border-radius: 0;
+    animation: dropdown 0.3s ease-in-out;
+}
+.cust-drop .dropdown-item{
+    padding:  8px 1.5rem;
+    background-color: rgb(255, 226, 60);
+    color: #ffffff;
+    transition: all 0.3s ease-in-out;/*refa mis animation d le action ataoany hoatra hoe refa mis hover*/
+}
+.cust-drop .dropdown-item:hover{
+    background-color:rgb(74, 74, 255);
+}
+@keyframes dropdown{ /*refa cliquena le dropmenu de io n action mitranga izany hoe miataka kel avy any ambony
+                      le corps*/
+    from{top:-5%;}
+    to{top: 0%;}
+}
+.DropdownStatEmployes{
+    
+}
+/* .cards{
+    margin-top: -9px;
+} */
+.mainStat{
+    margin-left: 320px;
+    margin-top: 45px;
+    background: rgb(228, 255, 255);
+}
+.ahrefDropStat{
+    text-decoration: none;
+    color: white;
+}
+.ahrefDropStat:hover{
+    color: white;
+}
+#mainStat{
+    height: 550px;
+}
+#aTdCountEmployees{
+    text-decoration: none;
+    color: white;
+    background-color: #f05462;
+    /* display: flex;mitatra horizontal */
+    border-radius: 30px;
+    padding: 3px;/*tsy mifanakaiky be*/
+    margin:0px;
+    margin-left: 7px;
+    text-align: left;
+    width: 120px;
+    font-size: 21px;
+}
+.aTdCountEmployees:hover{
+    color: white;
+}
+.UserstatistiquePagination{
+    margin-left: 88px;
+    margin-top: 6px;
+}
+

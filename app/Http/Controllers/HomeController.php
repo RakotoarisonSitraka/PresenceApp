@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Employee;
 use App\Models\Presence;
 use App\Models\Role;
+use App\Models\Domaine;
 use Illuminate\Http\File;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -111,7 +112,8 @@ class HomeController extends Controller
     {
         // return view('employee.ajout-employee'); manao affichage nle role
         $roles= Role::all();
-        return view('employee.registrerEmployee',compact('roles'));
+        $Domaine=Domaine::all();
+        return view('employee.registrerEmployee',compact('roles','Domaine'));
     }
     public function AddEmployee(Request $request)
     {
@@ -137,16 +139,13 @@ class HomeController extends Controller
         $employer->Prenom = $request->input('Fanampiny');
         $employer->Email = $request->input('Mailaka');
         $employer->Telephone = $request->input('Laharana');
-        // $employer->Matricule = $request->input('Matricule');
         $employer->Age = $request->input('Age');
         $employer->CIN = $request->input('CIN');
         $employer->Addresse = $request->input('Adresse');
         $employer->Sexe = $request->input('Sexe');
-        // $employer->Position = $request->input('Position');
-        // $employer->Section = $request->input('Section');
         $employer->Ville = $request->input('Ville');
         $employer->role_id = $request->input('role');
-        //$employer->Profil= $request->input('Sary');
+        $employer->domaine_id = $request->input('Domaine');
         $employer->Profil=$filename= time() .'.' .$request->Sary->extension();
         $request->file('Sary')->storeAs(
             'ImageEmployee',
@@ -193,7 +192,7 @@ class HomeController extends Controller
             
             $employer->save();
         //    dd($employer->save());
-            return redirect('/home')->with("status", "Donnée bien modifié avec succés!");
+            return redirect('/home')->with("status", "Données bien modifié avec succés!");
         } else {
             return back()->with("error", "email name changed with success");
         }
@@ -326,7 +325,11 @@ class HomeController extends Controller
         $users= User::count();
         $mpiasa= Employee::count();
         $fonction=Role::count();
-        $RoleAvecNrbEmployee=Role::withCount('employees')->get();
+        $Domaine=Domaine::count();
+        $RoleAvecNrbEmployee=Role::withCount('employees')->orderBy('Type_Role','ASC')->paginate(3);
+        $Admin = User::orderBy('name','ASC')->paginate(2);
+        // $users = User::orderBy('id','ASC')->paginate(1);
+        // $users= User::with()  orderBy('id','DESC')->paginate(4)
         /*withcount: maka isa miaraka am données... eto zao maka isany employes izay
         misahana ny roles tsirairay..eto zao maka ny nbr ny employes izay mi executer anle role tsirairay
         hoatra ny isany employés misahana ny  web
@@ -338,7 +341,32 @@ class HomeController extends Controller
         ny role tsirairay hoatra hoe iza avy ny employes 15 devellopeurs izany
         le hoe $role->employees io $clé->$valeur mety foan izay valeur atao eo */
         // dd($RoleAvecNrbEmployee); mijery ny details an données 
-        return view('employee.Statistique', compact('users','mpiasa','fonction','RoleAvecNrbEmployee'));
+        return view('employee.Statistique', compact('users','mpiasa','fonction','RoleAvecNrbEmployee','Admin','Domaine'));
         // return view('employee.Statistique');
+    }
+
+    /* domaine*/
+    public function InsertionDomaine(Request $request){
+        $request->validate([
+            'NomDomaine' => 'required|string',
+        ]);
+        $Domaine= new Domaine();
+        $Domaine->NomDomaine= $request->input('NomDomaine');
+        $Donnes = $Domaine->save();
+        if ($Donnes) {
+            return redirect('/ListeDesDomaines')->with("status","Le domaine ". $Domaine->NomDomaine. " integré avec succés!");
+        } else {
+            return back()->with('error', "Erreur");
+        }
+    }
+    public function ListeDesDomaines(){
+        // $listedomaine=Domaine::orderBy('NomDomaine','ASC')->paginate(5);
+        $listedomaine=Domaine::withCount('employees')->orderBy('NomDomaine','ASC')->paginate(5);
+        foreach ($listedomaine as $listedomaines) {
+            $listedomaines->employees=Employee::where('domaine_id',$listedomaines->id)->get();
+        }
+        $CountDomaine=Domaine::count();
+        return view('employee.Domaine',compact('listedomaine','CountDomaine'));
+       
     }
 }

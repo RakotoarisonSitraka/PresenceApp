@@ -60,3 +60,7 @@ Route::post('/ModifierRole/{id}',[App\Http\Controllers\HomeController::class,'Mo
 Route::get('/Heure/{id}',[App\Http\Controllers\HomeController::class,'Heure'])->name('Heure');
 /*statistic*/
 Route::get('/Statistique',[App\Http\Controllers\HomeController::class,'Statistique'])->name('Statistique');
+
+/* Insertion Domaine*/
+Route::post('/InsertionDomaine',[App\Http\Controllers\HomeController::class,'InsertionDomaine'])->name('InsertionDomaine');
+Route::get('/ListeDesDomaines',[App\Http\Controllers\HomeController::class,'ListeDesDomaines'])->name('ListeDesDomaines');

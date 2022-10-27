@@ -3,10 +3,10 @@
 Statistique des employés
 @endsection
 @section('content')
-<main class="mainn">
-    <div class="card-header Stat">
+<main class="mainn " id="mainStat">
+    {{-- <div class="card-header Stat">
         <h6 class="h6">Statistique</h6>
-    </div>
+    </div> --}}
     <div class="cards">
         <div class="card-single">
             <div>
@@ -46,48 +46,107 @@ Statistique des employés
                 <span class="fa fa-newspaper"></span>
             </div>
         </div>
+        <div class="card-single">
+            <div>
+                <h2>{{ $Domaine }}</h2>
+                <small>Domaines</small>
+            </div>
+            <div>
+                <span class="fa fa-newspaper"></span>
+            </div>
+        </div>
       
     </div>
-    <div class="composant">
-        <div class="ventes">
-            <div class="case">
-                <div class="header-case">
-                    <h2>Nombre des employé pour chaque fonction</h2>
-                    {{-- <button class="buttonn">
-                        Voir plus <span class="fa fa-arrow-right"></span>
-                    </button> --}}
-                </div><br>
-                <div class="body-case">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th scope="col">Fonction</th>
-                                <th scope="col">Effectif</th>
-                                <th scope="col">Nom d'employé</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($RoleAvecNrbEmployee as $Role)
-                             <tr>
-                                 <th>{{ $Role->Type_Role }}</th>
-                                 <th> {{ $Role->employees_count}}</th>
-                                 {{-- eto ilay formalisme dia hoe AnaranleTable_count --}}
-                                 <th>
-                                    @foreach ($Role->employees as $employee)
-                                        {{ $employee->Nom}}
-                                    @endforeach
-                                 </th>
-                             </tr>
-                          
-                           
-                            {{-- {{  $Role->employees}} --}}
-                          
+    <div class="content-2">
+        <div class="recent-payment">
+             <div class="titles">
+                <h4 class="h6stat">Effectif des employés par fonction</h4>
+                <a href="#" class="btnbtn">Statistique</a>
+             </div>
+             <table class="tablestat">
+               <thead>
+                <tr>
+                    <th>Fonction</th>
+                    <th>Effectif</th>
+                    <th>Nom des employés</th>
+                </tr>
+               </thead>
+               <tbody>
+                @foreach ($RoleAvecNrbEmployee as $Role)
+                 <tr>
+                     <td>{{ $Role->Type_Role }}</td>
+                     <td><a id="aTdCountEmployees">{{ $Role->employees_count}}</a></td>
+                     {{-- eto ilay formalisme dia hoe AnaranleTable_count--}}
+                     {{-- <td>
+                        @foreach ($Role->employees as $employee)
+                            {{ $employee->Nom}}
                         @endforeach
-                            <tr>
-                                <th></th>
-                            </tr>
-                        </tbody>
-                    </table>
+                     </td> --}}
+                     <td>
+                        <li class=" dropright  btn btn-success">
+                             <a href="" class="dropdown-toggle ahrefDropStat" data-toggle="dropdown">Voir les employés</a>
+                             <div class="dropdown-menu cust-drop">
+                                @foreach ($Role->employees as $employee)
+                                   <a href="" class="dropdown-item ">{{ $employee->Nom}} {{$employee->Prenom}}</a>
+                                @endforeach   
+                             </div>
+                        </li>
+                    </td>
+                 </tr>
+              
+               
+                {{-- {{  $Role->employees}} --}}
+              
+            @endforeach
+               
+            </tbody>
+             </table> 
+           
+            <div class="pagination-block homepagination statistiquePagination">
+                {{ $RoleAvecNrbEmployee->links('layouts.paginationlinks') }}
+            </div>
+        
+             
+        </div>
+        <div id="new-students">
+          
+                <div class="titles">
+                   <h5>Liste</h5>
+                   <a href="#" class="btnbtn">Administrateurs</a>
+                </div>
+                <table class="tablestat">
+                    <thead>
+                     <tr>
+                         <th>Nom</th>
+                         <th>Email</th>
+                         <th>Role</th>
+                     </tr>
+                    </thead>
+                    <tbody>
+                     @foreach ( $Admin as $deba)
+                      <tr>
+                          <td>{{ $deba->name }}</td>
+                          <td><a>{{ $deba->email}}</a></td>
+                          <td><a class="btn btn-primary">admin</a></td>
+                      </tr>
+                   
+                    
+                     {{-- {{  $Role->employees}} --}}
+                   
+                 @endforeach
+                    
+                 </tbody>
+                  </table> 
+                  
+            <div class="pagination-block homepagination UserstatistiquePagination">
+                {{ $Admin->links('layouts.paginationlinks') }}
+            </div
+           
+        </div>
+    </div>
+   
+                </div><br>
+               
                     
                   
                       

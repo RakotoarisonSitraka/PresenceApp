@@ -98,16 +98,6 @@
             </div>
             <div class="col">
                 <div class="form-group">
-                    <select class="form-select" aria-label="" name="Sexe">
-                        <option selected><strong>--Sexe--</strong></option>
-                        <option value="Homme">Homme</option>
-                        <option value="Femme">Femme</option>
-                       
-                    </select>
-                </div>
-            </div>   
-            <div class="col">
-                <div class="form-group">
                     <select class="form-select" aria-label="" name="Ville">
                         <option selected><strong>--Ville d'origine--</strong></option>
                         <option value="Antananarivo">Antananarivo</option>
@@ -120,6 +110,28 @@
                     </select>
                 </div>
             </div>
+            <div class="col">
+                <div class="form-group">
+                    <select class="form-select" aria-label="" name="Sexe">
+                        <option selected><strong>--Sexe--</strong></option>
+                        <option value="Homme">Homme</option>
+                        <option value="Femme">Femme</option>
+                       
+                    </select>
+                </div>
+            </div>  
+            <div class="col">
+                <div class="form-group">
+                    <select class="form-select" aria-label="" name="Domaine">
+                        <option selected><strong>Domaine</strong></option>
+                       @foreach ($Domaine as $Sehatra)
+                           <option value="{{ $Sehatra->id }}">{{ $Sehatra->NomDomaine }}</option>
+                       @endforeach
+                       
+                    </select>
+                </div>
+            </div>   
+           
 
             {{-- <div class="col">
                 <div class="form-group">

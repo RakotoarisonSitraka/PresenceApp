@@ -32,4 +32,5 @@ $(function(){
         showOn: "both",
         buttonText : '<i class="zmdi zmdi-chevron-down"></i>',
     });
+    
 });

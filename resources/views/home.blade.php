@@ -20,34 +20,34 @@
                             </div>
                         @endif
                         <tr class="">
-                            <td class="table-light" id="td"><strong>
-                                    <h5 class=" matric" id="td">Matricule</h5>
-                                </strong></td>
-                            <td class="table-info " id="td"><strong>
+                            <th class="table-light" ><strong>
+                                    <h5 class=" matric" >Matricule</h5>
+                                </strong></th>
+                            <th class="table-info " ><strongh
                                     <h5 class="titre">Nom</h5>
-                                </strong></td>
-                            <td class="table-success " id="td"><strong>
+                                </strong></th>
+                            <th class="table-success " ><strong>
                                     <h5 class="titre">Prenom</h5>
-                                </strong></td>
-                            <td class="table-primary " id="td"><strong>
+                                </strong></th>
+                            <th class="table-primary " ><strong>
                                     <h5 class="titre">Email</h5>
-                                </strong></td>
+                                </strong></th>
                             {{-- <td class=" table-info" id="td"><strong>
                                     <h5 class="titre">Telephone</h5>
                                 </strong></td> --}}
                             {{-- <td class=" " id="td"><strong>
                                <h5 class="titre">Role</h5>
                                 </strong></td> --}}
-                            <td class="table-success " id="td"><strong>
+                            <th class="table-success " id="td"><strong>
                                     <h5 class="titre">Photo</h5>
-                                </strong></td>
-                            <td id="td"><strong>
+                                </strong></th>
+                            <th id="td"><strong>
                                     <h5 class="titre">
                                         <center>Options</center>
                                     </h5>
-                                </strong></td>
-                            <td></td>
-                            <td></td>
+                                </strong></th>
+                            <th></th>
+                            <th></th>
                         </tr>                     
                         @if (is_countable($Employes) && count($Employes) != 0)
                             @foreach ($Employes as $staff)
