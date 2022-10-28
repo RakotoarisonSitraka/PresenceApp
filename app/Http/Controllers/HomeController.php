@@ -230,7 +230,7 @@ class HomeController extends Controller
             // error_log($search_employee) % misolo texte;
             $resultat= DB::table('employees')->where('Nom','LIKE',''.$search_employee.'%')->paginate(3);
             $resultat->appends($request->all());
-            return view('employee.EmployeeSearch',['resultat'=> $resultat, 'presence'=> $resultat]);
+            return view('employee.EmployeeSearch',compact('resultat'));
         }else{
             return view('employee.EmployeeSearch',compact('roles'));
         }
@@ -306,19 +306,47 @@ class HomeController extends Controller
     }
     /*liste des présence affichage*/
     public function Heure(Request $request, $id){
-        $Presence = Presence::find($id);
-        $Role=Role::where('id',$Presence->employee->role_id)->first();  /*fetch roles anle employee 
+       $Presence = Presence::find($id);
+       dd($Presence);
+        $Role=Role::where('id',$Presence->employee->role_id)->first(); 
+         /*fetch roles anle employee 
         izay amle presence no atao eto
            comparaison no atao ato refa mis clé etrangère de le identifiant no comparena atao anaty condition */
         // dd($Role);   
-          return view('employee.Heure',compact('Presence','Role'));    
+        /*
+           $date1 = now();
+           $date2 = now()->addDay();
+           $difference = $date1->diff($date2);
+       // This give s a DateInterval instance*/
+       //$date1=$Presence->Heure_Entree;
+       $HeureEntree = new Carbon($Presence->Heure_Entree);
+    //    dd($date1);
+       $HeureSortie=$Presence->Heure_Sortie;
+       $differenceHeure =  $HeureEntree->diffInHours($HeureSortie);
+    //    dd($difference);
+     
+          return view('employee.Heure',compact('Presence','Role','differenceHeure'));    
         // return $id;
+      
+        
+      
     }
     public function AnnulerPresence($id)
     {
         $AnnulerPresence = Presence::find($id);
         $AnnulerPresence->delete();         
         return back()->with('status', "Présence annulé !");
+    }
+    public function rechercheDate(Request $request){
+        // $Presence=Presence::with('employee')->orderBy('Date','DESC')->paginate(3);
+        $NbrPresent=Presence::count();
+        if (isset($_GET['SearchDate'])) {
+            $search_date=$_GET['SearchDate']; /*'%Y-%m-%d','LIKE', '%'.$date.'%'*/
+            // error_log($search_employee) % misolo texte;
+            $resultat=Presence::with('employee')->orderBy('Date','DESC')->where('Date','LIKE','%'.$search_date.'%')->paginate(3);
+            $resultat->appends($request->all());
+            return view('employee.resultatRechercheDate',compact('resultat','NbrPresent'));
+        }
     }
 
     public function Statistique(){

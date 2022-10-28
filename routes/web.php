@@ -64,3 +64,4 @@ Route::get('/Statistique',[App\Http\Controllers\HomeController::class,'Statistiq
 /* Insertion Domaine*/
 Route::post('/InsertionDomaine',[App\Http\Controllers\HomeController::class,'InsertionDomaine'])->name('InsertionDomaine');
 Route::get('/ListeDesDomaines',[App\Http\Controllers\HomeController::class,'ListeDesDomaines'])->name('ListeDesDomaines');
+Route::get('/RechercheDate',[App\Http\Controllers\HomeController::class,'RechercheDate'])->name('RechercheDate');

@@ -34,8 +34,8 @@
             </div>           
         </div>
         <div class="composant">
-            <form  action="" method="" class="d-flex rech">
-                <input class="form-control" id="InputPresence" type="search" placeholder="Recherche de présence par date (exemple AA-MM-JJ)..." aria-label="" name="">
+            <form  action="{{route('RechercheDate')}}" method="GET" class="d-flex rech">
+                <input type="date" class="form-control" name="SearchDate" id="InputPresence" aria-label="">
                 <button class="btn btn-outline-warning " type="submit">Chercher</button>
             </form><br><br>
             <div class="ventes">
