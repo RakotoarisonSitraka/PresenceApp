@@ -100,35 +100,31 @@
                                         <li><a href="{{ url('Ajout-employee') }}"><span
                                          class="fa fa-registered "></span><span>Enregistrement</span></a></li>   
                                          <li>
-                                            {{-- <a class="" data-toggle="modal" data-target="#staticBackdrop"><span
-                                            class="fa-solid fa-lines-leaning"></span><span>Domaines</span></a> --}}
-                                            {{-- <div class="dropdown "> --}}
                                                 <a class="btn btn-primary dropdown-toggle 
                                                      container RolesEmp"  id="dropdownMenu2" data-toggle="dropdown">
                                                      <span class="fa-solid fa-lines-leaning"></span>  Domaines <span class="caret IconRole"></span>
                                                 </a>
                                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
                                                   <li><button class="dropdown-item "  type="button"  data-toggle="modal" data-target="#staticBackdrop">Ajouter un domaine</button></li>
-                                                  <li><a class="dropdown-item " id="hrefDomaine" href="{{route('ListeDesDomaines')}}" >Liste des domaines</a></li>
-                                                
+                                                  <li><a class="dropdown-item " id="hrefDomaine" href="{{route('ListeDesDomaines')}}" >Liste des domaines</a></li>                
                                                 </ul>
-                                              {{-- </div> --}}
                                        </li>
+                                       <li>
+                                        <a class="btn btn-primary dropdown-toggle 
+                                             container RolesEmp"  id="dropdownMenu2" data-toggle="dropdown">
+                                             <span class="fa fa-clipboard"></span>Projets<span class="caret IconRole"></span>
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                          <li><button class="dropdown-item "  type="button"  data-toggle="modal" data-target="#">Ajouter un domaine</button></li>
+                                          <li><a class="dropdown-item " id="hrefDomaine" href="" >Liste des domaines</a></li>                
+                                        </ul>
+                               </li>
+                                       
                                         <li>
                                             
                                             <a href="{{ route('AjoutRole')}}" class="">
                                                 <span class="fa fa-clipboard"></span> Fonctions <span class="caret IconRole"></span></a>
-                                                {{-- <div class="dropdown-menu">
-                                                    
-                                                        <a class=""  id="" href="{{ route('AjoutRole')}}">
-                                                            Ajouter
-                                                        </a>
-                                                </div> --}}
                                         </li>
-                                        {{-- <li><a href=""><span
-                                            class="fa-solid fa-user" ></span><span data-toggle="dropdown">Role</span></a>
-                                            
-                                        </li> --}}
                                         <li><a href="{{ route('Statistique') }}"><span
                                                     class="fa fa-line-chart"></span><span>Statistiques</span></a></li>
 

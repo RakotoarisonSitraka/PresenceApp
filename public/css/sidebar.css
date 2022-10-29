@@ -18,7 +18,7 @@
 .sidebar-brand{
     height: 90px;
     color: #fff;
-    margin-top: -8px;
+    margin-top: -53px;
 }
 .nav ul{
     padding: 0;
@@ -32,7 +32,7 @@ li{
     margin-left: 54px;
 }
 .sidebar-menu{
-    margin-top: -38px;
+    margin-top: -26px;
 }
 .sidebar-menu a{
     padding-left:1rem;
@@ -44,10 +44,10 @@ li{
 .sidebar-menu li{
     width: 100%;
     margin-bottom: 2rem;
-    padding-left: 10%;
+    padding-left: 15%;
     list-style-type: none;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    padding: 11px 30px;
+    padding: 6px 15px;
     
 
 }

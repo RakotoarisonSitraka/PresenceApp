@@ -9,23 +9,19 @@
         <thead>
             <tr class="table-warning">
                 <th scope="col">Nom du domaine</th>
-                <th>Effectif des employés pour chaque domaine</th>
-               <center>
+                <th>Employés par domaine</th>
+        
+                <th>Projet par domaine</th>
                 <th scope="col" class="optionss">Options</th>
                 <th scope="col"></th>
-               </center>
+                <th scope="col"></th>
+                <th scope="col"></th>
+             
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>
-                      @if (session('status'))
-                        <div class="alert alert-success container" role="alert">
-                            {{ session('status') }}
-                        </div>
-                       @endif
-                </td>
-            </tr>
+             
+            
             {{-- @foreach ( $listedomaines->employees as $employee)
               {{ $employee->Nom}}
             @endforeach    --}}
@@ -33,6 +29,7 @@
             <tr>     
                     <td>{{ $listdomain->NomDomaine }}</td>
                     <td><center>{{ $listdomain->employees_count }}</center></td>
+                    <td><button type="button" class="btn btn-outline-primary"> projets</button></td>
                     <td>
                         <button type="button"  data-toggle="modal" data-target="{{'#ModifDomaine'. $listdomain->id}}" class="btn btn-success">
                             Modifier</button>
@@ -72,11 +69,22 @@
                            </div>
                     </td>
                     <td><button type="button" class="btn btn-danger">Supprimer</button></td>
+               
             </tr>
             @endforeach
+            
         </tbody>
+      
+            @if (session('status'))
+            <caption class="alert alert-success divSuccess" role="alert">
+                {{ session('status') }}
+            </caption>
+           @endif 
+      
     </table>
+   
     <div class="pagination-block homepagination">
         {{ $listedomaine->links('layouts.paginationlinks') }}
     </div>
+   
 @endsection

@@ -307,7 +307,7 @@ class HomeController extends Controller
     /*liste des présence affichage*/
     public function Heure(Request $request, $id){
        $Presence = Presence::find($id);
-       dd($Presence);
+    //    dd($Presence);
         $Role=Role::where('id',$Presence->employee->role_id)->first(); 
          /*fetch roles anle employee 
         izay amle presence no atao eto
@@ -323,7 +323,7 @@ class HomeController extends Controller
     //    dd($date1);
        $HeureSortie=$Presence->Heure_Sortie;
        $differenceHeure =  $HeureEntree->diffInHours($HeureSortie);
-    //    dd($difference);
+       dd($differenceHeure);
      
           return view('employee.Heure',compact('Presence','Role','differenceHeure'));    
         // return $id;
