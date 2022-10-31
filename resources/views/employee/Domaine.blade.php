@@ -29,7 +29,7 @@
             <tr>     
                     <td>{{ $listdomain->NomDomaine }}</td>
                     <td><center>{{ $listdomain->employees_count }}</center></td>
-                    <td><button type="button" class="btn btn-outline-primary"> projets</button></td>
+                    <td><button type="button" class="btn btn-outline-primary">{{$listdomain->projets_count }} projets</button></td>
                     <td>
                         <button type="button"  data-toggle="modal" data-target="{{'#ModifDomaine'. $listdomain->id}}" class="btn btn-success">
                             Modifier</button>

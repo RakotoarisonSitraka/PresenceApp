@@ -3,17 +3,18 @@
     les projets
 @endsection
 @section('content')
-<table class="table table-hover tableDomaine">
+<table class="table table-hover tableDomaine ">
     <caption><h2>Liste des projets</h2></caption>
 
     <thead>
         <tr class="table-warning">
             <th scope="col">Nom du projet</th>
-            <th scope="col">Date de création</th>
+            <th scope="col">Création</th>
             <th scope="col">Description</th>
             <th scope="col">Etat</th>
             <th scope="col">Domaine</th>
             <th scope="col">Action</th>
+            <th></th>
             {{-- <th scope="col">
               <button data-toggle="modal" data-target="#"
                 type="button" class="btn btn-success">
@@ -30,7 +31,8 @@
              <td>{{ $ListeProjet->Description}}</td>
              <td>{{ $ListeProjet->Etat}}</td>
              <td>{{ $ListeProjet->domaine->NomDomaine}}</td>
-             <td></td>
+             <td><button type="button" class="btn btn-success">Modifier</button></td>
+             <td><button type="button" class="btn btn-danger">Retirer</button></td>
         </tr>
         @endforeach
         
@@ -41,7 +43,7 @@
              @endif
           <caption>
             <button data-toggle="modal" data-target="#ProjetModal"
-             type="button" class="btn btn-success">
+             type="button" class="btn btn-primary">
             Ajouter un projet <i class="fa-sharp fa-solid fa-circle-plus"></i></button>
           </caption>
       </tbody>
@@ -96,7 +98,7 @@
                 <label for="message-text" class="col-form-label">Etat:</label>
                 <select class="form-select" aria-label="" name="Etat">
                     <option selected><strong>à faire</strong></option>  
-                    <option value="progression">En progression</option>  
+                    <option value="En_progression">En progression</option>  
                     <option value="Realise">Réalisé</option>     
                 </select>
               </div>
@@ -111,6 +113,10 @@
 </form>
 </div>
 </div>
-    
-  </table>
+</table>
+ <center>
+  <div class="pagination-block homepagination paginationProjet">
+    {{ $ListeProjets->links('layouts.paginationlinks') }}
+  </div>
+ </center>
 @endsection

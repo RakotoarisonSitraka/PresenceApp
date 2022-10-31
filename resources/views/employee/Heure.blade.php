@@ -9,31 +9,80 @@
         {{ session('status') }}
       </div>
     @endif
-    <strong>
-      <img class="ImgEmployee presencePhoto"
-          src="{{ asset('/storage/imageEmployee/' .$Presence->employee->Profil) }}" width="287"
-          height="210" alt="image">
-     </strong><br><br>
-   <div>
+    <div id="About">
+       <div class="container">
+          <div class="row">
+             <div class="col">
+                <div id="AboutData">
+                   <div class="card bg-white">
+                       <div class="card-title my-5">
+                           <div class="media">
+                              <img class="img-fluid rounded-top mx-5 d-none d-lg-block"
+                               src="{{ asset('/storage/imageEmployee/' .$Presence->employee->Profil) }}" width="257"
+                               height="250" alt="image">
+                                 <div class="media-body bodyHeure">
+                                    <h3 class="display-5 ml-5">{{$Presence->employee->Prenom}}</h3>
+                                    <div class="container">
+                                       <table class="table table-responsive ml-4">
+                                         <tr>
+                                           <td class="text-muted"><strong>Date</strong></td>
+                                           <td>:</td>
+                                           <td>{{$Presence->Date}}</td>
+                                         </tr>
+                                         <tr>
+                                          <td class="text-muted"><strong>Heure d'entrée</strong></td>
+                                          <td>:</td>
+                                          <td>{{$Presence->Heure_Entree}}</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="text-muted"><strong>Heure de sortie</strong></td>
+                                          <td>:</td>
+                                          <td>{{$Presence->Heure_Sortie}}</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="text-muted"><strong>Total d'heure executé</strong></td>
+                                          <td>:</td>
+                                          <td>{{ $differenceHeure }} Heures</td>
+                                        </tr>
+                                       </table>
+                                    </div>
+                                  
+                                 </div>
+                               <center>
+                                <a href="/Presence" class="btn btn-primary"></a>
+                               </center>
+                           </div>
+                       </div>
+                   </div>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+   {{-- <div>
     <div class=""><strong>Nom: </strong>{{$Presence->employee->Prenom}}</div>
     <h3>Fonction:{{ $Role->Type_Role}}</h3>
-    {{-- <h1>{{ $Role->}}</h1> --}}
-    {{-- <option value="{{ $Presence->employee->id }}">{{ $Presence->employee->role_id}}</option> --}}
-    {{-- <div>Fonction :{{$Presence->role->Type_role}}</div> --}}
    </div>
-    {{-- <div class="infoEmployee">
-       ff
-    </div> --}}
     <table class="table tab MainPresence  infoHoraire">
        <thead>
          <tr>
-          <th id="HoraireEmp">
-            <center><i class="fa fa-clock listePresence"></i>Horaires d' employé</center>
           <th>
-        </tr>
+            <strong>
+              <img class="ImgEmployee"
+                  src="{{ asset('/storage/imageEmployee/' .$Presence->employee->Profil) }}" width="287"
+                  height="210" alt="image">
+             </strong>
+          Nom: {{$Presence->employee->Prenom}}
+          Fonction:{{ $Role->Type_Role}}
+          </th>
+          <th>
+           {{$differenceHeure}}
+          </th> --}}
+          {{-- <th id="HoraireEmp">
+            <center><i class="fa fa-clock listePresence"></i>Horaires d' employé</center>
+          <th> --}}
+        {{-- </tr>
         <tr>
-           {{-- <th>Matricule</th>
-           <th>Prénom </th> --}}
            <th>Date</th>
            <th>Heure d'entrée</th>
            <th>Heure de sortie</th>
@@ -41,82 +90,13 @@
        </thead>
        <tbody>
          <tr>
-           {{-- <th>{{$Presence->employee->id}}</th>
-           <th>{{$Presence->employee->Prenom}}</th> --}}
            <th>{{$Presence->Date}}</th>
            <th>{{$Presence->Heure_Entree}}</th>
            <th>{{$Presence->Heure_Sortie}}</th>
          </tr>
        </tbody>
     </table>
-    {{-- <h1>{{ $Presence->Heure_Entree}}</h1>
-    <h2>{{$Presence->Heure_Sortie}}</h2>
-  <h1>{{$Presence->employee->Prenom}}</h1> --}}
-               {{-- <form action="">
-                <div class="body-case">
-                    <div class="tableau">         
-                       <table class="table tab MainPresence TabRole">            
-                            <thead>
-                                <tr>
-                                    <th id="ListeRole">
-                                        <center><i class="fa fa-list listePresence"></i>Liste des présences</center>
-                                      
-                                    </th>
-                                </tr>                 
-                                <tr>
-                                   <th data-sortable="true" data-field="id">Date <i class=""></i></th>
-                                   {{-- <th data-sortable="true" data-field="Nom">Heure d'Entrée</th>
-                                   <th data-sortable="true" data-field="Nom">Heure de sortie</th>   --}}
-                                   {{-- <th data-sortable="true" data-field="Prenom ">Prénom</th>  
-                                   <th data-sortable="true" data-field="Assiduité ">Assiduité</th>  
-                                   <th data-sortable="true" data-field="Option"><center>Option</center></th>               
-                                </tr>
-                              </thead>
-                              <tbody>
-                                @if (is_countable($Presence) && count($Presence) != 0)
-                                @foreach ($Presence as $Donnes)
-                                <tr>
-                                  <th>{{$Donnes->Date}}</th>
-                                 <th>
-                                   {{$Donnes->employee->Prenom}}
-                                 </th>
-                                
-                                  <th>{{$Donnes->Options}}</th>
-                                  <th><strong><button 
-                                    type="button" class="btn btn-success container widthBtnRole">
-                                      Actif</button></strong></th>
-                                      <th>
-                                        <strong><a href="{{ route('Heure')}}"
-                                             class="btn btn-outline-primary container widthBtnRole">
-                                              Horaire</a></strong>
-                                      </th>     
-                                      <th>
-                                        <strong><button 
-                                            type="button" class="btn btn-warning container widthBtnRole">
-                                              Annuler</button></strong>
-                                      </th>  
-                                                   
-                                 @endforeach
-                                 @endif
-                                     
-    
-                                               
-                                         </tr>
-                                    --}}
-                               {{-- </tr>
-                              </tbody>
-                        </table>
-                        <div class="pagination-block homepagination">
-                            {{ $Presence->links('layouts.paginationlinks') }}
-                        </div>
-                    </div>
-                </div>
-            </div>
-               </form>
-               
-        </div>
-
-    </div> --}} 
+    --}}
 
 
 </main>

@@ -315,14 +315,24 @@
     font-size: 2px;
 }
 .tableDomaine{
-    margin-top: 76px;
-    margin-left: 380px;
-    width: 800px;
+    margin-top: 56px;
+    margin-left: 330px;
+    width: 997px;
 }
+
 .optionss{
     margin-left: 70px;
     text-align: center;
 }
 .divNomProjet{
     margin-top: -4px;
+}
+.paginationProjet{
+    margin-left: 718px;
+}
+.bodyHeure{
+    margin-left: 350px;
+    /* float: right; */
+    margin-top: -247px;
+    height: 300px;
 }

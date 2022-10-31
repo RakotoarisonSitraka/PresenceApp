@@ -325,7 +325,7 @@ class HomeController extends Controller
     //    dd($date1);
        $HeureSortie=$Presence->Heure_Sortie;
        $differenceHeure =  $HeureEntree->diffInHours($HeureSortie);
-       dd($differenceHeure);
+    //    dd($differenceHeure);
      
           return view('employee.Heure',compact('Presence','Role','differenceHeure'));    
         // return $id;
@@ -391,11 +391,12 @@ class HomeController extends Controller
     }
     public function ListeDesDomaines(){
         // $listedomaine=Domaine::orderBy('NomDomaine','ASC')->paginate(5);
-        $listedomaine=Domaine::withCount('employees')->orderBy('NomDomaine','ASC')->paginate(5);
+        $listedomaine=Domaine::withCount('employees','Projets')->orderBy('NomDomaine','ASC')->paginate(5);
         foreach ($listedomaine as $listedomaines) {
             $listedomaines->employees=Employee::where('domaine_id',$listedomaines->id)->get();
         }
         $CountDomaine=Domaine::count();
+        // dd($listedomaine);
         return view('employee.Domaine',compact('listedomaine','CountDomaine'));
        
     }
@@ -406,7 +407,7 @@ class HomeController extends Controller
         // return view('home', compact('Employes','roles'));
         // $Presence=Presence::with('employee')->orderBy('Date','DESC')->paginate(3);
         // $Role=Role::where('id',$Presence->employee->role_id)->first(); 
-        $ListeProjets= Projet::with('domaine')->orderBy('NomDuProjet','DESC')->paginate(6);
+        $ListeProjets= Projet::with('domaine')->orderBy('DateCreation','DESC')->paginate(5);
         $Domaines= Domaine::all();
         return view('employee.ListProjet',compact('Domaines','ListeProjets'));
     }
