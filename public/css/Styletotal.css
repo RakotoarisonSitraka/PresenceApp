@@ -333,6 +333,9 @@
 .bodyHeure{
     margin-left: 350px;
     /* float: right; */
-    margin-top: -247px;
-    height: 300px;
+    margin-top: -268px;
+    height: 320px;
+}
+.tableHeure{
+    font-size: 21px;
 }

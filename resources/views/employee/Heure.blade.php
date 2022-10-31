@@ -19,11 +19,11 @@
                            <div class="media">
                               <img class="img-fluid rounded-top mx-5 d-none d-lg-block"
                                src="{{ asset('/storage/imageEmployee/' .$Presence->employee->Profil) }}" width="257"
-                               height="250" alt="image">
+                               height="263" alt="image">
                                  <div class="media-body bodyHeure">
                                     <h3 class="display-5 ml-5">{{$Presence->employee->Prenom}}</h3>
                                     <div class="container">
-                                       <table class="table table-responsive ml-4">
+                                       <table class="table table-responsive ml-4 tableHeure">
                                          <tr>
                                            <td class="text-muted"><strong>Date</strong></td>
                                            <td>:</td>
@@ -49,7 +49,11 @@
                                   
                                  </div>
                                <center>
-                                <a href="/Presence" class="btn btn-primary"></a>
+                                 <strong>
+                                  <a href="/Presence" class="btn btn-primary">Retour
+                                    <i class="fa-sharp fa-solid fa-arrow-left"></i>
+                                  </a>
+                                 </strong>
                                </center>
                            </div>
                        </div>
@@ -59,45 +63,5 @@
           </div>
        </div>
     </div>
-   {{-- <div>
-    <div class=""><strong>Nom: </strong>{{$Presence->employee->Prenom}}</div>
-    <h3>Fonction:{{ $Role->Type_Role}}</h3>
-   </div>
-    <table class="table tab MainPresence  infoHoraire">
-       <thead>
-         <tr>
-          <th>
-            <strong>
-              <img class="ImgEmployee"
-                  src="{{ asset('/storage/imageEmployee/' .$Presence->employee->Profil) }}" width="287"
-                  height="210" alt="image">
-             </strong>
-          Nom: {{$Presence->employee->Prenom}}
-          Fonction:{{ $Role->Type_Role}}
-          </th>
-          <th>
-           {{$differenceHeure}}
-          </th> --}}
-          {{-- <th id="HoraireEmp">
-            <center><i class="fa fa-clock listePresence"></i>Horaires d' employé</center>
-          <th> --}}
-        {{-- </tr>
-        <tr>
-           <th>Date</th>
-           <th>Heure d'entrée</th>
-           <th>Heure de sortie</th>
-         </tr>
-       </thead>
-       <tbody>
-         <tr>
-           <th>{{$Presence->Date}}</th>
-           <th>{{$Presence->Heure_Entree}}</th>
-           <th>{{$Presence->Heure_Sortie}}</th>
-         </tr>
-       </tbody>
-    </table>
-    --}}
-
-
 </main>
 @endsection
