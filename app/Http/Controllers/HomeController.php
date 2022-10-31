@@ -8,6 +8,7 @@ use App\Models\Employee;
 use App\Models\Presence;
 use App\Models\Role;
 use App\Models\Domaine;
+use App\Models\Projet;
 use Illuminate\Http\File;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -38,6 +39,7 @@ class HomeController extends Controller
     public function index()
     {
         //return view('home');
+
         $users = User::orderBy('id','ASC')->paginate(1);
         // $users= User::with()  orderBy('id','DESC')->paginate(4)
         return view('ListUser', compact('users'));
@@ -396,5 +398,34 @@ class HomeController extends Controller
         $CountDomaine=Domaine::count();
         return view('employee.Domaine',compact('listedomaine','CountDomaine'));
        
+    }
+/*projet*/
+    public function ListProjet(){
+        // $roles= ::all();
+        // $Employes = Employee::orderBy('id','DESC')->paginate(4);
+        // return view('home', compact('Employes','roles'));
+        // $Presence=Presence::with('employee')->orderBy('Date','DESC')->paginate(3);
+        // $Role=Role::where('id',$Presence->employee->role_id)->first(); 
+        $ListeProjets= Projet::orderBy('NomDuProjet','DESC')->paginate(6);
+        $Domaines= Domaine::all();
+        return view('employee.ListProjet',compact('Domaines','ListeProjets'));
+    }
+   
+    public function InsertionProjet(Request $request){
+        $request->validate([
+            'NomDuProjet' => 'required|string',
+        ]);
+        $Projet= new Projet();
+        $Projet->NomDuProjet= $request->input('NomDuProjet');
+        $Projet->DateCreation= $request->input('DateCreation');
+        $Projet->Description= $request->input('Description');
+        $Projet->Etat= $request->input('Etat');
+        $Projet->domaine_id= $request->input('domaineDuProjet');
+        $Donnes = $Projet->save();
+        if ($Donnes) {
+            return redirect('/ListProjet')->with("status", " projet ajouté avec succés!");
+        } else {
+            return back()->with('error', "Erreur");
+        }
     }
 }

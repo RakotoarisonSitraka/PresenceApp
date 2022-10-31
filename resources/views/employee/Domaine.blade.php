@@ -4,8 +4,8 @@
 @endsection
 @section('content')
     <table class="table table-hover tableDomaine">
-        <caption><h2>Liste des domaines</h2></caption>
-        <caption>Il y a {{ $CountDomaine}} Domaines</caption>
+        <caption><h2>Liste des domaines <span><h6>Il y a {{ $CountDomaine}} Domaines</h6></span></h2></caption>
+      
         <thead>
             <tr class="table-warning">
                 <th scope="col">Nom du domaine</th>

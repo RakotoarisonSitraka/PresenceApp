@@ -15,7 +15,7 @@ class Domaine extends Model
     public function employees(){
         return $this->hasMany(Employee::class);
     }
-    public function Projets(){
-        return $this->hasMany(Projet::class);
+    public function Projet(){
+        return $this->belongsTo(Projet::class);
     }
 }

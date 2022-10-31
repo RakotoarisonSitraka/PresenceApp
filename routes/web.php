@@ -65,3 +65,8 @@ Route::get('/Statistique',[App\Http\Controllers\HomeController::class,'Statistiq
 Route::post('/InsertionDomaine',[App\Http\Controllers\HomeController::class,'InsertionDomaine'])->name('InsertionDomaine');
 Route::get('/ListeDesDomaines',[App\Http\Controllers\HomeController::class,'ListeDesDomaines'])->name('ListeDesDomaines');
 Route::get('/RechercheDate',[App\Http\Controllers\HomeController::class,'RechercheDate'])->name('RechercheDate');
+
+/*projets*/
+Route::post('/InsertionProjet',[App\Http\Controllers\HomeController::class,'InsertionProjet'])->name('InsertionProjet');
+/*ajout dans les formulaires*/
+Route::get('/ListProjet',[App\Http\Controllers\HomeController::class,'ListProjet'])->name('ListProjet');/*liste des projet*/

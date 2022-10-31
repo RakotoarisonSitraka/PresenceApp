@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Projet extends Model
 {
     use HasFactory;
-    public function Domaine(){
-        return $this->belongsTo(Domaine::class);
+    public function domaines(){
+        return $this->hasMany(Domaine::class);
     }
 }

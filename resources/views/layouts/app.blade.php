@@ -110,17 +110,18 @@
                                                 </ul>
                                        </li>
                                        <li>
-                                        <a class="btn btn-primary dropdown-toggle 
-                                             container RolesEmp"  id="dropdownMenu2" data-toggle="dropdown">
-                                             <span class="fa fa-clipboard"></span>Projets<span class="caret IconRole"></span>
+                                        <a class="btn btn-primary
+                                             container RolesEmp" href="{{ route('ListProjet')}}"  id="dropdownMenu2">
+                                             <span class="fa fa-clipboard"></span>Projets<span class=" IconRole"></span>
                                         </a>
                                         <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                          <li><button class="dropdown-item "  type="button"  data-toggle="modal" data-target="#">Ajouter un domaine</button></li>
-                                          <li><a class="dropdown-item " id="hrefDomaine" href="" >Liste des domaines</a></li>                
+                                          <li><button class="dropdown-item "  type="button"  data-toggle="modal" data-target="#ProjetModal">Ajouter un projet</button></li>
+                                          <li><a class="dropdown-item " id="hrefDomaine" href="" >Liste des projets</a></li>                
                                         </ul>
                                </li>
                                        
                                         <li>
+                                            {{-- <i class="fa-solid fa-tower-control"></i> --}}
                                             
                                             <a href="{{ route('AjoutRole')}}" class="">
                                                 <span class="fa fa-clipboard"></span> Fonctions <span class="caret IconRole"></span></a>
@@ -358,6 +359,7 @@
     </div>
     </div>
     </div>
+    {{-- modal domaine --}}
     <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel">
         <div class="modal-dialog modal-dialog-centered">
            <div class="modal-content">
@@ -393,6 +395,8 @@
    </div>
 </div>
 </div>
+
+
     @yield('scripts')
 
 </body>

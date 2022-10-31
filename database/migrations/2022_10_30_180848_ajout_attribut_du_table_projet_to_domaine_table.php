@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('Domaines', function (Blueprint $table) {
-            $table->foreignId('projet_id')->nullable()->constrained()->onDelete('set null')->onUpdate('cascade');
+        Schema::table('projets', function (Blueprint $table) {
+            $table->foreignId('domaine_id')->nullable()->constrained()->onDelete('set null')->onUpdate('cascade');
         });
     }
 
@@ -25,9 +25,9 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('Domaines', function (Blueprint $table) {
+        Schema::table('projets', function (Blueprint $table) {
             //
-            $table->dropConstrainedForeignId('projet_id');
+            $table->dropConstrainedForeignId('domaine_id');
         });
     }
 };
