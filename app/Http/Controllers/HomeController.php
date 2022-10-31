@@ -406,7 +406,7 @@ class HomeController extends Controller
         // return view('home', compact('Employes','roles'));
         // $Presence=Presence::with('employee')->orderBy('Date','DESC')->paginate(3);
         // $Role=Role::where('id',$Presence->employee->role_id)->first(); 
-        $ListeProjets= Projet::orderBy('NomDuProjet','DESC')->paginate(6);
+        $ListeProjets= Projet::with('domaine')->orderBy('NomDuProjet','DESC')->paginate(6);
         $Domaines= Domaine::all();
         return view('employee.ListProjet',compact('Domaines','ListeProjets'));
     }

@@ -13,6 +13,7 @@
             <th scope="col">Description</th>
             <th scope="col">Etat</th>
             <th scope="col">Domaine</th>
+            <th scope="col">Action</th>
             {{-- <th scope="col">
               <button data-toggle="modal" data-target="#"
                 type="button" class="btn btn-success">
@@ -28,7 +29,7 @@
              <td>{{ $ListeProjet->DateCreation}}</td>
              <td>{{ $ListeProjet->Description}}</td>
              <td>{{ $ListeProjet->Etat}}</td>
-             {{-- <td>{{ $ListeProjet->domaines->NomDomaine}}</td> --}}
+             <td>{{ $ListeProjet->domaine->NomDomaine}}</td>
              <td></td>
         </tr>
         @endforeach
