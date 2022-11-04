@@ -4,7 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use App\Models\Projet;
+use App\Models\Employee;
+use App\Models\Role;
 class Domaine extends Model
 {
     use HasFactory;

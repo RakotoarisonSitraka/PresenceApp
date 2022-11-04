@@ -504,17 +504,19 @@
 
                                 <td><strong><button data-toggle="modal" data-target="{{ '#Supprim' . $staff->id }}"
                                             type="button" class="btn btn-danger container">
-                                            <i class="fa-solid fa-trash"></i></button></strong>
+                                            {{-- <i class="fa-solid fa-trash"></i> --}}
+                                            <i class="fa-solid fa-user-minus"></i>
+                                        </button></strong>
                                     {{-- modal suppression --}}
                                     <div class="modal fade" id="{{ 'Supprim' . $staff->id }}" tabindex="-1"
                                         role="dialog" aria-labelledby="SuppLabel">
                                         <div class="modal-dialog modal-lg" role="document">
                                             <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h1><strong>Suppression</strong></h1>
-                                                </div>
+                                                {{-- <div class="modal-header">
+                                                    <h1><strong></strong></h1>
+                                                </div> --}}
                                                 <div class="modal-body">
-                                                    Voulez vous Supprimer cette employé??
+                                                   <h5>Voulez-vous vraiment retirer <strong>{{ $staff->Nom }} {{$staff->Prenom}}</strong> de la liste ??</h5>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-warning"

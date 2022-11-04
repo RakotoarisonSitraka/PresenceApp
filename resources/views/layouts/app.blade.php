@@ -100,9 +100,9 @@
                                         <li><a href="{{ url('Ajout-employee') }}"><span
                                          class="fa fa-registered "></span><span>Enregistrement</span></a></li>   
                                          <li>
-                                                <a class="btn btn-primary dropdown-toggle 
-                                                     container RolesEmp"  id="dropdownMenu2" data-toggle="dropdown">
-                                                     <span class="fa-solid fa-lines-leaning"></span>  Domaines <span class="caret IconRole"></span>
+                                                <a class="btn btn-primary 
+                                                     container RolesEmp"  href="{{route('ListeDesDomaines')}}"   id="dropdownMenu2">
+                                                     <span class="fa-solid fa-lines-leaning"></span>Domaines <span class=""></span>
                                                 </a>
                                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
                                                   <li><button class="dropdown-item "  type="button"  data-toggle="modal" data-target="#staticBackdrop">Ajouter un domaine</button></li>

@@ -355,9 +355,14 @@ class HomeController extends Controller
         $users= User::count();
         $mpiasa= Employee::count();
         $fonction=Role::count();
-        $Domaine=Domaine::count();
+        $Domainess=Domaine::count();
+        $Projet=Projet::count();
         $RoleAvecNrbEmployee=Role::withCount('employees')->orderBy('Type_Role','ASC')->paginate(3);
-        $Admin = User::orderBy('name','ASC')->paginate(2);
+        $DomaineAvecNbrProjet=Domaine::withCount('projets')->orderBy('NomDomaine','ASC')->paginate(2);
+        foreach ($DomaineAvecNbrProjet as $Domaine) {
+            $Domaine->projets=Projet::where('domaine_id',$Domaine->id)->get();
+        }
+        // $Admin = User::orderBy('name','ASC')->paginate(2);
         // $users = User::orderBy('id','ASC')->paginate(1);
         // $users= User::with()  orderBy('id','DESC')->paginate(4)
         /*withcount: maka isa miaraka am données... eto zao maka isany employes izay
@@ -371,7 +376,7 @@ class HomeController extends Controller
         ny role tsirairay hoatra hoe iza avy ny employes 15 devellopeurs izany
         le hoe $role->employees io $clé->$valeur mety foan izay valeur atao eo */
         // dd($RoleAvecNrbEmployee); mijery ny details an données 
-        return view('employee.Statistique', compact('users','mpiasa','fonction','RoleAvecNrbEmployee','Admin','Domaine'));
+        return view('employee.Statistique', compact('users','mpiasa','fonction','RoleAvecNrbEmployee','DomaineAvecNbrProjet','Domainess','Projet'));
         // return view('employee.Statistique');
     }
 
@@ -399,6 +404,26 @@ class HomeController extends Controller
         // dd($listedomaine);
         return view('employee.Domaine',compact('listedomaine','CountDomaine'));
        
+    }
+    public function ModifierDomaine(Request $request ,$id){
+        $ModifDomaine = Domaine::find($id);
+        if ($ModifDomaine) {
+            // dd($request);
+            $ModifDomaine->NomDomaine= $request->input('NomDomaine');
+            $ModifDomaine->save();
+        
+            return back()->with("status", " le domaine a été bien modifié!");
+        }else {
+            return back()->with("error", "email name changed with success");
+        }
+
+    }
+    public function SupprimerDomaine($id){
+        // ::where('domaine_id',$listedomaines->id) $Role=Role::where('id',$Presence->employee->role_id)->first(); 
+        $SupprimerDomaine = Domaine::find($id);
+        
+        $SupprimerDomaine->delete();
+        return back()->with('status', " Domaine retiré avec succés!");
     }
 /*projet*/
     public function ListProjet(){

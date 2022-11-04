@@ -100,28 +100,27 @@ Ajout des roles
                       
                     </th>
                   <th><strong><button data-toggle="modal" data-target="{{'#Supprimer' . $anjara->id }}"
-                    type="button"  class="btn btn-danger container widthBtnRole" id="suppRole">Retirer<i class="fa-solid fa-trash-can"></i></button></strong>
+                    type="button"  class="btn btn-danger container widthBtnRole" id="suppRole">Retirer <i class="fa-solid fa-minus"></i></button></strong>
                           
                          {{-- modal suppression --}}
                        <div class="modal fade" id="{{ 'Supprimer' . $anjara->id  }}" tabindex="-1"
                         role="dialog" aria-labelledby="SuppLabel">
                         <div class="modal-dialog modal-lg" role="document">
                             <div class="modal-content">
-                                <div class="modal-header supprimRoleHeader">
+                                {{-- <div class="modal-header supprimRoleHeader">
                                     <h1><strong>Suppression du fonction</strong></h1>
-                                </div>
+                                </div> --}}
                                 <div class="modal-body">
-                                    Voulez vous Supprimer cette fonction??
+                                   <h5> Voulez vous retirer la fonction <strong> {{ $anjara->Type_Role }}</strong>??</h5>
                                 </div>
                                 <div class="modal-footer">
-
                                     <a class="btn btn-danger"
-                                        href="/SupprimerRole/{{ $anjara->id }}">Oui</a>
+                                        href="/SupprimerRole/{{ $anjara->id }}">Oui <i class="fa-solid fa-check"></i></a>
 
                                     {{-- <a class="btn btn-danger" href="/Supprimer/{{$staff->id}}">Oui</a> --}}
 
                                     <button type="button" class="btn btn-warning"
-                                        data-dismiss="modal">Non</button>
+                                        data-dismiss="modal">Non <i class="fa-solid fa-xmark"></i></button>
                                 </div>
                             </div>
                             {{-- fin --}}

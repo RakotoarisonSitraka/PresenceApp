@@ -14,7 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::table('projets', function (Blueprint $table) {
-            $table->foreignId('domaine_id')->nullable()->constrained()->onDelete('set null')->onUpdate('cascade');
+            $table->bigInteger("domaine_id");
+
+            $table->foreign("domaine_id")->references("id")->on("domaines")->onDelete("CASCADE")->onUpdate("CASCADE");
         });
     }
 
@@ -26,8 +28,7 @@ return new class extends Migration
     public function down()
     {
         Schema::table('projets', function (Blueprint $table) {
-            //
-            $table->dropConstrainedForeignId('domaine_id');
+            $table->dropColumn("domaine_id");
         });
     }
 };

@@ -65,6 +65,8 @@ Route::get('/Statistique',[App\Http\Controllers\HomeController::class,'Statistiq
 Route::post('/InsertionDomaine',[App\Http\Controllers\HomeController::class,'InsertionDomaine'])->name('InsertionDomaine');
 Route::get('/ListeDesDomaines',[App\Http\Controllers\HomeController::class,'ListeDesDomaines'])->name('ListeDesDomaines');
 Route::get('/RechercheDate',[App\Http\Controllers\HomeController::class,'RechercheDate'])->name('RechercheDate');
+Route::post('/ModifierDomaine/{id}',[App\Http\Controllers\HomeController::class,'ModifierDomaine'])->name('ModifierDomaine');
+Route::get('/SupprimerDomaine/{id}',[App\Http\Controllers\HomeController::class,'SupprimerDomaine'])->name('SupprimerDomaine');
 
 /*projets*/
 Route::post('/InsertionProjet',[App\Http\Controllers\HomeController::class,'InsertionProjet'])->name('InsertionProjet');

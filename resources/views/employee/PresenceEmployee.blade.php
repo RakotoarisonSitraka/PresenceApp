@@ -96,19 +96,19 @@
                                                 <div class="modal-content">
                                                     {{-- <div class="modal-header">
                                                         <h1><strong></strong></h1>
-                                                    </div> --}}
+                                                    </div> <i class="fa-solid fa-user-minus"></i> --}}
                                                     <div class="modal-body">
-                                                        Voulez vous vraiment annuler la présence de cette employé??
+                                                       <h5>Voulez vous vraiment annuler la présence de <strong> {{$Donnes->employee->Prenom}}</strong> ?</h5>
                                                     </div>
                                                     <div class="modal-footer">
 
                                                         <a class="btn btn-danger"
-                                                            href="/AnnulerPresence/{{ $Donnes->id }}">Oui</a>
+                                                            href="/AnnulerPresence/{{ $Donnes->id }}">Oui  <i class="fa-solid fa-check"></i></a>
 
                                                         {{-- <a class="btn btn-danger" href="/Supprimer/{{$staff->id}}">Oui</a> --}}
 
                                                         <button type="button" class="btn btn-warning"
-                                                            data-dismiss="modal">Non</button>
+                                                            data-dismiss="modal">Non <i class="fa-solid fa-xmark"></i></button>
                                                     </div>
                                                 </div>
                                                 {{-- fin --}}

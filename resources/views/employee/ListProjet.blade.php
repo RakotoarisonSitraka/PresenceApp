@@ -30,7 +30,16 @@
              <td>{{ $ListeProjet->DateCreation}}</td>
              <td>{{ $ListeProjet->Description}}</td>
              <td>{{ $ListeProjet->Etat}}</td>
-             <td>{{ $ListeProjet->domaine->NomDomaine}}</td>
+             <td>
+              @if ($ListeProjet->domaine)
+              {{ $ListeProjet->domaine->NomDomaine}}       
+              @else
+              supprimé      
+             @endif
+            
+             
+             </td>
+           
              <td><button type="button" class="btn btn-success">Modifier</button></td>
              <td><button type="button" class="btn btn-danger">Retirer</button></td>
         </tr>

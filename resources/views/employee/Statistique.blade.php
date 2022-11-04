@@ -17,7 +17,7 @@ Statistique des employés
                 <span class="fa-solid fa-user"></span>
             </div>
         </div>
-        <div class="card-single">
+        {{-- <div class="card-single">
             <div>
                 <h2>5</h2>
                 <small>Ville</small>
@@ -25,7 +25,7 @@ Statistique des employés
             <div>
                 <span class="fa fa-house"></span>
             </div>
-        </div>
+        </div> --}}
 
         <div class="card-single">
             <div>
@@ -48,13 +48,23 @@ Statistique des employés
         </div>
         <div class="card-single">
             <div>
-                <h2>{{ $Domaine }}</h2>
+                <h2>{{ $Domainess }}</h2>
                 <small>Domaines</small>
             </div>
             <div>
                 <span class="fa fa-newspaper"></span>
             </div>
         </div>
+        <div class="card-single">
+            <div>
+                <h2>{{ $Projet }}</h2>
+                <small>Projet</small>
+            </div>
+            <div>
+                <span class="fa fa-newspaper"></span>
+            </div>
+        </div>
+     
       
     </div>
     <div class="content-2">
@@ -112,35 +122,35 @@ Statistique des employés
           
                 <div class="titles">
                    <h5>Liste</h5>
-                   <a href="#" class="btnbtn">Administrateurs</a>
+                   <a href="#" class="btnbtn">Domaines</a>
                 </div>
                 <table class="tablestat">
                     <thead>
                      <tr>
-                         <th>Nom</th>
-                         <th>Email</th>
-                         <th>Role</th>
+                         <th>Domaine</th>
+                         <th>Nombre de projet</th>
+                        
                      </tr>
                     </thead>
                     <tbody>
-                     @foreach ( $Admin as $deba)
+                     @foreach ( $DomaineAvecNbrProjet as $Domaine)
                       <tr>
-                          <td>{{ $deba->name }}</td>
-                          <td><a>{{ $deba->email}}</a></td>
-                          <td><a class="btn btn-primary">admin</a></td>
+                          <td>{{ $Domaine->NomDomaine }}</td>
+                          <td><a>{{ $Domaine->projets_count}}</a></td>
+                          {{-- <td><a class="btn btn-primary">admin</a></td> --}}
                       </tr>
                    
                     
                      {{-- {{  $Role->employees}} --}}
                    
-                 @endforeach
+                  @endforeach
                     
                  </tbody>
                   </table> 
                   
             <div class="pagination-block homepagination UserstatistiquePagination">
-                {{ $Admin->links('layouts.paginationlinks') }}
-            </div
+                {{ $DomaineAvecNbrProjet->links('layouts.paginationlinks') }}
+            </div>
            
         </div>
     </div>
