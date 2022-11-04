@@ -349,3 +349,17 @@
 .spanBoutonListe{
     margin-left:167px;
 }
+.spanProjet{
+    background-color: red;
+    color: white;
+    font-size: 14px;
+    padding: 37px;/*ts manaiky be an le background le soratra mihataka*/
+    padding-top: 10px; /*somary mitombo ny ahuteur ny ambany*/
+    padding-bottom: 17px;/*plus mitombo plus mitatra*/
+    text-align: center;
+    margin-left: -19px;
+}
+.spanProjet:hover{
+    background-color:  rgb(179, 0, 0);
+    color: white;
+}

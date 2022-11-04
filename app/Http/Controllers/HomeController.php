@@ -211,8 +211,11 @@ class HomeController extends Controller
     /*Suppression staff*/
     public function SupprimerEmployer($id)
     {
-        $staff = Employee::find($id);
+
+        $staff = Employee::find($id);/*tedavo aloh le employee concerne*/
         $staff->delete();
+        Presence::where("employee_id", $id)->delete();/*sad vofafa koa le employee concerne 
+         rah mitobvy am le cle etrangere tokoa ilay concerne de fafao */
         // $staff= DB ::table('employees')
         //              ->where('id',$id)
         //              ->first();
@@ -420,9 +423,9 @@ class HomeController extends Controller
     }
     public function SupprimerDomaine($id){
         // ::where('domaine_id',$listedomaines->id) $Role=Role::where('id',$Presence->employee->role_id)->first(); 
-        $SupprimerDomaine = Domaine::find($id);
-        
-        $SupprimerDomaine->delete();
+        // $SupprimerDomaine = Domaine::join(Projet::class)->where("id", $id)->delete();
+        Domaine::where('id',$id)->delete();
+        Projet::where('domaine_id',$id)->delete();
         return back()->with('status', " Domaine retiré avec succés!");
     }
 /*projet*/
