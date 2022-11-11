@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Demission;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Employee;
@@ -16,7 +17,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 // use Illuminate\Support\Carbon;
 use Carbon\Carbon;
-
+use League\MimeTypeDetection\FinfoMimeTypeDetector;
 
 class HomeController extends Controller
 {
@@ -145,6 +146,7 @@ class HomeController extends Controller
         $employer->CIN = $request->input('CIN');
         $employer->Addresse = $request->input('Adresse');
         $employer->Sexe = $request->input('Sexe');
+        $employer->DateEntree = $request->input('DateEntree');
         $employer->Ville = $request->input('Ville');
         $employer->role_id = $request->input('role');
         $employer->domaine_id = $request->input('Domaine');
@@ -180,6 +182,8 @@ class HomeController extends Controller
             $employer->Addresse = $request->input('Adresse');
             $employer->Sexe = $request->input('Sexe');
             $employer->role_id = $request->input('role');
+            $employer->domaine_id = $request->input('Domaine');
+            $employer->DateEntree = $request->input('DateEntree');
             // $employer->Position = $request->input('Position');
             // $employer->Section = $request->input('Section');
             $employer->Ville = $request->input('Ville');
@@ -200,13 +204,20 @@ class HomeController extends Controller
         }
         
      }
+     public function DetailsEmployee($id){
+          $DetailsEmployee= Employee::find($id);
+          $role=Role::where('id',$DetailsEmployee->Role_id)->get();
+        //   $Role=Role::where('id',$Presence->employee->role_id)->first(); 
+          return view('employee.details',compact('DetailsEmployee','role'));
+     }
     /*affichage employee*/
     public function AfficherEmployer()
     {
         //return view('home');
+        $Domaine=Domaine::all();
         $roles= Role::all();
         $Employes = Employee::orderBy('id','DESC')->paginate(4);
-        return view('home', compact('Employes','roles'));
+        return view('home', compact('Employes','roles','Domaine'));
     }
     /*Suppression staff*/
     public function SupprimerEmployer($id)
@@ -456,5 +467,25 @@ class HomeController extends Controller
         } else {
             return back()->with('error', "Erreur");
         }
+    }
+    public function Demission(){
+        return view('employee.Demission');
+    }
+   
+    public function AjoutDemission(Request $request){
+        $request->validate([
+            'Raison' => 'required|string',
+            'Date' => 'required',
+            'NomEmployee' =>'required',
+            'NomEmployee' =>'required',
+        ]);
+        $Demission = new Demission();
+        $Demission->NomEmployee=$request->input('NomEmployee');
+        $Demission->PrenomEmployee=$request->input('PrenomEmployee');
+        $Demission-> DateDemission=$request->input('DateDemission');
+        $Demission->Raison= $request->input('Raison');
+        
+        $donnee = $Demission->save();
+       dd($donnee);
     }
 }

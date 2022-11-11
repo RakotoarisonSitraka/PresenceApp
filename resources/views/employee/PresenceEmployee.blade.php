@@ -68,7 +68,7 @@
             
                                   </thead>
                                   <tbody>
-                                    @if (is_countable($Presence) && count($Presence) != 0)
+                                    @if ($Presence->count())
                                     @foreach ($Presence as $Donnes)
                                     <tr>
                                       <th>{{$Donnes->Date}}</th>
@@ -116,10 +116,11 @@
                                           {{-- <th>ss</th> --}}
                                                        
                                      @endforeach
-                                     @endif
-                                         
-        
-                                                   
+                                     @else
+                                   <th>
+                                    <div> Aucun présence affiché</div>
+                                   </th>
+                                     @endif            
                                              </tr>
                                        
                                    </tr>

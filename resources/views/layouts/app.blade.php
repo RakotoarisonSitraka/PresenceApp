@@ -119,6 +119,7 @@
                                           <li><a class="dropdown-item " id="hrefDomaine" href="" >Liste des projets</a></li>                
                                         </ul>
                                </li>
+                              
                                        
                                         <li>
                                             {{-- <i class="fa-solid fa-tower-control"></i> --}}
@@ -126,6 +127,12 @@
                                             <a href="{{ route('AjoutRole')}}" class="">
                                                 <span class="fa fa-clipboard"></span> Fonctions <span class="caret IconRole"></span></a>
                                         </li>
+                                        <li id="Demission">
+                                            <a class="" href="{{route('Demission')}}">
+                                            <span
+                                            class="fa fa-clipboard"></span><span>Démission</span>
+                                          </a>
+                                         </li>
                                         <li><a href="{{ route('Statistique') }}"><span
                                                     class="fa fa-line-chart"></span><span>Statistiques</span></a></li>
 

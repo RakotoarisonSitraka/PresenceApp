@@ -32,7 +32,10 @@ li{
     margin-left: 54px;
 }
 .sidebar-menu{
-    margin-top: -26px;
+    margin-top: -29px;
+}
+#Demission{
+
 }
 .sidebar-menu a{
     padding-left:1rem;
@@ -43,11 +46,11 @@ li{
 }
 .sidebar-menu li{
     width: 100%;
-    margin-bottom: 2rem;
+    margin-bottom: 1.4rem;
     padding-left: 15%;
     list-style-type: none;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    padding: 6px 15px;
+    padding: 6px 17px;
     
 
 }

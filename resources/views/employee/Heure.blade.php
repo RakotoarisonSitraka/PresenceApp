@@ -17,13 +17,26 @@
                    <div class="card bg-white">
                        <div class="card-title my-5">
                            <div class="media">
-                              <img class="img-fluid rounded-top mx-5 d-none d-lg-block"
+                              <img class="img-fluid rounded-top mx-5 d-none d-lg-block imageHeure"
                                src="{{ asset('/storage/imageEmployee/' .$Presence->employee->Profil) }}" width="257"
-                               height="263" alt="image">
+                               height="" alt="image">
                                  <div class="media-body bodyHeure">
                                     <h3 class="display-5 ml-5">{{$Presence->employee->Prenom}}</h3>
                                     <div class="container">
                                        <table class="table table-responsive ml-4 tableHeure">
+                                        <tr>
+                                           <td class="text-muted">Fonction:</td>
+                                           <td>:</td>
+                                          @if ($Role)
+                                          <td>{{ $Role->Type_Role}}</td>
+                                          @else
+                                          <td></td>
+                                          @endif
+                                        
+                                        
+              
+                              
+                                        </tr>
                                          <tr>
                                            <td class="text-muted"><strong>Date</strong></td>
                                            <td>:</td>
@@ -40,14 +53,14 @@
                                           <td>{{$Presence->Heure_Sortie}}</td>
                                         </tr>
                                         <tr>
-                                          <td class="text-muted"><strong>Total d'heure executé</strong></td>
+                                          <td class="text-muted"><strong>Heure executé</strong></td>
                                           <td>:</td>
                                           <td>{{ $differenceHeure }} Heures</td>
                                         </tr>
                                        </table>
                                     </div>
                                   
-                                 </div>
+                                 </div><br>
                                <center>
                                  <strong>
                                   <a href="/Presence" class="btn btn-primary">Retour

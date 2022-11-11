@@ -64,7 +64,7 @@ Ajout des roles
                           <div class="modal-dialog modal-lg" role="document">
                               <div class="modal-content">
                                   <div class="modal-header h1Role">
-                                      <h1 class=""><strong>Modification  du role</strong></h1>
+                                      <h1 class=""><strong>Modification  du fonction</strong></h1>
                                   </div>
                                   <div class="modal-body">
                                     <form action="{{ url('/ModifierRole/' . $anjara->id) }}"
@@ -89,10 +89,10 @@ Ajout des roles
                                   </div><br>
                                   <div class="modal-footer">
                                       <button class="btn btn-success"
-                                          type="submit">Modifier</button>
+                                          type="submit">Modifier  <i class="fa-solid fa-pen-to-square"></i></button>
   
                                       <button type="button" class="btn btn-warning"
-                                          data-dismiss="modal">Annuler</button>
+                                          data-dismiss="modal">Annuler <i class="fa-solid fa-xmark"></i></button>
                                   </div>
                                 </form>
                               </div>

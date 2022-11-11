@@ -64,6 +64,7 @@
                     @enderror
                 </div>
             </div> --}}
+          
             <div class="col">
                 <div class="form-group">
                     <label for="telephone" class="textLabel">Telephone</label>
@@ -87,6 +88,15 @@
                     <label for="Adresse" class="textLabel">Adresse</label>
                     <input type="text" name="Adresse" class="form-control" @error('Adresse') is-invalid @enderror>
                     @error('Adresse')
+                    <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="telephone" class="textLabel">Date d'embauche</label>
+                    <input type="date" name="DateEntree" class="form-control"  @error('DateEntree') is-invalid @enderror>
+                    @error('DateEntree')
                     <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>

@@ -42,7 +42,7 @@ Route::get('/Supprimer/{id}',[App\Http\Controllers\HomeController::class,'Suppri
 Route::post('/modifierEmployee/{id}',[App\Http\Controllers\HomeController::class,'ModifierEmployee'])->name('modifierEmployee');
 /*recherche */
 Route::get('/Recherche', [App\Http\Controllers\HomeController::class,'Recherche'])->name('Recherche');
-
+Route::get('/DetailsEmployee/{id}', [App\Http\Controllers\HomeController::class,'DetailsEmployee'])->name('DetailsEmployee');
 
 /*présence*/
 /*présence employées manapoitra anle page mis anle presence vao avy napidirina*/
@@ -72,3 +72,7 @@ Route::get('/SupprimerDomaine/{id}',[App\Http\Controllers\HomeController::class,
 Route::post('/InsertionProjet',[App\Http\Controllers\HomeController::class,'InsertionProjet'])->name('InsertionProjet');
 /*ajout dans les formulaires*/
 Route::get('/ListProjet',[App\Http\Controllers\HomeController::class,'ListProjet'])->name('ListProjet');/*liste des projet*/
+
+Route::get('/Demission',[App\Http\Controllers\HomeController::class,'Demission'])->name('Demission');/*liste des projet*/
+
+Route::post('/AjoutDemission',[App\Http\Controllers\HomeController::class,'AjoutDemission'])->name('AjoutDemission');/*liste des projet*/

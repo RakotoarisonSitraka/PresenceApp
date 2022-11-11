@@ -8,7 +8,7 @@
         <div class="row justify-content-center ContainerListeEmployes">
             <div class="col-md-20 ">
                 <div class="card-header">
-                    <h6 class="h6">Liste des Employés <a href="" class="fa fa-list fontAdd "></a></h6>
+                    <h6 class="h6">Liste des Employés <a href="" class="btnsucc"> <i class="fa-solid fa-file-csv Csvv"></i></a></h6>
                 </div>
                 <div>
                 </div>
@@ -19,7 +19,7 @@
                                 {{ session('status') }}
                             </div>
                         @endif
-                     <thead>
+                     <thead> 
                         <tr class="">
                             <th class="table-light" ><strong>
                                     <h5 class=" matric" >Matricule</h5>
@@ -73,9 +73,9 @@
                                     </strong>
                                 </td>
                                 {{-- data-toggle="modal" data-target="#Supprim" --}}
-                                <td><strong><button data-toggle="modal" data-target="{{ '#Details' . $staff->id }}"
+                                <td><strong><a href="{{ url('/DetailsEmployee/' .$staff->id)}}"
                                     type="button" class="btn btn-outline-info container">
-                                    <i class="fa-solid fa"></i>Details</button></strong>
+                                    <i class="fa-solid fa"></i>Details</a></strong>
 
                                      {{-- modal Details --}}
                                 <div class="modal fade" id="{{ 'Details' . $staff->id }}" tabindex="-1"
@@ -270,8 +270,19 @@
                                                                         class="text-danger">{{ $message }}</span>
                                                                 @enderror
                                                             </div>
-                                                        </div><br><br><br>
-                                                        <div class="form-group container">
+                                                        </div>
+                                                        <div class="col">
+                                                            <div class="form-group">
+                                                                <label for="telephone" class="textLabel">Date d'embauche</label>
+                                                                <input type="date" value="{{$staff->DateEntree}}" name="DateEntree" class="form-control"  @error('DateEntree') is-invalid @enderror>
+                                                                @error('DateEntree')
+                                                                <span class="text-danger">{{ $message }}</span>
+                                                                @enderror
+                                                            </div>
+                                                        </div>
+                                                        <br><br><br>
+                                
+                                                        <div class="form-group">
                                                             <label for="Email" class="textLabel">Email</label>
                                                             <input type="email" name="Mailaka"
                                                                 class="form-control"
@@ -279,7 +290,10 @@
                                                             @error('Mailaka')
                                                                 <span class="text-danger">{{ $message }}</span>
                                                             @enderror
-                                                        </div><br><br><br><br>
+                                                        </div>
+                                                      
+                                                         
+                                                        <br><br><br><br>
 
                                                         <div class="col">
                                                             <div class="form-group ">
@@ -323,6 +337,7 @@
                                                                 @enderror
                                                             </div>
                                                         </div>
+                                                      
                                                         <div class="col">
                                                             <div class="form-group ">
                                                                 <label for="Adresse"
@@ -395,7 +410,41 @@
                                                                 </select>
 
                                                             </div>
-                                                        </div><br>
+                                                        </div>
+                                                        <div class="col">
+                                                            <label for="Position">Domaine</label>
+                                                            <div class="form-group">
+
+                                                                <select class="form-select" aria-label=""
+                                                                    name="Domaine">
+                                                                    <option selected><strong>--Domaine--</strong>
+                                                                    </option>
+                                                                    {{-- <option value="">{{$staff->roles->Type_Role}}</option> --}}
+                                                                   {{-- <option value="">{{$}}</option> --}}
+                                                                   @foreach ($Domaine as $Sehatra)
+                                                                   <option value="{{ $Sehatra->id }}">{{ $Sehatra->NomDomaine }}</option>
+                                                                  @endforeach
+                                                            
+                                                                </select>
+
+                                                            </div>
+                                                        </div>
+                                                        {{-- <div class="col">
+                                                            <div class="form-group">
+
+                                                                <select class="form-select" aria-label=""
+                                                                    name="Domaine">
+                                                                    <option selected><strong>--Domaine--</strong>
+                                                                    </option>
+                                                                  
+                                                                   @foreach ($Domaine as $Sehatra)
+                                                                    <option value="{{ $Sehatra->id }}">{{ $Sehatra->NomDomaine }}</option>
+                                                                   @endforeach
+                                                                </select>
+
+                                                            </div>
+                                                        </div> --}}
+                                                        <br>
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary btnModalStaff"

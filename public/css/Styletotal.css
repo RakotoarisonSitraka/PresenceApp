@@ -333,8 +333,13 @@
 .bodyHeure{
     margin-left: 350px;
     /* float: right; */
-    margin-top: -268px;
-    height: 320px;
+    margin-top: -388px;
+    height: 350px;
+}
+#gg{
+    margin-left: 130px;
+    margin-top: 18px;
+    font-size: 16px;
 }
 .tableHeure{
     font-size: 21px;
@@ -362,4 +367,30 @@
 .spanProjet:hover{
     background-color:  rgb(179, 0, 0);
     color: white;
+}
+.btnsucc{
+   
+    margin-left: 720px;
+  
+    height: 7px;
+    color: #fff;
+
+}
+.Csvv{
+    font-size: 39px;
+    height: 20px;
+    margin-top: -05px;
+}
+.imageHeure{
+    height: 330px;
+}
+#tableheur{
+    font-size: 14px;
+    margin-top: -39px;
+    margin-left: -13px;
+    
+}
+.btyy{
+    margin-left: 120px;
+    margin-top: 10px;
 }
