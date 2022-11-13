@@ -88,13 +88,19 @@
                                         <tr>
                                             <td class="text-muted"><strong>Fonction </strong>:</td>
                                             <td>:</td>
-                                            {{-- <td>{{$role->id}}</td> --}}
-                                            <td>Developpeur web</td>
+                                          @if ($role)
+                                          <td>{{$role->Type_Role}}</td>
+                                          @else
+                                          <td>Fonction retiré</td>
+                                          @endif
+                                            {{-- <td>Developpeur web</td> --}}
                                         </tr>
                                         <tr>
                                             <td class="text-muted"><strong>Domaine</strong></td>
                                             <td>:</td>
-                                            <td>Developpement web</td>
+                                            @if ($Domaine)
+                                                <td>{{ $Domaine->NomDomaine}}</td>
+                                            @endif
                                         </tr>
                                         
                                        </table>

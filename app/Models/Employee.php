@@ -27,4 +27,7 @@ class Employee extends Model
 //    public function domaine(){
 //     return $this->
 //    }
+   public function domaine(){
+    return $this->belongsTo(Domaine::class);
+   }
 }

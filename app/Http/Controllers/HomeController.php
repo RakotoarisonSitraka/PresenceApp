@@ -205,10 +205,14 @@ class HomeController extends Controller
         
      }
      public function DetailsEmployee($id){
+        // $Presence = Presence::find($id);
+      
+        //     $Role=Role::where('id',$Presence->employee->role_id)->first(); 
           $DetailsEmployee= Employee::find($id);
-          $role=Role::where('id',$DetailsEmployee->Role_id)->get();
-        //   $Role=Role::where('id',$Presence->employee->role_id)->first(); 
-          return view('employee.details',compact('DetailsEmployee','role'));
+          $role=Role::where('id',$DetailsEmployee->role_id)->first();
+        //   $Domaine=Domaine::where('id',$DetailsEmployee->employees->domaine_id);
+         $Domaine=Domaine::where('id',$DetailsEmployee->domaine_id)->first();
+          return view('employee.details',compact('DetailsEmployee','role','Domaine'));
      }
     /*affichage employee*/
     public function AfficherEmployer()
